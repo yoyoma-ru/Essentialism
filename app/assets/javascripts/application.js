@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require rails-ujs
+//= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
 //= require_tree .
@@ -24,3 +25,10 @@ $(function(){
 		event.preventDefault();
 	});
 });
+
+$(function(){
+	$('.linkInThePage').click( function () {
+		var hrefValue = jQuery(this).attr( 'href' );
+		$(hrefValue).animatescroll({padding:70});
+	} );
+} );
