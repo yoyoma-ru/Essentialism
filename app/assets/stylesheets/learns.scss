@@ -1,3 +1,33 @@
 // Place all the styles related to the learns controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.learn-headline{
+	text-align: center;
+	margin: 40px 0;
+}
+h2{
+	text-decoration: underline;
+}
+.learn-contents{
+	margin: 20px 20px;
+	text-align: left;
+}
+
+.non_essential-contents{
+	background-color: #000;
+	color: #fff;
+	margin: 30px 0;
+}
+.non_essential-memo{
+	background-color: #000;
+	color: #fff;
+}
+.essential-contents{
+	border: solid 3px #000;
+	margin: 30px 0;
+}
+.essential-memo{
+	border: solid 3px #000;
+}
