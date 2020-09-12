@@ -9,7 +9,47 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body role="document" data-spy="scroll" data-target="#aboutScrollSpy" data-offset="72" id="top">
+
+    <div class="container-fluid">
+      <div class="row header">
+        <div class="col-lg-2 logo-image">LOGO</div>
+        <div class="col-lg-offset-2 col-lg-4 title">エッセンシャル思考</div>
+        <div class="col-lg-offset-1 col-lg-2 guest-name">ようこそ<br>”ゲスト”様</div>
+        <!-- ハンバーガーメニュー -->
+        <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        <div id="sp-menu">
+          <h1>MENU</h1>
+          <ul>
+            <li><a href="#">My Page</a></li>
+            <li><a href="#">Learn</a></li>
+            <li><a href="#">My Work</a></li>
+            <li><a href="">Other User Work</a></li>
+            <li><a href="#">Favorite</a></li>
+          </ul>
+        </div>
+        <!-- ハンバーガメニュー -->
+      </div>
+
+      <!-- ↓fixedの余白を埋めるbox↓ -->
+      <div class="row box-fixed"></div>
+
+  </div>
+
+  <div class="container-fluid main">
+
     <%= yield %>
+
+  </div>
+
+  <div class="footer">
+    ©2020/Essentialism/All Rigth Reserved
+  </div>
   </body>
 </html>
