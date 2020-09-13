@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get '/learns/chapter16' => 'learns#chapter16'
   get '/learns/chapter17' => 'learns#chapter17'
   get '/learns/chapter18' => 'learns#chapter18'
+  get '/learns/chapter19' => 'learns#chapter19'
 end
