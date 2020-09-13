@@ -56,4 +56,7 @@ class LearnsController < ApplicationController
 
 	def chapter18
 	end
+
+	def chapter19
+	end
 end
