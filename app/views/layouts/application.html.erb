@@ -11,24 +11,25 @@
 
   <body role="document" data-spy="scroll" data-target="#aboutScrollSpy" data-offset="72" id="top">
 
-    <div class="container-fluid">
+    <div class="container-fluid bottom-space">
       <div class="row header">
-        <div class="col-lg-2 logo-image">LOGO</div>
-        <div class="col-lg-offset-2 col-lg-4 title">エッセンシャル思考</div>
-        <div class="col-lg-offset-1 col-lg-2 guest-name">ようこそ<br>”ゲスト”様</div>
+        <div class="col-xs-2 logo-image">LOGO</div>
+        <div class="col-xs-offset-1 col-xs-6 title">エッセンシャル思考</div>
+        <div class="col-xs-2 guest-name">ようこそ<br>”ゲスト”様</div>
         <!-- ハンバーガーメニュー -->
         <div id="hm-icon">
           <a class="menu-trigger" href="#">
             <span></span>
             <span></span>
             <span></span>
+            <div class="menu-text">MENU</div>
           </a>
         </div>
         <div id="sp-menu">
           <h1>MENU</h1>
           <ul>
             <li><a href="#">My Page</a></li>
-            <li><a href="#">Learn</a></li>
+            <li><a href="/learns/chapter1.html">Learn</a></li>
             <li><a href="#">My Work</a></li>
             <li><a href="">User Work</a></li>
             <li><a href="#">Favorite</a></li>
@@ -40,16 +41,13 @@
       <!-- ↓fixedの余白を埋めるbox↓ -->
       <div class="row box-fixed"></div>
 
-  </div>
+      <%= yield %>
 
-  <div class="container-fluid main">
+    </div>
 
-    <%= yield %>
+    <div class="container-fluid">
+      <div class="row footer"> ©2020/Essentialism/All Rigth Reserved</div>
+    </div>
 
-  </div>
-
-  <div class="footer">
-    ©2020/Essentialism/All Rigth Reserved
-  </div>
   </body>
 </html>
