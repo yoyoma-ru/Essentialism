@@ -26,21 +26,28 @@
 	width: 100%;
 	height: 55px;
 	border: solid 1px #000;
-}
-.logo-image{
+	margin-bottom: 55px;
+	z-index: 8;
+
+	.logo-image{
 	border: solid 3px #000;
 	height: 55px;
-}
-.title{
+	}
+
+	.title{
 	padding-top: 3px;
 	font-size: 35px;
 	text-align: center;
 	font-weight: bold;
-}
-.guest-name{
+	}
+
+	.guest-name{
 	text-align: center;
 	padding-top: 7px;
+	}
 }
+
+
 
 /*ハンバーガーicon*/
 #hm-icon{
@@ -127,12 +134,10 @@
 
 .box-fixed{
 	margin-top: 55px;
-	/*z-index: 8;*/
 }
 
-.main{
-    margin-bottom: 30px;
-	/*z-index: 8;*/
+.bottom-space{
+    margin-bottom: 40px;
 }
 
 .footer{
