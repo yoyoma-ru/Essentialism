@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charset="utf-8">
     <title>Essentialism</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body role="document" data-spy="scroll" data-target="#aboutScrollSpy" data-offset="72" id="top">
+  <body role="document" data-spy="scroll" data-target="#aboutScrollSpy" data-offset="300">
 
     <div class="container-fluid space_bottom">
       <div class="row header">
@@ -42,7 +43,6 @@
       <div class="row space_top"></div>
 
       <%= yield %>
-
     </div>
 
     <div class="container-fluid">

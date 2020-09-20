@@ -33,25 +33,24 @@ $header_height: 55px;
 	position: fixed;
 	width: 100%;
 	height: $header_height;
-	border: solid 1px #000;
-	margin-bottom: 55px;
+	border: solid 4px #000;
 	z-index: 8;
 
 	.logo-image{
-	border: solid 3px #000;
-	height: $header_height;
+	    border: solid 1px #000;
+	    height: $header_height;
 	}
 
 	.title{
-	padding-top: 3px;
-	font-size: 35px;
-	text-align: center;
-	font-weight: bold;
+	    padding-top: 1px;
+	    font-size: 35px;
+	    text-align: center;
+	    font-weight: bold;
 	}
 
 	.guest-name{
-	text-align: center;
-	padding-top: 7px;
+	    text-align: center;
+	    padding-top: 7px;
 	}
 }
 
@@ -60,7 +59,7 @@ $header_height: 55px;
 #hm-icon{
 	position: fixed;
 	right: 10px;
-	top: 10px;
+	top: 11px;
 	z-index: 10;
 }
 .menu-trigger, .menu-trigger span{
@@ -71,7 +70,7 @@ $header_height: 55px;
 .menu-trigger{
 	position: relative;
 	width: 40px;
-	height: 45px;
+	height: 43px;
 
 	.menu-text{
 	position: absolute;
@@ -140,10 +139,10 @@ $header_height: 55px;
 	font-weight: bold;
 }
 
+
 .space_top{
 	margin-top: $header_height;
 }
-
 
 .footer{
 	width: 100%;
