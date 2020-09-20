@@ -2,42 +2,96 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.video-box{
+@charset "UTF-8";
+
+.top-image{
 	width: 100%;
 	height: 790px;;
 	border: solid 2px #000;
 }
 
-#aboutScrollSpy{
+.top_page-text{
+    margin: 30px;
+	h2{
+	    text-align: left;
+	    text-decoration: underline;
+	}
+
+	p{
+	    padding: 10px 0 0 10px;
+	    line-height: 30px;
+	}
+}
+
+
+$header_height: 55px;
+
+.navigation{
     position: fixed;
-	top: 80px;
+	top: $header_height;
+	left: 0;
 	width: 100%;
+	background-color: rgba(128,128,128,0.5);
+
+	.nav_area{
+	    display: inline-block;
+	    height: 35px;
+	    width: 24%;
+
+	    li{
+	        text-align: center;
+	        list-style: none;
+
+	        a{
+	            text-decoration: none;
+	            color: #000;
+	            line-height: 35px;
+	        }
+	        a:hover{
+	            font-size: 1.5em;
+	            font-weight: bold;
+	        }
+	    }
+	}
 }
-h2, h3{
-	text-align: center;
-}
-p{
-	padding: 0 30px;
-	text-align: center;
-}
+
 .headline-box{
-	margin: 50px 0;
-}
-.bottom-line{
-	height: 2px;
-	margin-bottom: 40px;
-	background-color: #000;
-}
-.contents-box{
-	padding: 0 25px;
+	padding-top: 70px;
+	h2{
+	    text-align: center;
+	}
+	h4{
+	    text-align: center;
+	    margin-bottom: 25px;
+	}
+	.bottom-line{
+	    height: 2px;
+	    margin-bottom: 40px;
+	    background-color: #000;
+    }
+    .explanation{
+	    text-align: center;
+	    margin-bottom: 40px;
+    }
 }
 
 
-.explanation{
-	text-align: center;
-	margin-bottom: 40px;
+#UserWork{
+	margin-bottom: 90px;
 }
+
+.text_height{
+    line-height: 25px;
+    padding: 0 15px;
+}
+
+
 .book-space{
 	border: solid 1px red;
 	height: 120px;
+}
+
+.user_work-image{
+	height: 300px;
+	border: solid 1px #000;
 }

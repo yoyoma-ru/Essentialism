@@ -5,20 +5,160 @@
 
 .learn-headline{
 	text-align: center;
-	margin: 40px 0;
+	margin: 40px 0 10px;
+	font-weight: bold;
 }
-h2{
+.bottom-line{
+	height: 2px;
+	margin-bottom: 10px;
+	background-color: #000;
+}
+.headline-explanation{
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 50px;
+}
+.part1{
+	margin: 0 auto;
+	background-color: #000;
+	color: #fff;
+	border-radius: 10px;
+	width: 90%;
+	text-align: center;
+}
+ul{
+	li{
+	    list-style: none;
+	    margin: 20px 90px;
+	}
+}
+
+.circle{
+    position: relative;
+    z-index: 5;
+	width: 500px;
+	height: 500px;
+	border-radius: 50%;
+	margin: 30px auto;
+	border: solid 8px #000;
+	text-align: center;
+	line-height: 490px;
+	font-size: 32px;
 	text-decoration: underline;
+	font-weight: bold;
 }
+
+.part2{
+	position: absolute;
+	z-index: 6;
+	top: 5px;
+	left: 43%;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border-radius: 10px;
+}
+.part3{
+	position: absolute;
+	z-index: 6;
+	top: 330px;
+	left: 67%;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border-radius: 10px;
+}
+.part4{
+	position: absolute;
+	z-index: 6;
+	top: 330px;
+	left: 20%;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border-radius: 10px;
+}
+
+.learn-part p{
+	position: absolute;
+	z-index: 6;
+}
+.learn-part p:nth-of-type(1){
+	top: 45px;
+	left: 62%;
+}
+.learn-part p:nth-of-type(2){
+	top: 100px;
+	left: 67%;
+}
+.learn-part p:nth-of-type(3){
+	top: 160px;
+	left: 71%;
+}
+.learn-part p:nth-of-type(4){
+	top: 220px;
+	left: 73%;
+}
+.learn-part p:nth-of-type(5){
+	top: 280px;
+	left: 73%;
+}
+.learn-part p:nth-of-type(6){
+	top: 430px;
+	left: 68%;
+}
+.learn-part p:nth-of-type(7){
+	top: 495px;
+	left: 63%;
+}
+.learn-part p:nth-of-type(8){
+	top: 540px;
+	left: 45%;
+}
+.learn-part p:nth-of-type(9){
+	top: 495px;
+	left: 32%;
+}
+.learn-part p:nth-of-type(10){
+	top: 430px;
+	left: 24%;
+}
+.learn-part p:nth-of-type(11){
+	top: 280px;
+	left: 18%;
+}
+.learn-part p:nth-of-type(12){
+	top: 220px;
+	left: 20%;
+}
+.learn-part p:nth-of-type(13){
+	top: 160px;
+	left: 22%;
+}
+.learn-part p:nth-of-type(14){
+	top: 100px;
+	left: 26%;
+}
+.learn-part p:nth-of-type(15){
+	top: 45px;
+	left: 32%;
+}
+
+
 .learn-contents{
 	margin: 20px 20px;
 	text-align: left;
+	padding-left: 70px;
 }
 
 .non_essential-contents{
 	background-color: #000;
 	color: #fff;
 	margin: 30px 0;
+	h2{
+	    text-align:center;
+	    text-decoration: underline;
+	}
 }
 .non_essential-memo{
 	background-color: #000;
@@ -27,6 +167,10 @@ h2{
 .essential-contents{
 	border: solid 3px #000;
 	margin: 30px 0;
+	h2{
+	    text-align:center;
+	    text-decoration: underline;
+	}
 }
 .essential-memo{
 	border: solid 3px #000;
