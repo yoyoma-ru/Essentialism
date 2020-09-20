@@ -10,11 +10,12 @@
 }
 .bottom-line{
 	height: 2px;
-	margin-bottom: 30px;
-	    background-color: #000;
+	margin-bottom: 10px;
+	background-color: #000;
 }
-.headline-explanaiton{
+.headline-explanation{
 	text-align: center;
+	margin-top: 40px;
 	margin-bottom: 50px;
 }
 .part1{
@@ -147,12 +148,17 @@ ul{
 .learn-contents{
 	margin: 20px 20px;
 	text-align: left;
+	padding-left: 70px;
 }
 
 .non_essential-contents{
 	background-color: #000;
 	color: #fff;
 	margin: 30px 0;
+	h2{
+	    text-align:center;
+	    text-decoration: underline;
+	}
 }
 .non_essential-memo{
 	background-color: #000;
@@ -161,6 +167,10 @@ ul{
 .essential-contents{
 	border: solid 3px #000;
 	margin: 30px 0;
+	h2{
+	    text-align:center;
+	    text-decoration: underline;
+	}
 }
 .essential-memo{
 	border: solid 3px #000;
