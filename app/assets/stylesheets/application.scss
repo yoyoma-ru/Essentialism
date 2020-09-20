@@ -21,17 +21,25 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+.space_bottom{
+	margin-bottom: 55px;
+}
+
+$header_height: 55px;
+
+
+
 .header{
 	position: fixed;
 	width: 100%;
-	height: 55px;
+	height: $header_height;
 	border: solid 1px #000;
 	margin-bottom: 55px;
 	z-index: 8;
 
 	.logo-image{
 	border: solid 3px #000;
-	height: 55px;
+	height: $header_height;
 	}
 
 	.title{
@@ -46,7 +54,6 @@
 	padding-top: 7px;
 	}
 }
-
 
 
 /*ハンバーガーicon*/
@@ -65,6 +72,14 @@
 	position: relative;
 	width: 40px;
 	height: 45px;
+
+	.menu-text{
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	font-weight: bold;
+	color: #000;
+	}
 }
 .menu-trigger span{
 	position: absolute;
@@ -82,13 +97,6 @@
 }
 .menu-trigger span:nth-of-type(3){
 	top: 18px;
-}
-.menu-text{
-	position: absolute;
-	bottom: 0;
-	text-align: center;
-	font-weight: bold;
-	color: #000;
 }
 .menu-trigger.active span:nth-of-type(1){
 	-webkit-transform: translateY(13px) rotate(-45deg);
@@ -132,13 +140,10 @@
 	font-weight: bold;
 }
 
-.box-fixed{
-	margin-top: 55px;
+.space_top{
+	margin-top: $header_height;
 }
 
-.bottom-space{
-    margin-bottom: 40px;
-}
 
 .footer{
 	width: 100%;

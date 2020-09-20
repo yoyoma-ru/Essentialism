@@ -8,18 +8,26 @@
 	border: solid 2px #000;
 }
 
+.top_page-text{
+    margin: 30px;
+	h2{
+	text-align: left;
+	text-decoration: underline;
+	}
+
+	p{
+	padding: 10px 0 0 10px;
+	line-height: 30px;
+	}
+}
+
+
 #aboutScrollSpy{
     position: fixed;
 	top: 80px;
 	width: 100%;
 }
-h2, h3{
-	text-align: center;
-}
-p{
-	padding: 0 30px;
-	text-align: center;
-}
+
 .headline-box{
 	margin: 50px 0;
 }
