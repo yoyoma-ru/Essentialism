@@ -29,7 +29,7 @@
         <div id="sp-menu">
           <h1>MENU</h1>
           <ul>
-            <li><a href="/#">My Page</a></li>
+            <li><%= link_to "My Page", user_path(current_user.id) %></li>
             <li><a href="/learns">Learn</a></li>
             <li><a href="/works">My Work</a></li>
             <li><a href="works/users">User Work</a></li>
