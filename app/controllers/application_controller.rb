@@ -1,9 +1,18 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
+	def after_sign_in_path_for(resource)
+		resourse = current_user
+		learns_path
+	end
+
+	def after_sign_out_paht_for(resource)
+		root_path
+	end
+
 	protected
 
-	def configure_pemitted_parameter
+	def configure_permitted_parameters
 		devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
 	end
 end

@@ -1,28 +1,47 @@
 <div class="row">
 	<div class="col-xs-offset-1 col-xs-10">
 		<div class="row">
-			<h1>My Page　編集画面</h1>
+			<h1 class="headline_style-1">My Page　編集画面</h1>
+			<div class="bottom_line_style-1"></div>
 		</div>
-		<% form_for(@user) do %>
-		    <div class="row form-group">
-		        <div class="col-xs-offset-4 col-xs-2">user icon</div>
-		        <div class="col-xs-3">
-		        	<%= f.text_field :name, autofocus: true, class:"", id:"inputName", placeholder:"名前を記入して下さい"%>
+		<%= form_for(@user) do |f| %>
+		    <div class="row my_page-content">
+		        <div class="col-xs-offset-2 col-xs-3 my_page-text">user icon</div>
+		        <div class="col-xs-6" id="profile-image">
+		        	<%= attachment_image_tag @user, :profile_image, class:"image-circle", size: "200x200", fallback: "no_image.jpg" %>
+		        </div>
+		        <div class="col-xs-offset-1"></div>
+		        <div class="col-xs-offset-5 col-xs-6">
+		        	<%= f.attachment_field :profile_image, placeholder:"画像" %>
 		        </div>
 		    </div>
-		<div class="row">
-			<div class="col-xs-offset-4 col-xs-2">name</div>
-		    <div class="col-xs-3">
-		    	<%= f.text_field :name, autofocus: true, class:"", id:"inputName", placeholder:"名前を記入して下さい"%>
-		    </div>
-		</div>
-		<div class="row">
-			<div class="col-xs-offset-4 col-xs-2">introduction</div>
-		    <div class="col-xs-3"><%= @user.introduction %></div>
-		</div>
-		<div class="row">
-			<div class="col-xs-offset-2 col-xs-3 btn btn-primary">編集する</div>
-			<div class="col-xs-offset-2 col-xs-3 btn btn-danger">退会する</div>
-		</div>
+			<div class="row my_page-content">
+				<div class="col-xs-offset-2 col-xs-3 my_page-text">name</div>
+		    	<div class="col-xs-6">
+		    		<%= f.text_field :name, class:"col-xs-12", placeholder:"名前を記入して下さい" %>
+		    	</div>
+			</div>
+			<div class="row my_page-content">
+				<div class="col-xs-offset-2 col-xs-3 my_page-text">introduction</div>
+		    	<div class="col-xs-6">
+		    		<%= f.text_area :introduction, class:"col-xs-12", rows:"10", placeholder:"自己紹介文を記入して下さい" %></div>
+			</div>
+			<div class="row my_page-content">
+				<%= f.submit "更新する", class:"col-xs-offset-4 col-xs-4 btn btn-primary" %>
+			</div>
+		<% end %>
 	</div>
 </div>
+
+
+<!-- <script>
+	$(function(){
+		$('#profile-image').on('change', function(e){
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$(".profile_image").attr('src', e.target.result);
+			}
+			render.readAsDataURL(e.target.files[0]);
+		});
+	});
+</script> -->

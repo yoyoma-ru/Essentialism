@@ -16,6 +16,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/* ↓共通CSS↓ */
+
 *{
 	margin: 0;
 	padding: 0;
@@ -24,8 +27,20 @@
 .space_bottom{
 	margin-bottom: 55px;
 }
+.headline_style-1{
+	text-align: center;
+	margin: 40px 0 10px;
+	font-weight: bold;
+}
+.bottom_line_style-1{
+	height: 2px;
+	margin-bottom: 10px;
+	background-color: #000;
+}
 
 $header_height: 55px;
+
+/* ↑共通CSS↑ */
 
 
 
