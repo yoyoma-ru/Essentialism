@@ -19,10 +19,10 @@
         <% if user_signed_in? %>
             <div class="col-xs-2 guest-name">
               ようこそ<br>
-              "<%= link_to "#{current_user.name}", root_path %>"様
+              "<%= link_to " #{current_user.name} ", root_path %>"様
             </div>
         <% else %>
-            <div class="col-xs-2 guest-name">ようこそ<br>”ゲスト”様</div>
+            <div class="col-xs-2 guest-name">ようこそ<br>” ゲスト ”様</div>
         <% end %>
         <!-- ハンバーガーメニュー -->
         <div id="hm-icon">

@@ -1,9 +1,12 @@
 class LearnsController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def index
 	end
 
 	def chapter1
+		@user = current_user
 	end
 
 	def chapter2

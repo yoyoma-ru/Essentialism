@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  essential_type: 1
+  chapter: 1
+  memo: MyText
+
+two:
+  user_id: 1
+  essential_type: 1
+  chapter: 1
+  memo: MyText
