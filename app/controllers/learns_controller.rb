@@ -5,8 +5,19 @@ class LearnsController < ApplicationController
 	def index
 	end
 
+	def create
+		@memo = Learn.new(learn_params)
+		@memo.user_id = current_user
+		if @memo.save
+			redirect_to request.referer
+		else
+			redirect_to request.referer
+		end
+	end
+
 	def chapter1
 		@user = current_user
+		@memo = Learn.new
 	end
 
 	def chapter2
@@ -62,4 +73,8 @@ class LearnsController < ApplicationController
 
 	def chapter19
 	end
+
+	private
+	def learn_params
+		params.require(:learn).permit(:essetial_type, :chapter, :memo)
 end
