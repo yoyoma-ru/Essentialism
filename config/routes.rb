@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
 
   get '/learns' => 'learns#index', as: "learns"
+  post '/learns' => 'learns#create', as: "learns"
   get '/learns/chapter1' => 'learns#chapter1'
   get '/learns/chapter2' => 'learns#chapter2'
   get '/learns/chapter3' => 'learns#chapter3'
