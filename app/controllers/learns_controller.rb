@@ -77,4 +77,5 @@ class LearnsController < ApplicationController
 	private
 	def learn_params
 		params.require(:learn).permit(:essetial_type, :chapter, :memo)
+	end
 end
