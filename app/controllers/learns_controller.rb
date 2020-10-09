@@ -7,17 +7,44 @@ class LearnsController < ApplicationController
 
 	def create
 		@memo = Learn.new(learn_params)
-		@memo.user_id = current_user
 		if @memo.save
 			redirect_to request.referer
 		else
+			redirect_to learns_path
+		end
+	end
+
+	def edit
+		@memo = Learn.find(params[:id])
+		if @memo.user == current_user
+			render :edit
+		else
+			redirect_to learns_path
+		end
+	end
+
+	def update
+		@memo = Learn.find(params[:id])
+		if @memo.update(learn_params)
 			redirect_to request.referer
+		else
+			redirect_to learns_path
+		end
+	end
+
+	def destroy
+		@memo = Learn.find(params[:id])
+		if @memo.destroy
+			redirect_to request.referer
+		else
+			redirect_to learns_path
 		end
 	end
 
 	def chapter1
-		@user = current_user
 		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 1 ).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 1).where(essential_type: 1)
 	end
 
 	def chapter2
@@ -76,6 +103,6 @@ class LearnsController < ApplicationController
 
 	private
 	def learn_params
-		params.require(:learn).permit(:essetial_type, :chapter, :memo)
+		params.require(:learn).permit(:user_id, :essential_type, :chapter, :memo)
 	end
 end
