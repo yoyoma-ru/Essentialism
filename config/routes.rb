@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users, only: [:show, :edit, :update,:destroy]
+  resources :users, only: [:show, :edit, :update, :destroy]
 
   root 'homes#top'
   get '/about' => 'homes#about'
 
 
-  get '/learns' => 'learns#index', as: "learns"
-  post '/learns' => 'learns#create', as: "learn"
+  # get '/learns' => 'learns#index', as: "learns"
+  # post '/learns' => 'learns#create', as: "learn"
+  # get 'learns/:id/eit' => 'learns#edit', as: "edit_learn"
+  # patch '/learns/:id/' => 'learns#update', as: "learn"
+  # delete '/learns/:id' => 'learns#destroy', as: "learn"
+  resources :learns, only: [:index, :create, :edit, :update, :destroy]
   get '/learns/chapter1' => 'learns#chapter1'
   get '/learns/chapter2' => 'learns#chapter2'
   get '/learns/chapter3' => 'learns#chapter3'

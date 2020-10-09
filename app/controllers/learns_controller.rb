@@ -14,6 +14,33 @@ class LearnsController < ApplicationController
 		end
 	end
 
+	def edit
+		@memo = Learn.find(params[:id])
+		if @memo.user == current_user
+			render :edit
+		else
+			redirect_to learns_path
+		end
+	end
+
+	def update
+		@memo = Learn.find(params[:id])
+		if @memo.update(learn_params)
+			redirect_to request.referer
+		else
+			redirect_to learns_path
+		end
+	end
+
+	def destroy
+		@memo = Learn.find(params[:id])
+		if @memo.destroy
+			redirect_to request.referer
+		else
+			redirect_to learns_path
+		end
+	end
+
 	def chapter1
 		@memo = Learn.new
 		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 1 ).where(essential_type: 0)
