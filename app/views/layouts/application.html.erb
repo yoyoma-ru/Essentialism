@@ -14,12 +14,12 @@
 
     <div class="container-fluid space_bottom">
       <div class="row header">
-        <div class="col-xs-2 logo-image">LOGO</div>
+        <div class="col-xs-2 logo-image"></div>
         <div class="col-xs-offset-1 col-xs-6 title">エッセンシャル思考</div>
         <% if user_signed_in? %>
             <div class="col-xs-2 guest-name">
               ようこそ<br>
-              "<%= link_to " #{current_user.name} ", root_path %>"様
+              "<%= link_to " #{current_user.name} ", user_path(current_user.id) %>"様
             </div>
         <% else %>
             <div class="col-xs-2 guest-name">ようこそ<br>” ゲスト ”様</div>
