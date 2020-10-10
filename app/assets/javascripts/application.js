@@ -15,16 +15,18 @@
 //= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
+//= require_tree ../../../app/assets/javascripts/.
 //= require_tree .
 
 // ハンバーガー
-$(function(){
+$(document).on('turbolinks:load', function(){
 	$('.menu-trigger').on('click', function(event){
 		$(this).toggleClass('active');
 		$('#sp-menu').fadeToggle();
 		event.preventDefault();
 	});
 });
+// ハンバーガー機能
 
 $(function(){
 	$('.linkInThePage').click( function () {
@@ -33,3 +35,30 @@ $(function(){
 	} );
 });
 
+// topページskippr
+$(document).ready(function(){
+	$("#top-image-items").skippr({
+	transition : 'slide',
+	speed : 500,
+	easing : 'easeOutQuart',
+	navType : 'block',
+	childrenElemntType : 'div',
+	arrows : false,
+	autoPlay : true,
+	autoPlayDuration : 3000,
+	keyboardOnAlways : true,
+	hedePrevious : true,
+    });
+});
+// topページskippr
+
+// topページ画像の高さ指定
+$(document).ready(function () {
+    hsize = $(window).height();
+    $(".top-images-box").css("height", hsize - 60 + "px");
+});
+$(window).resize(function () {
+    hsize = $(window).height();
+    $(".top-images-box").css("height", hsize - 60 + "px");
+});
+// topページ画像の高さ指定

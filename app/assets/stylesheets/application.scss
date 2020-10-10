@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require_tree ../../../app/assets/stylesheets/.
  *= require_self
  */
 @import "bootstrap-sprockets";
@@ -41,7 +42,7 @@
 	color: black;
 }
 
-$header_height: 55px;
+$header_height: 60px;
 
 /* ↑共通CSS↑ */
 
@@ -53,10 +54,14 @@ $header_height: 55px;
 	height: $header_height;
 	border: solid 4px #000;
 	z-index: 8;
+	background-color: #fff;
 
 	.logo-image{
-	    border: solid 1px #000;
-	    height: $header_height;
+	    height: $header_height - 8px;
+	    background-image: url(logo.jpg);
+	    background-position: 10px;
+	    background-size: contain;
+	    background-repeat: no-repeat;
 	}
 
 	.title{
