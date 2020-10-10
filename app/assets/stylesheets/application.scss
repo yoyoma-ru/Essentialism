@@ -58,7 +58,7 @@ $header_height: 60px;
 
 	.logo-image{
 	    height: $header_height - 8px;
-	    background-image: url(logo.jpg);
+	    background-image: image-url("logo.jpg");
 	    background-position: 10px;
 	    background-size: contain;
 	    background-repeat: no-repeat;
