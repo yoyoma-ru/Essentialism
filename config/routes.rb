@@ -34,13 +34,13 @@ Rails.application.routes.draw do
   get '/learns/chapter19' => 'learns#chapter19'
 
   get '/works' => 'works#index', as: "works"
-  get '/works/step1_selection' => 'works#step1_selection'
-  get '/works/step1_noise' => 'works#step1_noise'
-  get '/works/step1_tradeoff' => 'works#step1_tradeoff'
-  get '/works/step2' => 'works#step2'
-  get '/works/step3_essential_goal' => 'works#step3_essential_goal'
-  get '/works/step3_necessary_actions' => 'works#step3_necessary_actions'
-  get '/works/step4_baby_steps' => 'works#step4_baby_steps'
-  get '/works/step4_habits' => 'works#step4_habits'
+  get '/works/step1_selection' => 'works#step1_selection', as: "works_1"
+  get '/works/step1_noise' => 'works#step1_noise', as: "works_2"
+  get '/works/step1_tradeoff' => 'works#step1_tradeoff', as: "works_3"
+  get '/works/step2' => 'works#step2', as: "works_4"
+  get '/works/step3_essential_goal' => 'works#step3_essential_goal', as: "works_5"
+  get '/works/step3_necessary_actions' => 'works#step3_necessary_actions', as: "works_6"
+  get '/works/step4_baby_steps' => 'works#step4_baby_steps', as: "works_7"
+  get '/works/step4_habits' => 'works#step4_habits', as: "works_8"
   get '/works/user_works' => 'works#user_works', as: "user_works"
 end
