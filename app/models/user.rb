@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :learns
+  has_many :works
 
   attachment :profile_image
 
