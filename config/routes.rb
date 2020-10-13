@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get '/learns/chapter18' => 'learns#chapter18'
   get '/learns/chapter19' => 'learns#chapter19'
 
-  get '/works' => 'works#index', as: "works"
+  resources :works, only: [:index, :create, :edit , :update, :destroy]
   get '/works/step1_selection' => 'works#step1_selection', as: "works_1"
   get '/works/step1_noise' => 'works#step1_noise', as: "works_2"
   get '/works/step1_tradeoff' => 'works#step1_tradeoff', as: "works_3"
