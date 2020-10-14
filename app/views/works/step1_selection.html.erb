@@ -35,10 +35,13 @@
 						<%= form_with model: @writing, url: works_path do |f| %>
 						    <div class="form-group">
 						    	<%= f.label :writing, "「選択」に関する非エッセンシャル思考" %>
-						    	<%= f.text_area :writing,  class:"col-xs-12 text-black", row:"4", placeholder:"ご自身の経験を書き込みましょう" %>
+						    	<%= f.text_area :writing,  class:"col-xs-12 text-black", rows:"4", placeholder:"ご自身の経験を書き込みましょう" %>
 						    </div>
 						    <%= f.hidden_field :user_id, :value => current_user.id %>
 						    <%= f.hidden_field :genre, :value => 0 %>
+						    <br>
+						    <br>
+						    <br>
 						    <br>
 						    <%= f.submit "作成", class:"text-black pull-right" %>
 						<% end %>
@@ -59,10 +62,13 @@
 						<%= form_with model: @writing, url: works_path do |f| %>
 						    <div class="form-group">
 						    	<%= f.label :writing, "「選択」に関するエッセンシャル思考" %>
-						    	<%= f.text_area :writing,  class:"col-xs-12", row:"4", placeholder:"ご自身の経験を書き込みましょう" %>
+						    	<%= f.text_area :writing,  class:"col-xs-12", rows:"4", placeholder:"ご自身の経験を書き込みましょう" %>
 						    </div>
 						    <%= f.hidden_field :user_id, :value => current_user.id %>
 						    <%= f.hidden_field :genre, :value => 1 %>
+						    <br>
+						    <br>
+						    <br>
 						    <br>
 						    <%= f.submit "作成", class:"pull-right" %>
 						<% end %>

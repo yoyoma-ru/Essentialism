@@ -38,10 +38,13 @@
 						<%= form_with model: @writing, url: works_path do |f| %>
 						    <div class="form-group">
 						    	<%= f.label :wrting, "「ノイズ」に関する非エッセンシャル思考" %>
-						    	<%= f.text_area :writing, class:"col-xs-12 text-black", row:"4", placeholder: "ご自身の経験を書き込みましょう" %>
+						    	<%= f.text_area :writing, class:"col-xs-12 text-black", rows:"4", placeholder: "ご自身の経験を書き込みましょう" %>
 						    </div>
 						    <%= f.hidden_field :user_id, :value => current_user.id %>
 						    <%= f.hidden_field :genre, :value => 2 %>
+						    <br>
+						    <br>
+						    <br>
 						    <br>
 						    <%= f.submit "作成", class:"text-black pull-right" %>
 						<% end %>
@@ -50,7 +53,7 @@
 					<% @non_essential_writing.each do |non_essential| %>
 			        	<div class="non_essential">
 			        		<div><%= non_essential.writing %></div>
-			        		<%= link_to "削除", work_path(non_essential), class:"btn btn-danger btn-sm pull-right" %>
+			        		<%= link_to "削除", work_path(non_essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %>
 			        	</div>
 			        	<br>
 			        <% end %>
@@ -62,10 +65,13 @@
 						<%= form_with model: @writing, url: works_path do |f| %>
 						    <div class="form-group">
 						    	<%= f.label :wrting, "「ノイズ」に関するエッセンシャル思考" %>
-						    	<%= f.text_area :writing, class:"col-xs-12", row:"4", placeholder: "ご自身の経験を書き込みましょう" %>
+						    	<%= f.text_area :writing, class:"col-xs-12", rows:"4", placeholder: "ご自身の経験を書き込みましょう" %>
 						    </div>
 						    <%= f.hidden_field :user_id, :value => current_user.id %>
 						    <%= f.hidden_field :genre, :value => 3 %>
+						    <br>
+						    <br>
+						    <br>
 						    <br>
 						    <%= f.submit "作成", class:"pull-right" %>
 						<% end %>
@@ -74,7 +80,7 @@
 			        <% @essential_writing.each do |essential| %>
 			        	<div class="essential">
 			        		<div><%= essential.writing %></div>
-			        		<%= link_to "削除", work_path(essential), class:"btn btn-danger btn-sm pull-right" %>
+			        		<%= link_to "削除", work_path(essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %>
 			        	</div>
 			        	<br>
 			        <% end %>

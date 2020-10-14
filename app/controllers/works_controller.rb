@@ -38,13 +38,15 @@ class WorksController < ApplicationController
 		@essential_writing = Work.where(user_id: current_user.id).where(genre: 3)
 	end
 
-	def setp1_tradeoff
+	def step1_tradeoff
 		@writing = Work.new
 		@non_essential_writing = Work.where(user_id: current_user.id).where(genre: 4)
 		@essential_writing = Work.where(user_id: current_user.id).where(genre: 5)
 	end
 
 	def step2
+		@writing = Work.new
+		@writings = Work.where(user_id: current_user.id).where(genre: 6)
 	end
 
 	def step3_essential_goal
