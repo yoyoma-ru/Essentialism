@@ -50,6 +50,7 @@ class WorksController < ApplicationController
 	end
 
 	def step3_essential_goal
+		@essential_goal = Work.new
 	end
 
 	def step3_necessary_actions

@@ -1,11 +1,11 @@
 <div class="row">
-	<div class="col-md-offset-1 col-md-10">
+	<div class="col-xs-offset-1 col-xs-10">
 		<div class="row space">
-	        <div class="col-md-1 step-logo">step3</div>
-	        <div class="col-md-offset-1 col-md-8">
+	        <div class="col-xs-1 step-logo">step3</div>
+	        <div class="col-xs-offset-1 col-xs-8">
 		        <h1 class="work-title">本質目標を考える</h1>
 		        <div class="row">
-		        	<div class="col-md-6">
+		        	<div class="col-xs-6">
 		        		<p>Step2で答えた「人生の軸」に沿った<br>
 		        			具体的で測量可能かつ刺激的で魅力的な<br>
 		        			本質目標を考えるワークです。
@@ -17,29 +17,37 @@
 		        			参考にして下さい。
 		        		</p>
 		        	</div>
-		        	<div class="col-md-6">table作成</div>
+		        	<div class="col-xs-6">table作成</div>
 		        </div>
 		    </div>
 		</div>
 
 		<div class="row space">
-			<div class="col-md-3">
+			<div class="col-xs-3">
 				<h4>人生の軸</h4>
 		    </div>
-		    <div class="col-md-7 essential">人生の軸を反映</div>
+		    <div class="col-xs-7 essential">人生の軸を反映</div>
 		</div>
 
 		<div class="row space">
-			<div class="col-md-3">
+			<div class="col-xs-3">
 				<h4>本質目標</h4>
 		    </div>
-		    <div class="col-md-7 essential">ここに記入して下さい</div>
+		    <div class="col-xs-7 essential">
+		    	<%= form_with model: @essential_goal do |f| %>
+		    	    <%= f.text_area :writing, class:"col-xs-12", rows:"3", placeholder: "ここに記入しましょう" %>
+		    	    <%= f.hidden_field :user_id, :value => current_user.id %>
+		    	    <%= f.hidden_field :genre, :value => 7 %>
+		    	<% end %>
+		    	<br>
+		    	<br>
+		    </div>
 		</div>
 
 		<div class="row space">
-			<div class="col-md-offset-1 col-md-2 btn btn-default">戻る</div>
-			<div class="col-md-offset-2 col-md-2 btn btn-default">My Work一覧</div>
-			<div class="col-md-offset-2 col-md-2 btn btn-default">次へ</div>
+			<div class="col-xs-offset-1 col-xs-2 btn btn-default">戻る</div>
+			<div class="col-xs-offset-2 col-xs-2 btn btn-default">My Work一覧</div>
+			<div class="col-xs-offset-2 col-xs-2 btn btn-default">次へ</div>
 		</div>
 	</div>
 </div>
