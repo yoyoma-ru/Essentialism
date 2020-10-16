@@ -54,6 +54,8 @@ class WorksController < ApplicationController
 	end
 
 	def step3_necessary_actions
+		@essential_goal = Work.where(user_id: current_user.id).where(genre: 7)
+		@necessary_action = Work.new
 	end
 
 	def step4_baby_steps

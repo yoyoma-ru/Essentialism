@@ -1,8 +1,8 @@
 <div class="row">
-	<div class="col-md-offset-1 col-md-10">
+	<div class="col-xs-offset-1 col-xs-10">
 		<div class="row space">
-	        <div class="col-md-1 step-logo">step3</div>
-	        <div class="col-md-offset-1 col-md-8">
+	        <div class="col-xs-1 step-logo">step3</div>
+	        <div class="col-xs-offset-1 col-xs-8">
 		        <h1 class="work-title">本質目標を達成するために</h1>
 		        <p class="work-explanation">
 			    先ほど決めた「本質目標」を達成するために<br>
@@ -12,28 +12,39 @@
 	    </div>
 
 	    <div class="row space">
-	    	<div class="col-md-3">
+	    	<div class="col-xs-3">
 				<h4>本質目標</h4>
 		    </div>
-		    <div class="col-md-7 essential">書き出したやつ</div>
+		    <div class="col-xs-7 essential">
+		    	<%= @essential_goal.writing %>
+		    </div>
 		</div>
 
 		<div class="row space">
-			<div class="col-md-3">
+			<div class="col-xs-3">
 				<h4>必要なこと</h4>
 		    </div>
-		    <div class="col-md-7">
+		    <div class="col-xs-7">
 		    	<div class="row space">
-		    		<div class="essential">form</div>
+		    		<div class="essential">
+		    			<%= form_with model: @necessary_action do |f| %>
+		    			    <%= f.text_area :writing, class:"col-xs-12", rows:"2", placeholder: "ここに書き込んで下さい" %>
+		    			    <%= f.hidden_field :user_id, :value => current_user.id %>
+		    			    <%= f.hidden_field :genre, :value => 8 %>
+		    			    <%= f.submit "作成", class:"pull-right" %>
+		    			<% end %>
+		    		<br>
+		    		<br>
+		    		</div>
 		    	</div>
 		    	<div class="row essential">一覧表示</div>
 		    </div>
 		</div>
 
 		<div class="row space">
-			<div class="col-md-offset-1 col-md-2 btn btn-default">戻る</div>
-			<div class="col-md-offset-2 col-md-2 btn btn-default">My Work一覧</div>
-			<div class="col-md-offset-2 col-md-2 btn btn-default">次へ</div>
+			<div class="col-xs-offset-1 col-xs-2 btn btn-default">戻る</div>
+			<%= link_to "My Work一覧", works_path, class:"col-xs-offset-2 col-xs-2 btn btn-default" %>
+			<%= link_to "次へ", works_7_path, class:"col-xs-offset-2 col-xs-2 btn btn-default" %>
 		</div>
 	</div>
 </div>
