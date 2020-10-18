@@ -38,9 +38,21 @@
 		    </div>
 		    <div class="col-xs-7">
 		    	<div class="row space">
-		    		<div class="essential">form</div>
+		    		<div class="essential">
+		    			<%= form_with model: @baby_step do |f| %>
+		    			    <%= f.text_area :writing, class:"col-xs-12", rows:"2", placeholder: "ここに記入して下さい" %>
+		    			    <%= f.hidden_field :user_id, :value => current_user.id %>
+		    			    <%= f.hidden_field :genre, :value => 9 %>
+		    			    <br>
+		    			    <%= f.submit "作成", class:"pull-right" %>
+		    			<% end %>
+		    		</div>
 		    	</div>
-		    	<div class="row essential">一覧表示</div>
+		    	<% @baby_steps.each do |baby_step| %>
+		    	    <div class="row essential">
+		    	    	<%= baby_step.writing %>
+		    	    </div>
+		    	<% end %>
 		    </div>
 		</div>
 
