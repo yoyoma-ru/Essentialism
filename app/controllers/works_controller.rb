@@ -67,6 +67,9 @@ class WorksController < ApplicationController
 	end
 
 	def step4_habits
+		@baby_steps = Work.where(user_id: current_user.id).where(genre: 9)
+		@habit = Work.new
+		@habits = Work.where(user_id: current_user.id).where(genre: 10)
 	end
 
 	def user_works
