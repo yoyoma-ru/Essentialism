@@ -49,7 +49,12 @@
 		    		<div>『トリガー』『行動』『報酬』を意識して習慣を考えてみましょう。
 		    		</div>
 		    	</div>
-		    	<div class="row essential">一覧表示</div>
+		    	<%= @habits.each do |habit| %>
+		    	    <div class="row essential">
+		    	    	<%= habit.writing %>
+		    	    </div>
+		    	    <br>
+		    	<% end %>
 		    </div>
 		</div>
 
