@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-offset-1 col-md-10">
+	<div class="col-xs-offset-1 col-xs-10">
 		<div class="row">
 		    <h1 class="work-title">User Work</h1>
 		    <p class="work-explanation">
@@ -9,28 +9,30 @@
         </div>
 
         <div class="row space">
-        	<div class="col-md-5">
+        	<div class="col-xs-5">
         	    <h3>新着</h3>
-        	    <div class="row essential">
-        		    <div class="col-md-3">本質目標</div>
-        		    <div class="col-md-9">内容</div>
-        		    <div class="col-md-3">aicon</div>
-        		    <div class="col-md-6">nikname</div>
-        	    </div>
+                <%= @essential_goals.each do |goal| %>
+        	        <div class="row essential">
+        		        <div class="col-xs-3">本質目標</div>
+        		        <div class="col-xs-9"><%= goal.writing %></div>
+        		        <div class="col-xs-3"><%= goal.user_id.image %></div>
+        		        <div class="col-xs-6"><%= goal.user_id.name %></div>
+        	        </div>
+                <% end %>
         	    <div class="row">
-        		    <div class="col-md-offset-5 col-md-2 btn btn-default">もっと見る</div>
+        		    <div class="col-xs-offset-5 col-xs-2 btn btn-default">もっと見る</div>
         	    </div>
             </div>
-            <div class="col-md-offset-2 col-md-5">
+            <div class="col-xs-offset-2 col-xs-5">
         	    <h3>良いね数ランキング</h3>
         	    <div class="row essential">
-        		    <div class="col-md-3">本質目標</div>
-        		    <div class="col-md-9">内容</div>
-        		    <div class="col-md-3">aicon</div>
-        		    <div class="col-md-6">nikname</div>
+        		    <div class="col-xs-3">本質目標</div>
+        		    <div class="col-xs-9">内容</div>
+        		    <div class="col-xs-3">aicon</div>
+        		    <div class="col-xs-6">nikname</div>
         	    </div>
         	    <div class="row space">
-        		    <div class="col-md-offset-5 col-md-2 btn btn-default">もっと見る</div>
+        		    <div class="col-xs-offset-5 col-xs-2 btn btn-default">もっと見る</div>
         	    </div>
             </div>
         </div>

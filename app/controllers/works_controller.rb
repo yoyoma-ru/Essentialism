@@ -60,7 +60,7 @@ class WorksController < ApplicationController
 	end
 
 	def step4_baby_steps
-		@essential_goal = Work.where(user_id: current_user.id).where(genre: 7)
+		@essential_goals = Work.where(user_id: current_user.id).where(genre: 7)
 		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 8)
 		@baby_step = Work.new
 		@baby_steps = Work.where(user_id: current_user.id).where(genre: 9)
@@ -73,6 +73,7 @@ class WorksController < ApplicationController
 	end
 
 	def user_works
+		@essential_goals = Work.where(genre: 7)
 	end
 
 	private
