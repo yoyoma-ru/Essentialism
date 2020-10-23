@@ -1,5 +1,9 @@
 class WorksController < ApplicationController
 	def index
+		@works = Work.where(user_id: current_user.id)
+	end
+
+	def show
 	end
 
 	def create
