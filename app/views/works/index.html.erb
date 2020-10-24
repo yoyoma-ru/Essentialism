@@ -25,7 +25,12 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>ノイズ</h4></div>
-			<div class="col-xs-7 steps-contents">ノイズの内容</div>
+			<%= @works.where(genre: 2) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>トレードオフ</h4></div>
