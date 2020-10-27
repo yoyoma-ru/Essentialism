@@ -17,7 +17,7 @@
 	    	</div>
 	    	<div class="col-xs-7">
 	    		<div class="essential">
-	    			<%= form_with model: @writing, url: works_path do |f| %>
+	    			<%= form_with model: @axis_of_life, url: works_path do |f| %>
 	    			    <div class="">
 	    			    	<%= f.text_area :writing, class:"col-xs-12", rows: "4", placeholder: "あなた自身の「人生の軸」には、どのようなことがあるか考えてみましょう" %>
 	    			    </div>
@@ -31,10 +31,10 @@
 	    			<% end %>
 	    		</div>
 	    		<br>
-	    		<% @writings.each do |writing| %>
+	    		<% @axis_of_lifes.each do |axis_of_life| %>
 	    		    <div class="essential">
-	    		    	<div><%= writing.writing %></div>
-	    		    	<%= link_to "削除", work_path(writing), method: :delete, class:"btn btn-danger btn-sm pull-right" %>
+	    		    	<div><%= axis_of_life.writing %></div>
+	    		    	<%= link_to "削除", work_path(axis_of_life), method: :delete, class:"btn btn-danger btn-sm pull-right" %>
 	    		    </div>
 	    		    <br>
 	    		<% end %>
@@ -45,8 +45,10 @@
 	    	<p>書き出した中で、あなとにとって最も大切にしたい「人生の軸」を1つ選んでみましょう
 	    	</p>
 	    	<div class="col-xs-offset-3 col-xs-7 essential">
-	    		<%= form_with model: @writings do |f| %>
-	    		    <%= f.collection_select :writing, @writings.map{|axis| [axis.writing, axis.id]}, include_blank:"選択して下さい" %>
+	    		<%= form_with model: @axis_of_lifes, url: work_path do |f| %>
+	    		    <%= f.collection_select :writing, f.writing, :writing, :writing, prompt:"選択して下さい" %>
+	    		    <%= f.hidden_field :user_id, :value => current_user.id %>
+	    		    <%= f.hidden_field :genre, :value => 7 %>
 	    		    <%= f.hidden_field :select, :value => true %>
 	    		<% end %>
 	    	</div>

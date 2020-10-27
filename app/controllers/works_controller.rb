@@ -49,8 +49,8 @@ class WorksController < ApplicationController
 	end
 
 	def step2
-		@writing = Work.new
-		@writings = Work.where(user_id: current_user.id).where(genre: 6)
+		@axis_of_life = Work.new
+		@axis_of_lifes = Work.where(user_id: current_user.id).where(genre: 6)
 	end
 
 	def step3_essential_goal
@@ -60,7 +60,7 @@ class WorksController < ApplicationController
 	def step3_necessary_actions
 		@essential_goal = Work.where(user_id: current_user.id).where(genre: 7)
 		@necessary_action = Work.new
-		@necessary_actions = Work.where(user_id: current_user.id)where(genre: 8)
+		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 8)
 	end
 
 	def step4_baby_steps
