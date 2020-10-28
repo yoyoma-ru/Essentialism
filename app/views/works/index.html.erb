@@ -16,6 +16,12 @@
 				<%= link_to "Step1", works_1_path, class:"step-titles" %>
 			</div>
 			<div class="col-xs-3 step-headlines"><h4>選択</h4></div>
+			<%= @works.where(genre: 0) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 			<%= @works.where(genre: 1) do |work| %>
 			    <div class="col-xs-7 steps-contents">
 			    	<%= work.writing %>
@@ -31,10 +37,22 @@
 			    	<br>
 			    </div>
 			<% end %>
+			<%= @works.where(genre: 3) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>トレードオフ</h4></div>
-			<%= @works.where(genre: 3) do |work| %>
+			<%= @works.where(genre: 4) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
+			<%= @works.where(genre: 5) do |work| %>
 			    <div class="col-xs-7 steps-contents">
 			    	<%= work.writing %>
 			    	<br>
@@ -53,7 +71,12 @@
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>その他</h4></div>
-			<div class="col-xs-7 steps-contents">内容</div>
+			<%= @works.where(genre: 6) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 	</div>
 
@@ -63,19 +86,34 @@
 				<a href="#" class="step-titles">step3</a>
 			</div>
 			<div class="col-xs-3 step-headlines"><h4>本質目標</h4></div>
-			<div class="col-xs-7 steps-contents">内容</div>
+			<%= @works.where(genre: 7) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3 step-headlines">
 				<h4>達成するために必要なこと</h4>
 			</div>
-			<div class="col-xs-7 steps-contents">内容</div>
+			<%= @works.where(genre: 8) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3">
 				<h4>達成の妨げとなりうること</h4>
 			</div>
-			<div class="col-xs-7 steps-contents">内容</div>
+			<%= @works.where(genre: 9) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 	</div>
 
@@ -85,13 +123,23 @@
 				<a href="#" class="step-titles">step4</a>
 			</div>
 			<div class="col-xs-3 step-headlines"><h4>本質目標を叶える小さな一歩</h4></div>
-			<div class="col-xs-7 steps-contents">内容</div>
+			<%= @works.where(genre: 10) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3 step-headlines">
 				<h4>本質目標を叶えるための習慣</h4>
 			</div>
-			<div class="col-xs-7 steps-contents">内容</div>
+			<%= @works.where(genre: 11) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
 		</div>
 	</div>
 </div>
