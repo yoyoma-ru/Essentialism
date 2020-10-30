@@ -24,3 +24,21 @@
 			    </div>
 			<% end %>
 		</div>
+		<div class="row">
+			<div class="col-xs-1">
+				<div class="step-titles"></div>
+			</div>
+			<div class="col-xs-3 step-headlines"><h4>選択</h4></div>
+			<%= @works.where(genre: 2) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
+			<%= @works.where(genre: 3) do |work| %>
+			    <div class="col-xs-7 steps-contents">
+			    	<%= work.writing %>
+			    	<br>
+			    </div>
+			<% end %>
+		</div>
