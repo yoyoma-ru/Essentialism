@@ -17,7 +17,7 @@
 				<h4>本質目標</h4>
 		    </div>
 		    <div class="col-xs-7 essential">
-		    	<%= @essential_goal.writing %>
+		    	<%= @my_essential_goal.writing %>
 		    </div>
 		</div>
 
@@ -26,8 +26,9 @@
 				<h4>必要なこと</h4>
 		    </div>
 		    <% @necessary_actions.each do |necessary_action| %>
-		        <div class="col-xs-7">
+		        <div class="col-xs-7 essential">
 		        	<%= necessary_action.writing %>
+		        	<br>
 		        </div>
 		    <% end %>
 		</div>
@@ -44,6 +45,7 @@
 		    			    <%= f.hidden_field :user_id, :value => current_user.id %>
 		    			    <%= f.hidden_field :genre, :value => 9 %>
 		    			    <br>
+		    			    <br>
 		    			    <%= f.submit "作成", class:"pull-right" %>
 		    			<% end %>
 		    		</div>
@@ -51,8 +53,8 @@
 		    	<% @baby_steps.each do |baby_step| %>
 		    	    <div class="row essential">
 		    	    	<%= baby_step.writing %>
+		    	    	<br>
 		    	    </div>
-		    	    <br>
 		    	<% end %>
 		    </div>
 		</div>

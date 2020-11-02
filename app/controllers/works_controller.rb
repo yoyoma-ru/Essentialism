@@ -19,6 +19,12 @@ class WorksController < ApplicationController
 	end
 
 	def update
+		@writing = Work.find(params[:id])
+		if @writing.update(work_params)
+			redirect_to request.referer
+		else
+			redirect_to works_path
+		end
 	end
 
 	def destroy
@@ -55,16 +61,17 @@ class WorksController < ApplicationController
 
 	def step3_essential_goal
 		@essential_goal = Work.new
+		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 7)
 	end
 
 	def step3_necessary_actions
-		@essential_goal = Work.where(user_id: current_user.id).where(genre: 7)
+		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 7)
 		@necessary_action = Work.new
 		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 8)
 	end
 
 	def step4_baby_steps
-		@essential_goals = Work.where(user_id: current_user.id).where(genre: 7)
+		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 7)
 		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 8)
 		@baby_step = Work.new
 		@baby_steps = Work.where(user_id: current_user.id).where(genre: 9)
