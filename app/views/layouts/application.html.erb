@@ -42,6 +42,7 @@
               <li><%= link_to "My Works", works_path %></li>
               <li><%= link_to "User Works", user_works_path %></li>
               <li>Favorites</li>
+              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
             </ul>
           <% else %>
             <ul>

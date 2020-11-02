@@ -19,11 +19,10 @@
 	    		<div class="essential">
 	    			<%= form_with model: @axis_of_life, url: works_path do |f| %>
 	    			    <div class="">
-	    			    	<%= f.text_area :writing, class:"col-xs-12", rows: "4", placeholder: "あなた自身の「人生の軸」には、どのようなことがあるか考えてみましょう" %>
+	    			    	<%= f.text_area :writing, class:"col-xs-12", rows: "3", placeholder: "あなた自身の「人生の軸」には、どのようなことがあるか考えてみましょう" %>
 	    			    </div>
 	    			    <%= f.hidden_field :user_id, :value => current_user.id %>
 	    			    <%= f.hidden_field :genre, :value => 6 %>
-	    			    <br>
 	    			    <br>
 	    			    <br>
 	    			    <br>
@@ -42,9 +41,25 @@
 	    </div>
 
 	    <div class="row space">
-	    	<p>書き出した中で、あなとにとって最も大切にしたい「人生の軸」を1つ選んでみましょう
-	    	</p>
-	    	
+	    	<p>書き出した中で、あなとにとって最も大切にしたい「人生の軸」を1つ選んでみましょう</p>
+	    	<% if Work.where(user_id: current_user.id).exists?(genre: 7) == true %>
+		    	<div class="col-xs-offset-3 col-xs-7">
+		    		<div class="row essential"><%= @most_axis_of_life.writing %></div>
+		    		<%= form_with model: @most_axis_of_life do |f| %>
+			    		<%= f.collection_select(:writing, @axis_of_lifes, :writing, :writing, prompt:"#{@most_axis_of_life.writing}") %>
+			    		<%= f.submit "変更する", class:"pull-right" %>
+			    	<% end %>
+		    	</div>
+		    <% else %>
+		    	<div class="col-xs-offset-3 col-xs-7">
+		    		<%= form_with model: @axis_of_life do |f| %>
+		    		    <%= f.collection_select(:writing, @axis_of_lifes, :writing, :writing, prompt:"---書き出した中から1つを選択して下さい---") %>
+		    		    <%= f.hidden_field :user_id, :value => current_user.id %>
+		    		    <%= f.hidden_field :genre, :value => 7 %>
+		    		    <%= f.submit "決定する", class:"pull-rigth" %>
+		    		<% end %>
+		    	</div>
+	    	<% end %>
 	    </div>
 
 	    <div class="row space">

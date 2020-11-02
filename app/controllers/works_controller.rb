@@ -3,9 +3,6 @@ class WorksController < ApplicationController
 		@works = Work.where(user_id: current_user.id)
 	end
 
-	def show
-	end
-
 	def create
 		@writing = Work.new(work_params)
 		if @writing.save
@@ -57,34 +54,41 @@ class WorksController < ApplicationController
 	def step2
 		@axis_of_life = Work.new
 		@axis_of_lifes = Work.where(user_id: current_user.id).where(genre: 6)
+		@most_axis_of_life = Work.find_by(user_id: current_user.id, genre: 7)
 	end
 
 	def step3_essential_goal
+		@most_axis_of_life = Work.find_by(user_id: current_user.id, genre: 7)
 		@essential_goal = Work.new
-		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 7)
+		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 8)
 	end
 
 	def step3_necessary_actions
-		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 7)
+		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 8)
 		@necessary_action = Work.new
-		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 8)
+		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 9)
 	end
 
 	def step4_baby_steps
-		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 7)
-		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 8)
+		@my_essential_goal = Work.find_by(user_id: current_user.id, genre: 8)
+		@necessary_actions = Work.where(user_id: current_user.id).where(genre: 9)
 		@baby_step = Work.new
-		@baby_steps = Work.where(user_id: current_user.id).where(genre: 9)
+		@baby_steps = Work.where(user_id: current_user.id).where(genre: 10)
 	end
 
 	def step4_habits
-		@baby_steps = Work.where(user_id: current_user.id).where(genre: 9)
+		@baby_steps = Work.where(user_id: current_user.id).where(genre: 10)
 		@habit = Work.new
-		@habits = Work.where(user_id: current_user.id).where(genre: 10)
+		@habits = Work.where(user_id: current_user.id).where(genre: 11)
 	end
 
 	def user_works
 		@essential_goals = Work.where(genre: 7)
+	end
+
+	def user_work
+		@user = Work.find(params[:id])
+		@work = Work.where(user_id: @user.user.id)
 	end
 
 	private

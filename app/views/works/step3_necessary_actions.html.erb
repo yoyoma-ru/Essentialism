@@ -30,7 +30,7 @@
 		    			<%= form_with model: @necessary_action do |f| %>
 		    			    <%= f.text_area :writing, class:"col-xs-12", rows:"2", placeholder: "ここに書き込んで下さい" %>
 		    			    <%= f.hidden_field :user_id, :value => current_user.id %>
-		    			    <%= f.hidden_field :genre, :value => 8 %>
+		    			    <%= f.hidden_field :genre, :value => 9 %>
 		    			    <%= f.submit "作成", class:"pull-right" %>
 		    			<% end %>
 		    		<br>
@@ -39,9 +39,9 @@
 		    	</div>
 		    	<% @necessary_actions.each do |necessary_action| %>
 		    	    <div class="row essential">
-		    	    	<%= necessart_action.writing %>
+		    	    	<%= necessary_action.writing %>
+		    	    	<br>
 		    	    </div>
-		    	    <br>
 		    	<% end %>
 		    </div>
 		</div>

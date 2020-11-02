@@ -43,4 +43,5 @@ Rails.application.routes.draw do
   get '/works/step4_baby_steps' => 'works#step4_baby_steps', as: "works_7"
   get '/works/step4_habits' => 'works#step4_habits', as: "works_8"
   get '/works/user_works' => 'works#user_works', as: "user_works"
+  get '/works/user_works/:id' => 'works#user_work', as: "user_work"
 end

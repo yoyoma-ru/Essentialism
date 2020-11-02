@@ -25,19 +25,19 @@
 			<div class="col-xs-3">
 				<h4>人生の軸</h4>
 		    </div>
-		    <div class="col-xs-7 essential">mostの人生の軸を反映</div>
+		    <div class="col-xs-7 essential"><%= @most_axis_of_life.writing %></div>
 		</div>
 
 		<div class="row space">
 			<div class="col-xs-3">
 				<h4>本質目標</h4>
 		    </div>
-		    <% if Work.where(user_id: current_user.id).exists?(genre: 7) == true %>
+		    <% if Work.where(user_id: current_user.id).exists?(genre: 8) == true %>
 		        <div class="col-xs-7">
 		    	    <%= form_with model: @my_essential_goal do |f| %>
 		    	        <%= f.text_area :writing, class:"col-xs-12 essential", rows:"3", placeholder: "ここに本質目標を書きましょう" %>
 		    	        <%= f.hidden_field :user_id, :value => current_user.id %>
-		    	        <%= f.hidden_field :genre, :value => 7 %>
+		    	        <%= f.hidden_field :genre, :value => 8 %>
 		    	        <%= f.submit "更新する", class:"pull-right" %>
 		    	    <% end %>
 		        </div>
@@ -46,7 +46,7 @@
 		    	    <%= form_with model: @essential_goal do |f| %>
 		    	        <%= f.text_area :writing, class:"col-xs-12 essential", rows:"3", placeholder: "ここに本質目標を書きましょう" %>
 		    	        <%= f.hidden_field :user_id, :value => current_user.id %>
-		    	        <%= f.hidden_field :genre, :value => 7 %>
+		    	        <%= f.hidden_field :genre, :value => 8 %>
 		    	        <%= f.submit "作成", class:"pull-right" %>
 		    	    <% end %>
 		        </div>

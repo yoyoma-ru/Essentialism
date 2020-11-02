@@ -11,16 +11,17 @@
         <div class="row space">
         	<div class="col-xs-5">
         	    <h3>新着</h3>
-                <%= @essential_goals.each do |goal| %>
+                <% @essential_goals.each do |goal| %>
         	        <div class="row essential">
         		        <div class="col-xs-3">本質目標</div>
         		        <div class="col-xs-9"><%= goal.writing %></div>
-        		        <div class="col-xs-3"><%= goal.user_id.image %></div>
-        		        <div class="col-xs-6"><%= goal.user_id.name %></div>
-        	        </div>
-        	        <div class="row">
-        		    <%= link_to "もっと見る", works_path, class:"col-xs-offset-5 col-xs-2 btn btn-default" %>
-        	        </div>
+                        <br>
+        		        <div class="col-xs-4"><%= attachment_image_tag goal.user, :profile_image, size:"30x30", fallback:"no_image.jpg" %></div>
+        		        <div class="col-xs-6"><%= goal.user.name %></div>
+                    </div>
+                    <%= link_to "もっと見る", user_work_path(goal.id), class:"col-xs-offset-5 col-xs-2 btn btn-sm pull-right" %>
+                    <br>
+                    <br>
                 <% end %>
             </div>
             <div class="col-xs-offset-2 col-xs-5">
