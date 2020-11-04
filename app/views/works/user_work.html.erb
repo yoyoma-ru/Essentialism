@@ -1,6 +1,17 @@
 <div class="row">
-	<div class="col-xs-offset-3 col-xs-6">
+	<div class="col-xs-offset-2 col-xs-8">
 		<h1 class="work-title"><%= @user.user.name %>のWork</h1>
+			<% if @essential_goal.favorited_by?(current_user) %>
+				<%= link_to work_favorite_path(@essential_goal), method: :delete do %>
+					<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					<%= @essential_goal.favorites.count %>いいね
+				<% end %>
+			<% else %>
+				<%= link_to work_favorites_path(@essential_goal), method: :post do %>
+					<i class="fa fa-heart" aria-hiddent="true"></i>
+					<%= @essential_goal.favorites.count %>いいね
+				<% end %>
+			<% end %>
 	</div>
 </div>
 

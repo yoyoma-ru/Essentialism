@@ -89,6 +89,7 @@ class WorksController < ApplicationController
 	def user_work
 		@user = Work.find(params[:id])
 		@work = Work.where(user_id: @user.user.id)
+		@essential_goal = @work.find_by(genre: 8)
 	end
 
 	private
