@@ -1,8 +1,8 @@
 <div class="row">
-	<div class="col-md-offset-1 col-md-10">
+	<div class="col-xs-offset-1 col-xs-10">
 		<div class="row">
-	        <div class="col-md-3 step-logo">step1</div>
-	        <div class="col-md-6">
+	        <div class="col-xs-3 step-logo">step1</div>
+	        <div class="col-xs-6">
 		        <h1 class="work-title">「選択」について振り返る</h1>
 		        <p class="work-explanation">
 			    選択について日々の生活や今まで、どの程度出来ていたか<br>
@@ -12,40 +12,82 @@
 	    </div>
 
 		<div class="row space">
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<h3 class="non_essential">非エッセンシャル思考</h3>
 				<p>
 					自分で選ぶことを少しずつ放棄して、<br>
 					いつの間にか誰かのいいなりになるといった経験など
 				</p>
 			</div>
-			<div class="col-md-2">
+			<div class="col-xs-2">
 				<h3 class="step-headline">選択</h3>
 			</div>
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<h3 class="essential">エッセンシャル思考</h3>
 				<p>これをやろうと選んだ経験など</p>
 			</div>
 		</div>
 
 		<div class="row space">
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<div class="row">
-					<div class="non_essential">form</div>
-			        <div class="non_essential">作成一覧表示</div>
+					<div class="non_essential">
+						<%= form_with model: @writing, url: works_path, id:"new_work" do |f| %>
+						    <div class="form-group">
+						    	<%= f.label :writing, "「選択」に関する非エッセンシャル思考" %>
+						    	<%= f.text_area :writing, id:"work_writing", class:"col-xs-12 text-black", rows:"4", placeholder:"ご自身の経験を書き込みましょう" %>
+						    </div>
+						    <%= f.hidden_field :user_id, :value => current_user.id %>
+						    <%= f.hidden_field :genre, :value => 0 %>
+						    <br>
+						    <br>
+						    <br>
+						    <br>
+						    <%= f.submit "作成", class:"text-black pull-right" %>
+						<% end %>
+					</div>
+					<br>
+			        <% @non_essential_writing.each do |non_essential| %>
+			             <div class="non_essential work_writings">
+			             	<div><%= non_essential.writing %></div>
+			             	<%= link_to "削除", work_path(non_essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %>
+			             </div>
+			             <br>
+			        <% end %>
 			    </div>
 			</div>
-			<div class="col-md-offset-2 col-md-5">
+			<div class="col-xs-offset-2 col-xs-5">
 				<div class="row">
-					<div class="essential">form</div>
-			        <div class="essential">作成一覧表示</div>
+					<div class="essential">
+						<%= form_with model: @writing, url: works_path do |f| %>
+						    <div class="form-group">
+						    	<%= f.label :writing, "「選択」に関するエッセンシャル思考" %>
+						    	<%= f.text_area :writing,  class:"col-xs-12", rows:"4", placeholder:"ご自身の経験を書き込みましょう" %>
+						    </div>
+						    <%= f.hidden_field :user_id, :value => current_user.id %>
+						    <%= f.hidden_field :genre, :value => 1 %>
+						    <br>
+						    <br>
+						    <br>
+						    <br>
+						    <%= f.submit "作成", class:"pull-right" %>
+						<% end %>
+					</div>
+					<br>
+			        <% @essential_writing.each do |essential| %>
+			             <div class="essential">
+			             	<div><%= essential.writing %></div>
+			             	<%= link_to "削除", work_path(essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %>
+			             </div>
+			             <br>
+			        <% end %>
 			    </div>
 			</div>
 		</div>
 
 		<div class="row space">
-			<div class="col-md-offset-5 col-md-2 btn btn-default">My Work一覧</div>
-			<div class="col-md-offset-2 col-md-2 btn btn-default">次へ</div>
+			<%= link_to "My Work一覧", works_path, class:"col-xs-offset-5 col-xs-2 btn btn-default" %>
+			<%= link_to "次へ", works_2_path, class:"col-xs-offset-2 col-xs-2 btn btn-default" %>
 		</div>
 	</div>
 </div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy]
 
   root 'homes#top'
-  get '/about' => 'homes#about'
+  get '/about' => 'homes#about', as: "about"
 
 
   # get '/learns' => 'learns#index', as: "learns"
@@ -33,14 +33,17 @@ Rails.application.routes.draw do
   get '/learns/chapter18' => 'learns#chapter18'
   get '/learns/chapter19' => 'learns#chapter19'
 
-  get '/works' => 'works#index', as: "works"
-  get '/works/step1_selection' => 'works#step1_selection'
-  get '/works/step1_noise' => 'works#step1_noise'
-  get '/works/step1_tradeoff' => 'works#step1_tradeoff'
-  get '/works/step2' => 'works#step2'
-  get '/works/step3_essential_goal' => 'works#step3_essential_goal'
-  get '/works/step3_necessary_actions' => 'works#step3_necessary_actions'
-  get '/works/step4_baby_steps' => 'works#step4_baby_steps'
-  get '/works/step4_habits' => 'works#step4_habits'
+  resources :works, only: [:index, :create, :edit , :update, :destroy] do
+    resources  :favorites, only: [:create, :index, :destroy]
+  end
+  get '/works/step1_selection' => 'works#step1_selection', as: "works_1"
+  get '/works/step1_noise' => 'works#step1_noise', as: "works_2"
+  get '/works/step1_tradeoff' => 'works#step1_tradeoff', as: "works_3"
+  get '/works/step2' => 'works#step2', as: "works_4"
+  get '/works/step3_essential_goal' => 'works#step3_essential_goal', as: "works_5"
+  get '/works/step3_necessary_actions' => 'works#step3_necessary_actions', as: "works_6"
+  get '/works/step4_baby_steps' => 'works#step4_baby_steps', as: "works_7"
+  get '/works/step4_habits' => 'works#step4_habits', as: "works_8"
   get '/works/user_works' => 'works#user_works', as: "user_works"
+  get '/works/user_works/:id' => 'works#user_work', as: "user_work"
 end

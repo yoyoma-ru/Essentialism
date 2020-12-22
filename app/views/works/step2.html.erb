@@ -1,8 +1,8 @@
 <div class="row">
-	<div class="col-md-offset-1 col-md-10">
+	<div class="col-xs-offset-1 col-xs-10">
 		<div class="row space">
-	        <div class="col-md-1 step-logo">step2</div>
-	        <div class="col-md-offset-1 col-md-8">
+	        <div class="col-xs-1 step-logo">step2</div>
+	        <div class="col-xs-offset-1 col-xs-8">
 		        <h1 class="work-title">人生の軸を決める</h1>
 		        <p class="work-explanation">
 			    あなたにとって生きていく上で大切だと考える<br>
@@ -12,27 +12,60 @@
 	    </div>
 
 	    <div class="row space">
-	    	<div class="col-md-3">
+	    	<div class="col-xs-3">
 	    		<h4>人生の軸</h4>
 	    	</div>
-	    	<div class="col-md-7">
-	    		<div class="essential">投稿form</div>
-	    		<div class="essential">作成一覧</div>
+	    	<div class="col-xs-7">
+	    		<div class="essential">
+	    			<%= form_with model: @axis_of_life, url: works_path do |f| %>
+	    			    <div class="">
+	    			    	<%= f.text_area :writing, class:"col-xs-12", rows: "3", placeholder: "あなた自身の「人生の軸」には、どのようなことがあるか考えてみましょう" %>
+	    			    </div>
+	    			    <%= f.hidden_field :user_id, :value => current_user.id %>
+	    			    <%= f.hidden_field :genre, :value => 6 %>
+	    			    <br>
+	    			    <br>
+	    			    <br>
+	    			    <%= f.submit "作成", class:"pull-right" %>
+	    			<% end %>
+	    		</div>
+	    		<br>
+	    		<% @axis_of_lifes.each do |axis_of_life| %>
+	    		    <div class="essential">
+	    		    	<div><%= axis_of_life.writing %></div>
+	    		    	<%= link_to "削除", work_path(axis_of_life), method: :delete, class:"btn btn-danger btn-sm pull-right" %>
+	    		    </div>
+	    		    <br>
+	    		<% end %>
 	    	</div>
 	    </div>
 
 	    <div class="row space">
-	    	<p>書き出した中で、あなとにとって最も大切にしたい「人生の軸」を1つ選んでみましょう
-	    	</p>
-	    	<div class="col-md-offset-3 col-md-7 essential">
-	    		この中より選択してください（select box）
-	    	</div>
+	    	<p>書き出した中で、あなとにとって最も大切にしたい「人生の軸」を1つ選んでみましょう</p>
+	    	<% if Work.where(user_id: current_user.id).exists?(genre: 7) == true %>
+		    	<div class="col-xs-offset-3 col-xs-7">
+		    		<div class="row essential"><%= @most_axis_of_life.writing %></div>
+		    		<%= form_with model: @most_axis_of_life do |f| %>
+			    		<%= f.collection_select(:writing, @axis_of_lifes, :writing, :writing, prompt:"#{@most_axis_of_life.writing}") %>
+			    		<%= f.submit "変更する", class:"pull-right" %>
+			    	<% end %>
+		    	</div>
+		    <% else %>
+		    	<div class="col-xs-offset-3 col-xs-7">
+		    		<%= form_with model: @axis_of_life do |f| %>
+		    		    <%= f.collection_select(:writing, @axis_of_lifes, :writing, :writing, prompt:"---書き出した中から1つを選択して下さい---") %>
+		    		    <%= f.hidden_field :user_id, :value => current_user.id %>
+		    		    <%= f.hidden_field :genre, :value => 7 %>
+		    		    <%= f.submit "決定する", class:"pull-rigth" %>
+		    		<% end %>
+		    	</div>
+	    	<% end %>
 	    </div>
 
 	    <div class="row space">
-			<div class="col-md-offset-1 col-md-2 btn btn-default">戻る</div>
-			<div class="col-md-offset-2 col-md-2 btn btn-default">My Work一覧</div>
-			<div class="col-md-offset-2 col-md-2 btn btn-default">次へ</div>
+			<%= link_to "戻る", 'javascript:history.back()', class:"col-xs-offset-1 col-xs-2 btn btn-default" %>
+			<%= link_to "My Work一覧", works_path, class:"col-xs-offset-2 col-xs-2 btn btn-default" %>
+			<%= link_to "次へ", works_5_path, class:"col-xs-offset-2 col-xs-2 btn btn-default" %>
 		</div>
 	</div>
 </div>
