@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+$learn-circle_height: 500px;
+
+li{
+	list-style: none;
+}
+
 .learn-headline{
 	text-align: center;
 	margin: 40px 0 10px;
@@ -10,49 +16,82 @@
 }
 .bottom-line{
 	height: 2px;
-	margin-bottom: 10px;
+	margin: 10px auto;
 	background-color: #000;
+	width: 90%;
 }
 .headline-explanation{
-	text-align: center;
+	margin: 0 auto;
 	margin-top: 40px;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
+	text-align: center;
+	line-height: 200%;
+	font-size: 16px;
+	width: 90%;
 }
 .part1{
 	margin: 0 auto;
 	background-color: #000;
 	color: #fff;
 	border-radius: 10px;
-	width: 90%;
+	width: 100%;
 	text-align: center;
 }
-ul{
+.part1-link_items{
 	li{
-	    list-style: none;
-	    margin: 20px 90px;
+		margin-top: 25px;
+		margin-bottom: 25px;
+	    text-align: center;
 	}
 }
 
-.circle{
-    position: relative;
-    z-index: 5;
-	width: 500px;
-	height: 500px;
-	border-radius: 50%;
-	margin: 30px auto;
-	border: solid 8px #000;
-	text-align: center;
-	line-height: 490px;
-	font-size: 32px;
-	text-decoration: underline;
-	font-weight: bold;
+
+.learn-parts{
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-top: 10px;
+
+	.learn-circle{
+		position: relative;
+		max-width: $learn-circle_height;
+		height: $learn-circle_height;
+		margin: 30px auto;
+	    z-index: 5;
+		border-radius: 50%;
+		border: solid 8px #000;
+		text-align: center;
+		line-height: 470px;
+	}
+	p{
+		font-size: 35px;
+		text-decoration: underline;
+		font-weight: bold;
+	}
+	@media screen and (max-width: 600px){
+		.learn-circle{
+			position: relative;
+			width: $learn-circle_height - 150;
+			height: $learn-circle_height - 150;
+			margin: 30px auto;
+		    z-index: 5;
+			border-radius: 50%;
+			border: solid 8px #000;
+			text-align: center;
+			line-height: 470px;
+			font-size: 35px;
+			text-decoration: underline;
+			font-weight: bold;
+		}
+	}
 }
+
+
 
 .part2{
 	position: absolute;
 	z-index: 6;
-	top: 5px;
-	left: 43%;
+	top: -25px;
+	left: 167px;
 	text-align: center;
 	background-color: #000;
 	color: #fff;
@@ -61,8 +100,9 @@ ul{
 .part3{
 	position: absolute;
 	z-index: 6;
-	top: 330px;
-	left: 67%;
+	width: 140px;
+	top: 320px;
+	left: 400px;
 	text-align: center;
 	background-color: #000;
 	color: #fff;
@@ -71,75 +111,75 @@ ul{
 .part4{
 	position: absolute;
 	z-index: 6;
-	top: 330px;
-	left: 20%;
+	top: 320px;
+	left: -60px;
 	text-align: center;
 	background-color: #000;
 	color: #fff;
 	border-radius: 10px;
 }
 
-.learn-part p{
+.learn-parts li{
 	position: absolute;
 	z-index: 6;
 }
-.learn-part p:nth-of-type(1){
+.learn-parts li:nth-of-type(1){
 	top: 45px;
 	left: 62%;
 }
-.learn-part p:nth-of-type(2){
+.learn-parts li:nth-of-type(2){
 	top: 100px;
 	left: 67%;
 }
-.learn-part p:nth-of-type(3){
+.learn-parts li:nth-of-type(3){
 	top: 160px;
 	left: 71%;
 }
-.learn-part p:nth-of-type(4){
+.learn-parts li:nth-of-type(4){
 	top: 220px;
 	left: 73%;
 }
-.learn-part p:nth-of-type(5){
+.learn-parts li:nth-of-type(5){
 	top: 280px;
 	left: 73%;
 }
-.learn-part p:nth-of-type(6){
+.learn-parts li:nth-of-type(6){
 	top: 430px;
 	left: 68%;
 }
-.learn-part p:nth-of-type(7){
+.learn-parts li:nth-of-type(7){
 	top: 495px;
 	left: 63%;
 }
-.learn-part p:nth-of-type(8){
+.learn-parts li:nth-of-type(8){
 	top: 540px;
 	left: 45%;
 }
-.learn-part p:nth-of-type(9){
+.learn-parts li:nth-of-type(9){
 	top: 495px;
 	left: 32%;
 }
-.learn-part p:nth-of-type(10){
+.learn-parts li:nth-of-type(10){
 	top: 430px;
 	left: 24%;
 }
-.learn-part p:nth-of-type(11){
+.learn-parts li:nth-of-type(11){
 	top: 280px;
 	left: 18%;
 }
-.learn-part p:nth-of-type(12){
+.learn-parts li:nth-of-type(12){
 	top: 220px;
 	left: 20%;
 }
-.learn-part p:nth-of-type(13){
+.learn-parts li:nth-of-type(13){
 	top: 160px;
 	left: 22%;
 }
-.learn-part p:nth-of-type(14){
+.learn-parts li:nth-of-type(14){
 	top: 100px;
 	left: 26%;
 }
-.learn-part p:nth-of-type(15){
+.learn-parts li:nth-of-type(15){
 	top: 45px;
 	left: 32%;
 }
