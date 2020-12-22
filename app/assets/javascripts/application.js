@@ -23,6 +23,7 @@ $(document).on('turbolinks:load', function(){
 	$('.menu-trigger').on('click', function(event){
 		$(this).toggleClass('active');
 		$('#sp-menu').fadeToggle();
+		$('#top-image-items').fadeToggle();
 		event.preventDefault();
 	});
 });
@@ -43,7 +44,7 @@ $(document).ready(function(){
 	easing : 'easeOutQuart',
 	navType : 'block',
 	childrenElemntType : 'div',
-	arrows : false,
+	arrows : true,
 	autoPlay : true,
 	autoPlayDuration : 3000,
 	keyboardOnAlways : true,
@@ -62,3 +63,20 @@ $(window).resize(function () {
     $(".top-images-box").css("height", hsize - 60 + "px");
 });
 // topページ画像の高さ指定
+
+
+// workのwritingを非同期通信で処理
+$(document).on('turbolinks:load', function(){
+	$(".step-logo").on('click', function(){
+		$(this).css('color', 'red');
+	});
+	$("#new_work").on('submit', function(e){
+		console.log("start");
+		e.preventDefault();
+		var message = new FormData(this);
+		var url = $(this).attr('action')
+		// var url = $(this).attr('action');
+		console.log("url");
+	});
+});
+

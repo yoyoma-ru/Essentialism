@@ -73,7 +73,11 @@
 				<%= link_to "Step2", works_4_path, class:"step-titles" %>
 			</div>
 			<div class="col-xs-3 step-headlines"><h4>自身の大切な軸を一つ選ぶ</h4></div>
-			<div class="col-xs-7 steps-contents"><%= @works.find_by(genre: 7).writing %></div>
+			<% if @works.exists?(genre: 7) == true %>
+				<div class="col-xs-7 steps-contents"><%= @works.find_by(genre: 7).writing %></div>
+			<% else %>
+				<div class="col-xs-7"></div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>その他</h4></div>
@@ -92,8 +96,14 @@
 			</div>
 			<div class="col-xs-3 step-headlines"><h4>本質目標</h4></div>
 		    <div class="col-xs-7 steps-contents">
-		    	<%= @works.find_by(genre: 8).writing %>
-		    	<br>
+		    	<% if @works.exists?(genre: 8) == true %>
+					<div class="col-xs-7 steps-contents">
+						<%= @works.find_by(genre: 8).writing %>
+						<br>
+					</div>
+				<% else %>
+					<div class="col-xs-7"></div>
+				<% end %>
 		    </div>
 		</div>
 		<div class="row">

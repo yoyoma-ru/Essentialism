@@ -26,15 +26,19 @@
             </div>
             <div class="col-xs-offset-2 col-xs-5">
         	    <h3>いいね数ランキング</h3>
-        	    <div class="row essential">
-        		    <div class="col-xs-3">本質目標</div>
-        		    <div class="col-xs-9">内容</div>
-        		    <div class="col-xs-3">aicon</div>
-        		    <div class="col-xs-6">nikname</div>
-        	    </div>
-        	    <div class="row space">
-        		    <div class="col-xs-offset-5 col-xs-2 btn btn-default">もっと見る</div>
-        	    </div>
+                <% @all_ranks.each.with_index(1) do |work, i| %>
+                    <span class="rank_number"><%= i %>位</span> / 
+                    <span class="favorite_count"><%= work.favorites.count %>いいね</span>
+            	    <div class="row essential">
+            		    <div class="col-xs-3">本質目標</div>
+            		    <div class="col-xs-9"><%= work.writing %></div>
+            		    <div class="col-xs-3"><<%= attachment_image_tag work.user, :profile_image, size:"30x30", fallback:"no_image.jpg" %></div>
+            		    <div class="col-xs-6"><%= work.user.name %></div>
+            	    </div>
+                    <%= link_to "もっと見る", user_work_path(work.id), class:"col-xs-offset-5 col-xs-2 btn btn-sm pull-right" %>
+                    <br>
+                    <br>
+                <% end %>
             </div>
         </div>
     </div>

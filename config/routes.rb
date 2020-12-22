@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy]
 
   root 'homes#top'
-  get '/about' => 'homes#about'
+  get '/about' => 'homes#about', as: "about"
 
 
   # get '/learns' => 'learns#index', as: "learns"
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get '/learns/chapter18' => 'learns#chapter18'
   get '/learns/chapter19' => 'learns#chapter19'
 
-  resources :works, only: [:index, :create, :edit , :update, :destroy] do 
+  resources :works, only: [:index, :create, :edit , :update, :destroy] do
     resources  :favorites, only: [:create, :index, :destroy]
   end
   get '/works/step1_selection' => 'works#step1_selection', as: "works_1"

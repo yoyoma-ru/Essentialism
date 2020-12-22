@@ -4,9 +4,12 @@ class WorksController < ApplicationController
 	end
 
 	def create
-		@writing = Work.new(work_params)
-		if @writing.save
-			redirect_to request.referer
+		@work = Work.new(work_params)
+		if @work.save
+			respond_to do |format|
+				format.html{redirect_to request.referer}
+				format.json
+			end
 		else
 			redirect_to works_path
 		end
@@ -83,7 +86,8 @@ class WorksController < ApplicationController
 	end
 
 	def user_works
-		@essential_goals = Work.where(genre: 7)
+		@essential_goals = Work.where(genre: 8).order(created_at: :desc).limit(10)
+		@all_ranks = Work.find(Favorite.group(:work_id).order('count(work_id) desc').limit(10).pluck(:work_id))
 	end
 
 	def user_work
