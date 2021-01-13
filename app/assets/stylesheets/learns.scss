@@ -108,6 +108,19 @@ li{
 	color: #fff;
 	border-radius: 10px;
 }
+@media screen and (max-width: 600px){
+	.part3{
+		position: absolute;
+		z-index: 6;
+		width: 140px;
+		top: 320px;
+		left: 200px;
+		text-align: center;
+		background-color: #000;
+		color: #fff;
+		border-radius: 10px;
+	}
+}
 .part4{
 	position: absolute;
 	z-index: 6;
