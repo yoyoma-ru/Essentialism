@@ -10,6 +10,6 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  validates :name, length: {in: 1..20}
+  validates :name, length: {in: 1..10}
   validates :introduction, length: {maximum: 300}
 end
