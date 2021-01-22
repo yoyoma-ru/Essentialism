@@ -34,24 +34,26 @@
           </a>
         </div>
         <div id="sp-menu">
-          <h1>MENU</h1>
-          <% if user_signed_in? %>
-            <ul>
-              <li><%= link_to "My Page", user_path(current_user.id) %></li>
-              <li><%= link_to "Learns", learns_path %></li>
-              <li><%= link_to "My Works", works_path %></li>
-              <li><%= link_to "User Works", user_works_path %></li>
-              <li>Favorites</li>
-              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-            </ul>
-          <% else %>
-            <ul>
-              <li><%= link_to "Sign in", new_user_registration_path %></li>
-              <li><%= link_to "Log in", new_user_session_path %></li>
-              <li><%= link_to "Learn", learns_path %></li>
-              <li><%= link_to "About", about_path %></li>
-            </ul>
-          <% end %>
+          <nav>
+            <h1>MENU</h1>
+            <% if user_signed_in? %>
+              <ul>
+                <li><%= link_to "My Page", user_path(current_user.id) %></li>
+                <li><%= link_to "Learns", learns_path %></li>
+                <li><%= link_to "My Works", works_path %></li>
+                <li><%= link_to "User Works", user_works_path %></li>
+                <li><a href="#">Favorites</a></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <% else %>
+              <ul>
+                <li><%= link_to "Sign in", new_user_registration_path %></li>
+                <li><%= link_to "Log in", new_user_session_path %></li>
+                <li><%= link_to "Learns", learns_path %></li>
+                <li><%= link_to "About", about_path %></li>
+              </ul>
+            <% end %>
+          </nav>
         </div>
         <!-- ハンバーガメニュー -->
       </div>
@@ -63,7 +65,7 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row footer"> ©2020/Essentialism/All Rigth Reserved</div>
+      <div class="row footer"> ©2021/Essentialism/All Rigth Reserved</div>
     </div>
 
   </body>

@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-xs-offset-1 col-xs-10">
+	<div class="col-sm-offset-1 col-sm-10">
 		<h1 class="learn-headline">
 			第1章　エッセンシャル思考と非エッセンシャル思考
 		</h1>
@@ -12,9 +12,9 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-offset-1 col-xs-5">
+	<div class="col-sm-offset-1 col-sm-5">
 		<div class="row">
-			<div class="col-xs-offset-1 col-xs-10 non_essential-contents">
+			<div class="col-sm-offset-1 col-sm-10 non_essential-contents">
 				<h2>非エッセンシャル思考</h2>
 				<p class="learn-contents">
 					考え方　[みんな・全て]<br>
@@ -38,9 +38,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-5">
+	<div class="col-sm-5">
 		<div class="row">
-			<div class="col-xs-offset-1 col-xs-10 essential-contents">
+			<div class="col-sm-offset-1 col-sm-10 essential-contents">
 				<h2>エッセンシャル思考</h2>
 				<p class="learn-contents">
 					考え方　[より少なく、しかしより良く]<br>
@@ -67,36 +67,36 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-offset-1 col-xs-5">
+	<div class="col-sm-offset-1 col-sm-5">
 		<div class="row">
-			<div class="col-xs-offset-1 col-xs-10 non_essential-memo">
+			<div class="col-sm-offset-1 col-sm-10 non_essential-memo">
 				<%= form_with model: @memo, url: learns_path do |f| %>
 				    <div class="form-gorup">
 				    	<%= f.label :memo, "非エッセンシャル思考メモ" %><br>
-				    	<%= f.text_area :memo, class:"col-xs-12 text-black", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
+				    	<%= f.text_area :memo, class:"col-sm-12 text-black", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
 				    </div>
 				    <%= f.hidden_field :user_id, :value => current_user.id %>
 				    <%= f.hidden_field :chapter, :value => 1 %>
 				    <%= f.hidden_field :essential_type, :value => 0 %>
 				    <br>
-				    <%= f.submit "メモを作成", class:"pull-right text-black" %>
+				    <%= f.submit "メモを追加", class:"pull-right text-black" %>
 				<% end %>
 			</div>
 		</div>
 	</div>
-	<div class="col-xs-5">
+	<div class="col-sm-5">
 		<div class="row">
-			<div class="col-xs-offset-1 col-xs-10 essential-memo">
+			<div class="col-sm-offset-1 col-sm-10 essential-memo">
 				<%= form_with model: @memo, url: learns_path do |f| %>
 				    <div class="form-gorup">
 				    	<%= f.label :memo, "エッセンシャル思考メモ" %><br>
-				    	<%= f.text_area :memo, class:"col-xs-12", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
+				    	<%= f.text_area :memo, class:"col-sm-12", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
 				    </div>
 				    <%= f.hidden_field :user_id, :value => current_user.id %>
 				    <%= f.hidden_field :chapter, :value => 1 %>
 				    <%= f.hidden_field :essential_type, :value => 1 %>
 				    <br>
-				    <%= f.submit "メモを作成", class:"pull-right" %>
+				    <%= f.submit "メモを追加", class:"pull-right" %>
 				<% end %>
 			</div>
 		</div>
@@ -104,22 +104,22 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-offset-1 col-xs-5">
+	<div class="col-sm-offset-1 col-sm-5">
 		<p>非エッセンシャル思考メモ一覧</p>
 		<% @non_essential_memos.each do |non_essential| %>
 		    <div class="row">
-			    <div class="col-xs-offset-1 col-xs-10 non_essential-memo"><%= non_essential.memo %></div>
+			    <div class="col-sm-offset-1 col-sm-10 non_essential-memo"><%= non_essential.memo %></div>
 			</div>
 			<span><%= link_to "削除", learn_path(non_essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %></span>
 			<span><%= link_to "編集", edit_learn_path(non_essential), class:"btn btn-success btn-sm pull-right" %></span>
 			<br>
 		<% end %>
 	</div>
-	<div class="col-xs-5">
+	<div class="col-sm-5">
 		<p>エッセンシャル思考メモ一覧</p>
 		<% @essential_memos.each do |essential| %>
 		    <div class="row">
-			    <div class="col-xs-offset-1 col-xs-10 essential-memo"><%= essential.memo %></div>
+			    <div class="col-sm-offset-1 col-sm-10 essential-memo"><%= essential.memo %></div>
 			</div>
 			<span><%= link_to "削除", learn_path(essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %></span>
 			<span><%= link_to "編集", edit_learn_path(essential), class:"btn btn-success btn-sm pull-right" %></span>
@@ -129,13 +129,13 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-offset-1 col-xs-10 nav-bottom">
-		<div class="col-xs-offset-1 col-xs-2"></div>
+	<div class="col-sm-offset-1 col-sm-10 nav-bottom">
+		<div class="col-sm-offset-1 col-sm-2"></div>
 		<div>
-			<%= link_to "一覧", "/learns", class:"btn btn-default col-xs-offset-2 col-xs-2" %>
+			<%= link_to "一覧", "/learns", class:"btn btn-default col-sm-offset-2 col-sm-2" %>
 		</div>
 		<div>
-			<%= link_to "次章", "/learns/chapter2", class:"btn btn-default col-xs-offset-2 col-xs-2" %>
+			<%= link_to "次章", "/learns/chapter2", class:"btn btn-default col-sm-offset-2 col-sm-2" %>
 		</div>
 	</div>
 </div>
