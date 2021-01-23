@@ -15,19 +15,30 @@
 
     <div class="container-fluid space_bottom">
       <div class="row header">
-        <div class="col-xs-2 logo-image"></div>
-        <div class="col-xs-offset-1 col-xs-6 title">エッセンシャル思考</div>
+        <div class="col-sm-5 title">エッセンシャル思考</div>
+        <div class="col-sm-6 header-menu">
+          <ul>
+            <li><%= link_to "Learns", learns_path %></li>
+            <li>/</li>
+            <li><%= link_to "My Works", works_path %></li>
+            <li>/</li>
+            <li><%= link_to "User Works", user_works_path %></li>
+            <li>/</li>
+            <li><a href="#">Favorites</a></li>
+          </ul>
+        </div>
         <% if user_signed_in? %>
-            <div class="col-xs-2 guest-name">
-              "<%= link_to " #{current_user.name} ", user_path(current_user.id) %>"様
+            <div class="header_user-icon">
+              <%= link_to user_path(current_user) do %>
+                <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg" %>
+              <% end %>
             </div>
         <% else %>
-            <div class="col-xs-2 guest-name">ようこそ<br>” ゲスト ”様</div>
+            <div class="header_user-icon">ようこそ<br>” ゲスト様 ”</div>
         <% end %>
         <!-- ハンバーガーメニュー -->
         <div id="hm-icon">
           <a class="menu-trigger" href="#">
-            <span></span>
             <span></span>
             <span></span>
             <div class="menu-text">MENU</div>

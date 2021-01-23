@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-sm-offset-1 col-sm-10">
-		<h1 class="learn-headline">
-			第1章　エッセンシャル思考と非エッセンシャル思考
+		<h1 class="col-sm-12 chapter-headline">
+			<p class="chapter-number">第1章</p>〜エッセンシャル思考と非エッセンシャル思考〜
 		</h1>
-		<div class="headline-explanation">
+		<div class="col-sm-offset-2 col-sm-8 chapter-explanation">
 			正しいことをやり遂げる技術。<br>
 			自分の時間とエネルギーをもっとも効果的に配分し、<br>
 			重要な仕事で最大の成果を上げる。
@@ -12,50 +12,26 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-offset-1 col-sm-5">
+	<div class="col-sm-offset-1 col-sm-9">
 		<div class="row">
-			<div class="col-sm-offset-1 col-sm-10 non_essential-contents">
-				<h2>非エッセンシャル思考</h2>
-				<p class="learn-contents">
-					考え方　[みんな・全て]<br>
-					・やらなくては<br>
-					・どれも大事だ<br>
-					・全部こなす方法は？
-				</p>
-				<p class="learn-contents">
-					行動　[やることをでたらめに増やす]<br>
-					・差し迫ったものからやる<br>
-					・反射的に「やります」と言う<br>
-					・期限が迫ると根性で頑張る
-				</p>
-				<p class="learn-contents">
-					結果　[無力感]<br>
-					・何もかも中途半端<br>
-					・振り回されている<br>
-					・何かがおかしい<br>
-					・疲れ切っている
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-5">
-		<div class="row">
-			<div class="col-sm-offset-1 col-sm-10 essential-contents">
-				<h2>エッセンシャル思考</h2>
-				<p class="learn-contents">
-					考え方　[より少なく、しかしより良く]<br>
+			<div class="col-sm-12 essential-contents">
+				<p class="learn-contents essential-circle">
+					考え方<br>
+					[より少なく、しかしより良く]<br><br>
 					・これをやろう<br>
 					・大事なことは少ない<br>
 					・何を捨てるべきか
 				</p>
-				<p class="learn-contents">
-					行動　[やることを計画的に減らす]<br>
+				<p class="learn-contents essential-circle">
+					行動<br>
+					[やることを計画的に減らす]<br><br>
 					・本当に重要なことを見定める<br>
 					・大事なこと以外は断る<br>
 					・あらかじめ障害を取り除いておく
 				</p>
-				<p class="learn-contents">
-					結果　[充実感]<br>
+				<p class="learn-contents essential-circle">
+					結果<br>
+					[充実感]<br><br>
 					・質の高い仕事ができる<br>
 					・コントロールしている<br>
 					・正しいことをやっている<br>
@@ -65,6 +41,50 @@
 		</div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-sm-offset-2 col-sm-9">
+			<div class="col-sm-12 non_essential-contents">
+				<div class="col-sm-4 learn-contents non_essential-circle">
+					考え方<br>
+					[みんな・全て]<br><br>
+					・やらなくては<br>
+					・どれも大事だ<br>
+					・全部こなす方法は？
+				</div>
+				<div class="col-sm-4 learn-contents non_essential-circle">
+					行動<br>
+					[やることをでたらめに増やす]<br><br>
+					・差し迫ったものからやる<br>
+					・反射的に「やります」と言う<br>
+					・期限が迫ると根性で頑張る
+				</div>
+				<div class="col-sm-4 learn-contents non_essential-circle">
+					結果<br>
+					[無力感]<br><br>
+					・何もかも中途半端<br>
+					・振り回されている<br>
+					・何かがおかしい<br>
+					・疲れ切っている
+				</div>
+			</div>
+	</div>
+	<div class="col-sm-6">
+			<div class="col-sm-12 non_essential-memo">
+				<%= form_with model: @memo, url: learns_path do |f| %>
+				    <div class="form-gorup">
+				    	<%= f.label :memo, "非エッセンシャル思考メモ" %><br>
+				    	<%= f.text_area :memo, class:"col-sm-12 text-black", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
+				    </div>
+				    <%= f.hidden_field :user_id, :value => current_user.id %>
+				    <%= f.hidden_field :chapter, :value => 1 %>
+				    <%= f.hidden_field :essential_type, :value => 0 %>
+				    <br>
+				    <%= f.submit "メモを追加", class:"pull-right text-black" %>
+				<% end %>
+			</div>
+	</div>
+</div>
+
 
 <div class="row">
 	<div class="col-sm-offset-1 col-sm-5">

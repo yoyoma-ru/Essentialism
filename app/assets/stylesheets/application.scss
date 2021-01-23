@@ -16,6 +16,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+
 
 
 /* ↓共通CSS↓ */
@@ -42,7 +44,7 @@
 	color: black;
 }
 
-$header-height: 61px;
+$header-height: 80px;
 
 /* ↑共通CSS↑ */
 
@@ -50,124 +52,75 @@ $header-height: 61px;
 /* ↓ヘッダー↓ */
 .header{
 	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: $header-height;
-	border: solid 5px #000;
 	z-index: 8;
-	background-color: #fff;
-
-	.logo-image{
-	    height: $header-height - 10px;
-	    background-image: image-url("logo.jpg");
-	    background-position: 5px;
-	    background-size: 100px 54px;
-	    background-repeat: no-repeat;
-	}
+	background-color:rgba(255,255,255,0.8);
 	.title{
-	    font-size: 39px;
-	    text-align: center;
+	    font-size: 26px;
+	    padding-left: 40px;
 	    font-weight: 900;
+	    line-height: $header-height + 10;
+	    font-family: 'Sawarabi Mincho', sans-serif, "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
 	}
-	.guest-name{
+	.header-menu{
+		font-size: 14px;
+		text-align: center;
+		line-height: $header-height + 10;
+		padding-left: 0;
+		ul{
+			display: flex;
+			flex-flow: row wrap;
+			align-items: center;
+			justify-content: flex-end;
+			li{
+				padding-right: 15px;
+			}
+		}
+	}
+	.header_user-icon{
+		position: fixed;
+		top: 31px;
+		right: 69px;
 	    text-align: center;
-	    padding-top: 17px;
 	    padding-right: 0px;
 	    font-size: 12px;
+	    img{
+	    	border-radius: 50%;
+	    	width: 30px;
+	    	height: 30px;
+	    }
 	}
 
 	@media screen and (max-width: 768px){
+		height: $header-height - 20;
 		.title{
-			padding-top: 1px;
-			font-size: 34px;
+			font-size: 20px;
+			line-height: $header-height - 10;
 		}
-		.guest-name{
+		.header-menu{
+			display: none;
+		}
+		.header_user-icon{
+			top: 23px;
+			right: 67px;
 			font-size: 10px;
-		}
-	}
-	@media screen and (max-width: 680px){
-		height: $header-height - 12px;
-		.logo-image{
-			height: $header-height - 22px;
-			background-size: 80px 40px;
-		}
-		.title{
-			font-size: 29px;
-		}
-		.guest-name{
-			padding-top: 11px;
-			/* ↓font-size: 8px;↓ */
-			font-size: 10px;
-			-webkit-transform: scale(0.8);
-		}
-	}
-	@media screen and (max-width: 590px){
-		height: $header-height - 18px;
-		.logo-image{
-			height: $header-height - 28px;
-			background-position: 2px;
-			background-size: 75px 36px;
-		}
-		.title{
-			padding-top: 3px;
-			padding-left: 0;
-			padding-right: 0;
-			font-size: 23px;
-		}
-		.guest-name{
-			padding-top: 5px;
-			padding-left: 0px;
-			letter-spacing: -0.05em;
-		}
-	}
-	@media screen and (max-width: 481px){
-		height: $header-height - 26px;
-		border: solid 3px #000;
-		.logo-image{
-			height: $header-height - 32px;
-			background-position: 0px;
-			background-size: 95% 33px;
-		}
-		.title{
-			font-size: 17px;
-		}
-		.guest-name{
-			width: 56px;
-			padding-top: 4px;
-			/* ↓font-size: 8px;↓ */
-			font-size: 10px;
-			-webkit-transform: scale(0.8);
-			letter-spacing: -0.15em;
-		}
-	}
-	@media screen and (max-width: 400px){
-		height: $header-height - 26px;
-		border: solid 3px #000;
-		.logo-image{
-			height: $header-height - 32px;
-			background-position: 0px;
-			background-size: 95% 33px;
-		}
-		.title{
-			font-size: 17px;
-		}
-		.guest-name{
-			width: 56px;
-			padding-top: 3px;
-			/* ↓font-size: 6px;↓ */
-			font-size: 10px;
-			-webkit-transform: scale(0.6);
-			letter-spacing: -0.15em;
+			img{
+				width: 25px;
+				height: 25px;
+			}
 		}
 	}
 }
 
 
-
 /*ハンバーガーicon*/
 #hm-icon{
 	position: fixed;
-	right: 10px;
-	top: 11px;
+	top: 36px;
+	right: 20px;
 	z-index: 10;
 	.menu-trigger, .menu-trigger span{
 		display: inline-block;
@@ -176,15 +129,14 @@ $header-height: 61px;
 	}
 	.menu-trigger{
 		position: relative;
-		width: 40px;
-		height: 43px;
+		width: 37px;
+		height: 32px;
 		span{
 			position: absolute;
-			left: 4px;
+			left: 2px;
 			width: 80%;
-			height: 3.5px;
+			height: 3px;
 			background-color: #000;
-			border-radius: 4px;
 		}
 		span:nth-of-type(1){
 			top: 0;
@@ -192,157 +144,55 @@ $header-height: 61px;
 		span:nth-of-type(2){
 			top: 9px;
 		}
-		span:nth-of-type(3){
-			top: 18px;
-		}
 		.menu-text{
 			position: absolute;
-			bottom: 0;
+			left: 2px;
+			bottom: 1px;
 			text-align: center;
-			font-weight: bold;
+			font-size: 11px;
 			color: #000;
+			z-index: 8;
 		}
 	}
 	.menu-trigger.active span:nth-of-type(1){
-		-webkit-transform: translateY(13px) rotate(-45deg);
-		transform: translateY(13px) rotate(-45deg);
+		-webkit-transform: translateY(2px) rotate(-45deg);
+		transform: translateY(2px) rotate(-45deg);
 		background-color: #fff;
 	}
 	.menu-trigger.active span:nth-of-type(2){
-		opacity: 0;
-	}
-	.menu-trigger.active span:nth-of-type(3){
-		-webkit-transform: translateY(-5px) rotate(45deg);
-		transform: translateY(-5px) rotate(45deg);
+		-webkit-transform: translateY(-8px) rotate(45deg);
+		transform: translateY(-8px) rotate(45deg);
 		background-color: #fff;
 	}
 
 
-	@media screen and (max-width: 680px){
+	@media screen and (max-width: 768px){
+		top: 25px;
+		right:20px;
 		.menu-trigger{
-			.menu-text{
-				left: 2px;
-				bottom: 8px;
-				font-size: 12px;
-			}
-		}
-		.menu-trigger span:nth-of-type(1){
-			top: -2px;
-		}
-		.menu-trigger span:nth-of-type(2){
-			top: 6px;
-		}
-		.menu-trigger span:nth-of-type(3){
-			top: 14px;
-		}
-		.menu-trigger.active span:nth-of-type(1){
-			-webkit-transform: translateY(10px) rotate(-45deg);
-			transform: translateY(10px) rotate(-45deg);
-		}
-		.menu-trigger.actibe span:nth-of-type(3){
-			-webkit-transform: translateY(-6px) rotate(45deg);
-			transform: translateY(-6px) rotate(45deg);
-		}
-	}
-	@media screen and (max-width: 590px){
-		right: 4px;
-		top: 10px;
-		.menu-trigger{
-			width: 35px;
+			width: 33px;
+			height: 27px;
 			span{
+				widht: 70%;
 				height: 2.5px;
-				width:70%;
 			}
 			.menu-text{
-				left: 2px;
-				bottom: 13px;
+				left: 1px;
 				font-size: 10px;
+				transform: scale(0.8);
+				-webkit-transform: scale(0.8);
 			}
-		}
-		.menu-trigger span:nth-of-type(1){
-			top: -2px;
 		}
 		.menu-trigger span:nth-of-type(2){
-			top: 6px;
-		}
-		.menu-trigger span:nth-of-type(3){
-			top: 13px;
+			top: 7px;
 		}
 		.menu-trigger.active span:nth-of-type(1){
-			-webkit-transform: translateY(10px) rotate(-45deg);
-			transform: translateY(10px) rotate(-45deg);
+			-webkit-transform: translateY(3px) rotate(-45deg);
+			transform: translateY(3px) rotate(-45deg);
 		}
-		.menu-trigger.actibe span:nth-of-type(3){
-			-webkit-transform: translateY(-6px) rotate(45deg);
-			transform: translateY(-6px) rotate(45deg);
-		}
-	}
-	@media screen and (max-width: 590px){
-		right: 4px;
-		top: 10px;
-		.menu-trigger{
-			width: 35px;
-			span{
-				height: 2.5px;
-				width:70%;
-			}
-			.menu-text{
-				left: 2px;
-				bottom: 13px;
-				font-size: 10px;
-			}
-		}
-		.menu-trigger span:nth-of-type(1){
-			top: -2px;
-		}
-		.menu-trigger span:nth-of-type(2){
-			top: 6px;
-		}
-		.menu-trigger span:nth-of-type(3){
-			top: 13px;
-		}
-		.menu-trigger.active span:nth-of-type(1){
-			-webkit-transform: translateY(10px) rotate(-45deg);
-			transform: translateY(10px) rotate(-45deg);
-		}
-		.menu-trigger.actibe span:nth-of-type(3){
-			-webkit-transform: translateY(-6px) rotate(45deg);
-			transform: translateY(-6px) rotate(45deg);
-		}
-	}
-	@media screen and (max-width: 481px){
-		right: 2px;
-		top: 8px;
-		.menu-trigger{
-			width: 32px;
-			span{
-				height: 2.5px;
-				width:70%;
-			}
-			.menu-text{
-				left: 0px;
-				bottom: 17px;
-				/* ↓font-size: 9px;↓ */
-				font-size: 10px;
-				-webkit-transform: scale(0.9);
-			}
-		}
-		.menu-trigger span:nth-of-type(1){
-			top: -2px;
-		}
-		.menu-trigger span:nth-of-type(2){
-			top: 4px;
-		}
-		.menu-trigger span:nth-of-type(3){
-			top: 10px;
-		}
-		.menu-trigger.active span:nth-of-type(1){
-			-webkit-transform: translateY(10px) rotate(-45deg);
-			transform: translateY(7px) rotate(-45deg);
-		}
-		.menu-trigger.actibe span:nth-of-type(3){
-			-webkit-transform: translateY(-6px) rotate(45deg);
-			transform: translateY(-6px) rotate(45deg);
+		.menu-trigger.active span:nth-of-type(2){
+			-webkit-transform: translateY(-4px) rotate(45deg);
+			transform: translateY(-4px) rotate(45deg);
 		}
 	}
 }
@@ -459,8 +309,6 @@ $header-height: 61px;
 	background-color: #000;
 	color: #fff;
 	text-align: center;
-	position: fixed;
-	bottom: 0;
 	z-index: 8;
 	@media screen and (max-width: 680px){
 		height: 15px;
