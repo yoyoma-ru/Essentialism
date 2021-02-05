@@ -101,6 +101,9 @@ class LearnsController < ApplicationController
 	def chapter19
 	end
 
+	def chapter20
+	end
+
 	private
 	def learn_params
 		params.require(:learn).permit(:user_id, :essential_type, :chapter, :memo)

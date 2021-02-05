@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get '/learns/chapter17' => 'learns#chapter17', as: :chapter17
   get '/learns/chapter18' => 'learns#chapter18', as: :chapter18
   get '/learns/chapter19' => 'learns#chapter19', as: :chapter19
+  get '/learns/chapter20' => 'learns#chapter20', as: :chapter20
 
   resources :works, only: [:index, :create, :edit , :update, :destroy] do
     resources  :favorites, only: [:create, :index, :destroy]
