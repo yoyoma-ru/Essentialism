@@ -3,175 +3,188 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+/* 共通 */
+$learn-circle_height: 500px;
+$font-size_style-1: 42px; /* headline */
+$font-size_style-2: 21px; /* part */
+$font-size_style-3: 16px; /* aのリンク */
+/* 共通 */
+
+li{
+	list-style: none;
+}
+
+/* index */
 .learn-headline{
 	text-align: center;
-	margin: 40px 0 10px;
+	margin: 20px 0 5px;
 	font-weight: bold;
+	font-size: 39px;
 }
 .bottom-line{
-	height: 2px;
-	margin-bottom: 10px;
-	background-color: #000;
-}
-.headline-explanation{
-	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 50px;
-}
-.part1{
+	height: 3px;
 	margin: 0 auto;
 	background-color: #000;
-	color: #fff;
-	border-radius: 10px;
-	width: 90%;
-	text-align: center;
+	width: 100%;
 }
-ul{
-	li{
-	    list-style: none;
-	    margin: 20px 90px;
+.headline-explanation{
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	text-align: center;
+	line-height: 250%;
+	font-size: 16px;
+	width: 90%;
+	letter-spacing: -0.01em;
+}
+.learn-box{
+	border: 1px solid #000;
+	border-radius: 10px;
+	text-align: center;
+	padding: 5px;
+	margin: 10px;
+	width: 200px;
+	height: 200px;
+}
+.col-xs-9{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+
+/* ↓Learnの各章CSS↓ */
+
+
+.chapter-headline{
+	margin-top: 70px;
+	margin-bottom: 0;
+	font-size: 30px;
+	text-align: left;
+	font-family: 'Sawarabi Mincho', sans-serif, "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+	height: 70vh;
+	.chapter-number{
+		font-size: 13px;
+		border-left: 3px solid #000;
+		padding-left: 0;
+		margin-bottom: -10px;
+		width: 7px;
+		writing-mode: vertical-lr;
+		text-orientation: upright;
+		font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+	}
+	.chapter-title{
+		position: absolute;
+		top: -4px;
+		left: 42px;
+	}
+	.point{
+		font-size: 45px;
+		font-weight: 900;
+		text-align: center;
+		line-height: 60vh;
 	}
 }
-
-.circle{
-    position: relative;
-    z-index: 5;
-	width: 500px;
-	height: 500px;
-	border-radius: 50%;
-	margin: 30px auto;
-	border: solid 8px #000;
+.quotations{
+	text-align: right;
+	margin-bottom: 65px;
+	font-size: 16px;
+}
+.chapter-explanation{
+	font-size: 20px;
 	text-align: center;
-	line-height: 490px;
-	font-size: 32px;
-	text-decoration: underline;
-	font-weight: bold;
+	margin-bottom: 65px;
+}
+.chapter_text-box{
+	margin-bottom: 30px;
+	.case-study{
+		font-size: 20px;
+		text-align:center;
+	}
+	.chapter_text-item{
+		margin-top: 40px;
+		margin-bottom: 20px;
+		line-height: 150%;
+		h3{
+			margin-top: 0;
+			margin-bottom: 20px;
+			/* border-bottom: 1px dashed red; */
+			font-size: 55px;
+			font-weight: 400;
+			color: grey;
+		}
+		.number-title{
+			position: absolute;
+			top: 15px;
+			left: 88px;
+			font-size: 30px;
+			font-weight: bold;
+		}
+		.number-title_english{
+			position: absolute;
+			top: 39px;
+			left: 90px;
+			font-size: 12px;
+			color: gray;
+		}
+	}
+}
+.border-line{
+	height: 2px;
+	background-color: #E6E6E6;
+	margin-bottom: 40px;
 }
 
-.part2{
-	position: absolute;
-	z-index: 6;
-	top: 5px;
-	left: 43%;
-	text-align: center;
-	background-color: #000;
-	color: #fff;
-	border-radius: 10px;
+.chapter_style-1{
+	padding: 15px 0;
 }
-.part3{
-	position: absolute;
-	z-index: 6;
-	top: 330px;
-	left: 67%;
-	text-align: center;
-	background-color: #000;
-	color: #fff;
-	border-radius: 10px;
-}
-.part4{
-	position: absolute;
-	z-index: 6;
-	top: 330px;
-	left: 20%;
-	text-align: center;
-	background-color: #000;
-	color: #fff;
-	border-radius: 10px;
-}
-
-.learn-part p{
-	position: absolute;
-	z-index: 6;
-}
-.learn-part p:nth-of-type(1){
-	top: 45px;
-	left: 62%;
-}
-.learn-part p:nth-of-type(2){
-	top: 100px;
-	left: 67%;
-}
-.learn-part p:nth-of-type(3){
-	top: 160px;
-	left: 71%;
-}
-.learn-part p:nth-of-type(4){
-	top: 220px;
-	left: 73%;
-}
-.learn-part p:nth-of-type(5){
-	top: 280px;
-	left: 73%;
-}
-.learn-part p:nth-of-type(6){
-	top: 430px;
-	left: 68%;
-}
-.learn-part p:nth-of-type(7){
-	top: 495px;
-	left: 63%;
-}
-.learn-part p:nth-of-type(8){
-	top: 540px;
-	left: 45%;
-}
-.learn-part p:nth-of-type(9){
-	top: 495px;
-	left: 32%;
-}
-.learn-part p:nth-of-type(10){
-	top: 430px;
-	left: 24%;
-}
-.learn-part p:nth-of-type(11){
-	top: 280px;
-	left: 18%;
-}
-.learn-part p:nth-of-type(12){
-	top: 220px;
-	left: 20%;
-}
-.learn-part p:nth-of-type(13){
-	top: 160px;
-	left: 22%;
-}
-.learn-part p:nth-of-type(14){
-	top: 100px;
-	left: 26%;
-}
-.learn-part p:nth-of-type(15){
-	top: 45px;
-	left: 32%;
+.chapter_style-2{
+	margin-bottom: 45px;
 }
 
 
-.learn-contents{
-	margin: 20px 20px;
-	text-align: left;
-	padding-left: 70px;
+.essential-contents{
+	margin: 30px 0;
+	display: flex;
+	flex-wrap: wrap;
+	h2{
+	    text-decoration: underline;
+	}
+	.essential-circle{
+		width: 250px;
+		height: 250px;
+		border-radius: 50%;
+		background-color: #f4f4f4;
+		border: 1px solid #f4f4f4;
+		text-align: center;
+		padding-top: 50px;
+		margin: 10px 10px;
+	}
 }
-
+.essential-memo{
+	border: solid 3px #000;
+}
 .non_essential-contents{
-	background-color: #000;
 	color: #fff;
 	margin: 30px 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
 	h2{
-	    text-align:center;
 	    text-decoration: underline;
+	}
+	.non_essential-circle{
+		width: 250px;
+		height: 250px;
+		border-radius: 50%;
+		border: 2px solid #000;
+		background-color: #000;
+		text-align: center;
+		padding-top: 50px;
+		margin: 10px 10px;
 	}
 }
 .non_essential-memo{
 	background-color: #000;
 	color: #fff;
-}
-.essential-contents{
-	border: solid 3px #000;
-	margin: 30px 0;
-	h2{
-	    text-align:center;
-	    text-decoration: underline;
-	}
-}
-.essential-memo{
-	border: solid 3px #000;
 }

@@ -2,6 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Essentialism</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,44 +15,58 @@
 
     <div class="container-fluid space_bottom">
       <div class="row header">
-        <div class="col-xs-2 logo-image"></div>
-        <div class="col-xs-offset-1 col-xs-6 title">エッセンシャル思考</div>
+        <div class="col-sm-5 title">Essentialism</div>
+        <div class="col-sm-6 header-menu">
+          <ul>
+            <li><%= link_to "Learns", learns_path %></li>
+            <li>/</li>
+            <li><%= link_to "My Works", works_path %></li>
+            <li>/</li>
+            <li><%= link_to "User Works", user_works_path %></li>
+            <li>/</li>
+            <li><a href="#">Favorites</a></li>
+          </ul>
+        </div>
         <% if user_signed_in? %>
-            <div class="col-xs-2 guest-name">
-              ようこそ<br>
-              "<%= link_to " #{current_user.name} ", user_path(current_user.id) %>"様
+            <div class="header_user-icon">
+              <%= link_to user_path(current_user) do %>
+                <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg" %>
+              <% end %>
             </div>
         <% else %>
-            <div class="col-xs-2 guest-name">ようこそ<br>” ゲスト ”様</div>
+            <div class="header_user-icon">ようこそ<br>” ゲスト様 ”</div>
         <% end %>
         <!-- ハンバーガーメニュー -->
         <div id="hm-icon">
           <a class="menu-trigger" href="#">
             <span></span>
             <span></span>
-            <span></span>
             <div class="menu-text">MENU</div>
           </a>
         </div>
         <div id="sp-menu">
-          <h1>MENU</h1>
-          <% if user_signed_in? %>
-            <ul>
-              <li><%= link_to "My Page", user_path(current_user.id) %></li>
-              <li><%= link_to "Learns", learns_path %></li>
-              <li><%= link_to "My Works", works_path %></li>
-              <li><%= link_to "User Works", user_works_path %></li>
-              <li>Favorites</li>
-              <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-            </ul>
-          <% else %>
-            <ul>
-              <li><%= link_to "Sign in", new_user_registration_path %></li>
-              <li><%= link_to "Log in", new_user_session_path %></li>
-              <li><%= link_to "Learn", learns_path %></li>
-              <li><%= link_to "About", about_path %></li>
-            </ul>
-          <% end %>
+          <nav>
+            <h1>MENU</h1>
+            <% if user_signed_in? %>
+              <ul>
+                <li><%= link_to "My Page", user_path(current_user.id) %></li>
+                <li><%= link_to "Learns", learns_path %></li>
+                <li><%= link_to "My Works", works_path %></li>
+                <li><%= link_to "User Works", user_works_path %></li>
+                <li><a href="#">Favorites</a></li>
+                <li><%= link_to "Top", root_path %></li>
+                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <% else %>
+              <ul>
+                <li><%= link_to "Sign in", new_user_registration_path %></li>
+                <li><%= link_to "Log in", new_user_session_path %></li>
+                <li><%= link_to "Learns", learns_path %></li>
+                <li><%= link_to "About", about_path %></li>
+              </ul>
+            <% end %>
+          </nav>
         </div>
         <!-- ハンバーガメニュー -->
       </div>
@@ -63,7 +78,7 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row footer"> ©2020/Essentialism/All Rigth Reserved</div>
+      <div class="row footer"> ©2021/Essentialism/All Rigth Reserved</div>
     </div>
 
   </body>
