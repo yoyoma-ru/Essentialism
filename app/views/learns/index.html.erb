@@ -1,64 +1,195 @@
 <div class="row">
-	<div class="col-sm-offset-1 col-sm-10">
-		<div class="row">
-			<h1 class="learn-headline">Learns</h1>
-			<div class="bottom-line"></div>
-			<div class="headline-explanation">Part1~4までの全19章を通して、エッセンシャル思考の考え方に触れていきます。<br>
-				それぞれの章ごとにエッセンシャル思考と非エッセンシャル思考について、<br>
-				考え方の違いを記載しているので、違いを確認しながら<br>
-				ご自身の体験と照らし合わせて考えたり、メモを残して見て下さい。
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-offset-1 col-sm-10">
-				<h3 class="part1">Part1<br>エッセンシャル思考とは何か？</h3>
-				<ul class="part1-link_items">
-					<li><%= link_to "1章　エッセンシャル思考と非エッセンシャル思考", chapter1_path, target: :_blank, rel: "noopener noreferrer" %></li>
-					<li><%= link_to "2章　選択", chapter2_path, target: :_blank, rel: "noopener noreferrer" %></li>
-					<li><%= link_to "3章　ノイズ", chapter3_path, target: :_blank, rel: "noopener noreferrer" %></li>
-					<li><%= link_to "4章　トレードオフ", chapter4_path, target: :_blank, rel: "noopener noreferrer" %></li>
-				</ul>
-			</div>
-			<div class="col-sm-offset-2"></div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 learn-parts">
-			    <div class="learn-circle">
-			    	<p>　正しく「減らす」</p>
-			    	<!-- ↓円の矢印↓ -->
-			    	<span class="arrow"></span>
-			    	<span class="arrow"></span>
-			    	<span class="arrow"></span>
-			    	<!-- ↑円の矢印↑ -->
-			    	<div class="part2">
-				    	<h4>Part2<br>「見極める技術」</h4>
-			    	</div>
-			    	<div class="part3">
-					    <h4>Part3<br>「捨てる技術」</h4>
-				    </div>
-				    <div class="part4">
-					    <h4>Part4<br>「仕組み化の技術」</h4>
-				    </div>
-			    </div>
-			    <div class="learn-links">
-					    <div><%= link_to "5章　孤独", chapter5_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "6章　洞察", chapter6_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "7章　遊び", chapter7_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "8章　睡眠", chapter8_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "9章　選抜", chapter9_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "10章　目標", chapter10_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "11章　拒否", chapter11_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "12章　キャンセル", chapter12_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "13章　編集", chapter13_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "14章　線引き", chapter14_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "15章　バッファ", chapter15_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "16章　削除", chapter16_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "17章　前進", chapter17_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "18章　習慣", chapter18_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					    <div><%= link_to "19章　集中", chapter19_path, target: :_blank, rel: "noopener noreferrer" %></div>
-					</div>
-			</div>
+	<div class="col-sm-offset-1 col-sm-11">
+		<h1 class="learn-headline">Learns</h1>
+		<div class="bottom-line"></div>
+		<div class="headline-explanation">
+			Part1~4の全20章を通して、エッセンシャル思考の考え方に触れていきます。
 		</div>
 	</div>
-	<div class="col-sm-offset-1"></div>
+</div>
+<div class="row">
+	<div class="col-sm-offset-1 col-sm-11">
+		<div class="row">
+			<div class="col-xs-3">
+				<h3>Part1</h3>
+				<p>〜土台〜</p>
+			</div>
+			<div class="col-xs-9">
+				<div>
+					<%= link_to chapter1_path do %>
+						<div class="learn-box">
+							<h3>1章</h3>
+							<p>エッセンシャル思考</p>
+						</div>
+					<% end %>
+				</div>
+				<div>
+					<%= link_to chapter2_path do %>
+						<div class="learn-box">
+							<h3>2章</h3>
+							<p>選択</p>
+						</div>
+					<% end %>
+				</div>
+				<div>
+					<%= link_to chapter3_path do %>
+						<div class="learn-box">
+							<h3>3章</h3>
+							<p>ノイズ</p>
+						</div>
+					<% end %>
+				</div>
+				<div>
+					<%= link_to chapter4_path do %>
+						<div class="learn-box">
+							<h3>4章</h3>
+							<p>トレードオフ</p>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-xs-3">
+				<h3>Part2</h3>
+				<p>〜見極める〜</p>
+			</div>
+			<div class="col-xs-9">
+				<div class="learn-box">
+					<%= link_to chapter5_path do %>
+						<div>
+							<h3>Part2</h3>
+							<p>5章　孤独</p>
+						</div>
+					<% end %>
+				</div>
+				<div class="learn-box">
+					<%= link_to chapter6_path do %>
+						<div>
+							<h3>Part2</h3>
+							<p>6章　洞察</p>
+						</div>
+					<% end %>
+				</div>
+				<div class="learn-box">
+					<%= link_to chapter7_path do %>
+						<div>
+							<h3>Part2</h3>
+							<p>7章　遊び</p>
+						</div>
+					<% end %>
+				</div>
+				<div class="learn-box">
+					<%= link_to chapter8_path do %>
+						<div>
+							<h3>Part2</h3>
+							<p>8章　睡眠</p>
+						</div>
+					<% end %>
+				</div>
+				<div class="learn-box">
+					<%= link_to chapter9_path do %>
+						<div>
+							<h3>Part2</h3>
+							<p>9章　選抜</p>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="learn-box">
+			<%= link_to chapter10_path do %>
+				<div>
+					<h3>Part3</h3>
+					<p>10章　目標</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter11_path do %>
+				<div>
+					<h3>Part3</h3>
+					<p>11章　拒否</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter12_path do %>
+				<div>
+					<h3>Part3</h3>
+					<p>12章　キャンセル</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter13_path do %>
+				<div>
+					<h3>Part3</h3>
+					<p>13章　編集</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter14_path do %>
+				<div>
+					<h3>Part3</h3>
+					<p>14章　線引き</p>
+				</div>
+			<% end %>
+		</div>
+
+
+		<div class="learn-box">
+			<%= link_to chapter15_path do %>
+				<div>
+					<h3>Part4</h3>
+					<p>15章　バッファ</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter16_path do %>
+				<div>
+					<h3>Part4</h3>
+					<p>16章　削減</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter17_path do %>
+				<div>
+					<h3>Part4</h3>
+					<p>17章　前進</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter18_path do %>
+				<div>
+					<h3>Part4</h3>
+					<p>18章　習慣</p>
+				</div>
+			<% end %>
+		</div>
+		<div>
+			<%= link_to chapter19_path do %>
+				<div class="learn-box">
+					<h3>Part4</h3>
+					<p>19章　集中</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="learn-box">
+			<%= link_to chapter20_path do %>
+				<div>
+					<h3>Part4</h3>
+					<p>20章　未来</p>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>
