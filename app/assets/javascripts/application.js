@@ -37,20 +37,20 @@ $(function(){
 });
 
 // topページskippr
-$(document).ready(function(){
-	$("#top-image-items").skippr({
-	transition : 'slide',
-	speed : 500,
-	easing : 'easeOutQuart',
-	navType : 'block',
-	childrenElemntType : 'div',
-	arrows : true,
-	autoPlay : true,
-	autoPlayDuration : 3000,
-	keyboardOnAlways : true,
-	hedePrevious : true,
-    });
-});
+// $(document).ready(function(){
+// 	$("#top-image-items").skippr({
+// 	transition : 'slide',
+// 	speed : 500,
+// 	easing : 'easeOutQuart',
+// 	navType : 'block',
+// 	childrenElemntType : 'div',
+// 	arrows : true,
+// 	autoPlay : true,
+// 	autoPlayDuration : 3000,
+// 	keyboardOnAlways : true,
+// 	hedePrevious : true,
+//     });
+// });
 // topページskippr
 
 // topページ画像の高さ指定
