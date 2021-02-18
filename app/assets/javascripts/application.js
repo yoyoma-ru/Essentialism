@@ -29,29 +29,7 @@ $(document).on('turbolinks:load', function(){
 });
 // ハンバーガー機能
 
-$(function(){
-	$('.linkInThePage').click( function () {
-		var hrefValue = jQuery(this).attr( 'href' );
-		$(hrefValue).animatescroll({padding:70},800);
-	} );
-});
 
-// topページskippr
-$(document).ready(function(){
-	$("#top-image-items").skippr({
-	transition : 'slide',
-	speed : 500,
-	easing : 'easeOutQuart',
-	navType : 'block',
-	childrenElemntType : 'div',
-	arrows : true,
-	autoPlay : true,
-	autoPlayDuration : 3000,
-	keyboardOnAlways : true,
-	hedePrevious : true,
-    });
-});
-// topページskippr
 
 // topページ画像の高さ指定
 $(document).ready(function () {
@@ -62,7 +40,5 @@ $(window).resize(function () {
     hsize = $(window).height();
     $(".top-images-box").css("height", hsize - 60 + "px");
 });
-// topページ画像の高さ指定
-
 
 

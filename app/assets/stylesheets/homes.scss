@@ -4,88 +4,111 @@
 
 @charset "UTF-8";
 
-.top-images-box{
-    img {width: 100%;}
-	height: 640px;
-	background-color: #000;
-}
-#top-image-items{
-
-	.top-image-item:nth-of-type(1){
-	    background-image: image-url("image1.jpg");
-	    background-positionn: center;
-	    background-size: contain;
-	    background-repeat: no-repeat;
-	}
-	.top-image-item:nth-of-type(2){
-	    background-image: image-url("image2.jpg");
-	    background-positionn: center;
-	    background-size: contain;
-	    background-repeat: no-repeat;
-	}
-	.top-image-item:nth-of-type(3){
-	    background-image: image-url("image3.jpg");
-	    background-positionn: center;
-	    background-size: contain;
-	    background-repeat: no-repeat;
-	}
-	.top-image-item:nth-of-type(4){
-	    background-image: image-url("image4.jpg");
-	    background-positionn: center;
-	    background-size: contain;
-	    background-repeat: no-repeat;
-	}
-}
-
-.top_page-text{
-    margin: 30px;
-	h2{
-	    text-align: left;
-	    text-decoration: underline;
-	}
-
-	p{
-	    padding: 10px 0 0 10px;
-	    line-height: 30px;
-	}
-}
+$header-height: 80px;
 
 
-$header_height: 55px;
-
-.navigation{
-    position: fixed;
-	top: $header_height;
-	left: 0;
+// ↓top.html.erb↓
+.top-images{
 	width: 100%;
-	background-color: rgba(128,128,128,0.5);
-
-	.nav_area{
-	    display: inline-block;
-	    height: 35px;
-	    width: 24%;
-
-	    li{
-	        text-align: center;
-	        list-style: none;
-
-	        a{
-	            text-decoration: none;
-	            color: #000;
-	            line-height: 35px;
-	        }
-	        a:hover{
-	            font-size: 1.5em;
-	            font-weight: bold;
-	        }
-	    }
-	}
+	height: 100vh;
+	position: fixed;
+	z-index: 5;
+}
+.image-style{
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	opacity: 0;
+}
+.top-image1{
+	background-image: image-url("homes/top-1.jpg");
+}
+.top-image2{
+	background-image: image-url("homes/top-2.jpg");
+}
+.top-image3{
+	background-image: image-url("homes/top-3.jpg");
+}
+.top-image4{
+	background-image: image-url("homes/top-4.jpg");
+}
+.top-image5{
+	background-image: image-url("homes/top-5.jpg");
+}
+.is-active{
+	transition-duration: 2s;
+	transition-timing-function: ease-out;
+	opacity: 1!important;
+}
+.text-box{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	opacity: 0;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 5;
+}
+.is-active2{
+	transition-delay: 1s;
+	transition-duration: 2s;
+	transition-timing-function: ease-in;
+	opacity: 1!important;
+}
+.is-leave{
+	transition-delay: 0.2s;
+	transition-duration: 1s;
+	transition-timing-function: ease-in;
+	opacity: 0;
+}
+.image-cover{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	background: #111;
+	opacity: 0.5;
+	z-index: 1;
+}
+.text-box{
+	text-align: center;
 }
 
-.headline-box{
-	padding-top: 70px;
+
+.observer-box{
+	height: 200vh;
+	width: 50%;
+}
+
+
+
+
+
+// ↓about.html.erb
+
+.about-box{
+	margin-bottom: 120px;
 	h2{
 	    text-align: center;
+	}
+	.is-padding{
+		padding-top: 50px;
+	}
+	h3{
+		margin-top: 0;
+	}
+	.point{
+		font-size: 15px;
+		background: linear-gradient(transparent 70%, #F08080 70%);
 	}
 	h4{
 	    text-align: center;
@@ -100,23 +123,38 @@ $header_height: 55px;
 	    text-align: center;
 	    margin-bottom: 40px;
     }
+    .book-space{
+    	background-image: image-url("book.jpg");
+    	background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+    	height: 200px;
+    	border-right: 1px solid grey;
+    }
 }
 
 
-#UserWork{
-	margin-bottom: 90px;
+#wrapper{
+	position: fixed;
+	top: $header_height + 30px;
+	left: 10px;
 }
-
-.text_height{
-    line-height: 25px;
-    padding: 0 15px;
-}
-
-
-.book-space{
-	height: 120px;
-}
-
-.user_work-image{
-	height: 100px;
+.index{
+	text-align: center;
+	li{
+		list-style: none;
+		color: #999999;
+	}
+	a{
+		display: block;
+		width: 100%;
+		padding: 15px 0;
+		border-radius: 4px;
+		text-decoration: none;
+		color: inherit;
+	}
+	a.active{
+		color: #333;
+		background-color: #f3f3f3;
+	}
 }
