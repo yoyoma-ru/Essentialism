@@ -4,6 +4,7 @@
 
 @charset "UTF-8";
 
+$header-height: 80px;
 
 
 // ↓top.html.erb↓
@@ -86,7 +87,6 @@
 .observer-box{
 	height: 200vh;
 	width: 50%;
-	border: 1px solid #000;
 }
 
 
@@ -95,12 +95,20 @@
 
 // ↓about.html.erb
 
-$header_height: 55px;
-
 .about-box{
-	padding-top: 80px;
+	margin-bottom: 120px;
 	h2{
 	    text-align: center;
+	}
+	.is-padding{
+		padding-top: 50px;
+	}
+	h3{
+		margin-top: 0;
+	}
+	.point{
+		font-size: 15px;
+		background: linear-gradient(transparent 70%, #F08080 70%);
 	}
 	h4{
 	    text-align: center;
@@ -115,12 +123,20 @@ $header_height: 55px;
 	    text-align: center;
 	    margin-bottom: 40px;
     }
+    .book-space{
+    	background-image: image-url("book.jpg");
+    	background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+    	height: 200px;
+    	border-right: 1px solid grey;
+    }
 }
 
 
 #wrapper{
 	position: fixed;
-	top: $header_height + 40px;
+	top: $header_height + 30px;
 	left: 10px;
 }
 .index{

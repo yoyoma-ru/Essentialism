@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/fff3ba2388.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,9 +15,9 @@
   <body>
 
     <div class="container-fluid space_bottom">
-      <div class="row header">
-        <div class="col-sm-5 title">Essentialism</div>
-        <div class="col-sm-6 header-menu">
+      <div class="col-xs-12 header">
+        <div class="col-xs-4 title">Essentialism</div>
+        <div class="col-xs-7 header-menu">
           <ul>
             <li><%= link_to "Learns", learns_path %></li>
             <li>/</li>
@@ -79,9 +80,7 @@
       <%= yield %>
     </div>
 
-    <div class="container-fluid">
-      <div class="row footer"> ©2021/Essentialism/All Rigth Reserved</div>
-    </div>
+    <div class="footer"> ©2021/Essentialism/All Rigth Reserved</div>
 
   </body>
 </html>
