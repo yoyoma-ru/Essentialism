@@ -1,6 +1,7 @@
 class LearnsController < ApplicationController
 
 	before_action :authenticate_user!
+	protect_from_forgery
 
 	def index
 	end
@@ -8,8 +9,18 @@ class LearnsController < ApplicationController
 	def create
 		@memo = Learn.new(learn_params)
 		if @memo.save
-			redirect_to request.referer
+			respond_to do |format|
+				format.html { redirect_to request.referer }
+				format.json { render json: {memo: @memo.memo,
+											id: @memo.id,
+											chapter: @memo.chapter,
+											essential_type: @memo.essential_type,
+											user_id: @memo.user_id
+											}
+							}
+			end
 		else
+			flash.now[:alert] = "失敗しました"
 			redirect_to learns_path
 		end
 	end
@@ -35,7 +46,10 @@ class LearnsController < ApplicationController
 	def destroy
 		@memo = Learn.find(params[:id])
 		if @memo.destroy
-			redirect_to request.referer
+			respond_to do |format|
+				format.html { redirect_to request.referer }
+				format.json { render json: {id: params[:id]} }
+			end
 		else
 			redirect_to learns_path
 		end

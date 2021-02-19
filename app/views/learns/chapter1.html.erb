@@ -178,7 +178,7 @@
 
 
 
-<!-- <div class="row">
+ <!-- <div class="row">
 	<div class="col-sm-offset-1 col-sm-11">
 		<div class="row">
 			<div class="col-sm-12 essential-contents">
@@ -234,8 +234,10 @@
 					・疲れ切っている
 				</div>
 			</div>
-	</div>
-	<div class="col-sm-6">
+	</div> -->
+
+
+	<!-- <div class="col-sm-6">
 			<div class="col-sm-12 non_essential-memo">
 				<%= form_with model: @memo, url: learns_path do |f| %>
 				    <div class="form-gorup">
@@ -250,23 +252,23 @@
 				<% end %>
 			</div>
 	</div>
-</div>
+</div> -->
 
 
 <div class="row">
 	<div class="col-sm-offset-1 col-sm-5">
 		<div class="row">
 			<div class="col-sm-offset-1 col-sm-10 non_essential-memo">
-				<%= form_with model: @memo, url: learns_path do |f| %>
-				    <div class="form-gorup">
+				<%= form_with(model: @memo, url: learns_path, id: "non_essential_input") do |f| %>
+				    <div class="form-group">
 				    	<%= f.label :memo, "非エッセンシャル思考メモ" %><br>
-				    	<%= f.text_area :memo, class:"col-sm-12 text-black", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
+				    	<%= f.text_area :memo, class:"col-sm-12 memo_input", rows:"4", placeholder: "自身の経験など振り返って思いついたことなどメモに残せます" %>
 				    </div>
-				    <%= f.hidden_field :user_id, :value => current_user.id %>
-				    <%= f.hidden_field :chapter, :value => 1 %>
-				    <%= f.hidden_field :essential_type, :value => 0 %>
+				    <%= f.hidden_field :user_id, {:value => current_user.id, :class => "user_id_input"} %>
+				    <%= f.hidden_field :chapter, {:value => 1, :class => "chapter_input"} %>
+				    <%= f.hidden_field :essential_type, {:value => 0, :class => "essential_type_input"} %>
 				    <br>
-				    <%= f.submit "メモを追加", class:"pull-right text-black" %>
+				    <%= f.submit "メモを追加", class:"pull-right memo_form-btn" %>
 				<% end %>
 			</div>
 		</div>
@@ -274,16 +276,16 @@
 	<div class="col-sm-5">
 		<div class="row">
 			<div class="col-sm-offset-1 col-sm-10 essential-memo">
-				<%= form_with model: @memo, url: learns_path do |f| %>
-				    <div class="form-gorup">
+				<%= form_with(model: @memo, url: learns_path, id: "essential_input") do |f| %>
+				    <div class="form-group">
 				    	<%= f.label :memo, "エッセンシャル思考メモ" %><br>
-				    	<%= f.text_area :memo, class:"col-sm-12", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
+				    	<%= f.text_area :memo, class:"col-sm-12", id: "memo_input", rows:"4", placeholder: "自身の経験など振り返って思いついたことなどメモに残せます" %>
 				    </div>
-				    <%= f.hidden_field :user_id, :value => current_user.id %>
-				    <%= f.hidden_field :chapter, :value => 1 %>
-				    <%= f.hidden_field :essential_type, :value => 1 %>
+				    <%= f.hidden_field :user_id, {:value => current_user.id, :class => "user_id_input"} %>
+				    <%= f.hidden_field :chapter, {:value => 1, :class => "chapter_input"} %>
+				    <%= f.hidden_field :essential_type, {:value => 1, :class => "essential_type_input"} %>
 				    <br>
-				    <%= f.submit "メモを追加", class:"pull-right" %>
+				    <%= f.submit "メモを追加", class:"pull-right memo_form-btn" %>
 				<% end %>
 			</div>
 		</div>
@@ -291,29 +293,37 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-offset-1 col-sm-5">
+	<div class="col-sm-offset-1 col-sm-5 non_essential-display memo-display">
 		<p>非エッセンシャル思考メモ一覧</p>
-		<% @non_essential_memos.each do |non_essential| %>
-		    <div class="row">
-			    <div class="col-sm-offset-1 col-sm-10 non_essential-memo"><%= non_essential.memo %></div>
-			</div>
-			<span><%= link_to "削除", learn_path(non_essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %></span>
-			<span><%= link_to "編集", edit_learn_path(non_essential), class:"btn btn-success btn-sm pull-right" %></span>
-			<br>
-		<% end %>
+			<% @non_essential_memos.each do |non_essential| %>
+				<div id="memo<%= non_essential.id %>">
+				    <div class="row">
+					    <div class="col-sm-offset-1 col-sm-10 non_essential-memo">
+					    	<%= non_essential.memo %>
+					    </div>
+					</div>
+					<span><%= link_to "削除", learn_path(non_essential), method: :delete, class:"btn btn-danger btn-sm pull-right memo_delete" %></span>
+					<span><%= link_to "編集", edit_learn_path(non_essential), class:"btn btn-success btn-sm pull-right" %></span>
+					<br>
+				</div>
+			<% end %>
 	</div>
-	<div class="col-sm-5">
+	<div class="col-sm-5 essential-display memo-display">
 		<p>エッセンシャル思考メモ一覧</p>
-		<% @essential_memos.each do |essential| %>
-		    <div class="row">
-			    <div class="col-sm-offset-1 col-sm-10 essential-memo"><%= essential.memo %></div>
-			</div>
-			<span><%= link_to "削除", learn_path(essential), method: :delete, class:"btn btn-danger btn-sm pull-right" %></span>
-			<span><%= link_to "編集", edit_learn_path(essential), class:"btn btn-success btn-sm pull-right" %></span>
-			<br>
-		<% end %>
+			<% @essential_memos.each do |essential| %>
+				<div id="memo<%= essential.id %>">
+				    <div class="row">
+					    <div class="col-sm-offset-1 col-sm-10 essential-memo">
+					    	<%= essential.memo %>
+					    	</div>
+					</div>
+					<span><%= link_to "削除", learn_path(essential), method: :delete, class:"btn btn-danger btn-sm pull-right memo_delete" %></span>
+					<span><%= link_to "編集", edit_learn_path(essential), class:"btn btn-success btn-sm pull-right" %></span>
+					<br>
+				</div>
+			<% end %>
 	</div>
-</div>　-->
+</div>
 
 <div class="row">
 	<div class="col-xs-offset-1 col-xs-11 nav-bottom">
