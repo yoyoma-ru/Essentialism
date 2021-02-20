@@ -94,48 +94,118 @@ $(function(){
 		});
 	});
 	// essentialメモの作成
-	$("#essential_input").on("submit", function(e){
-		e.preventDefault();
-		e.stopPropagation();
-		console.log("非同期通信start");
-		let inputText = $("#memo_input").val();
-		let inputUserId = $(".user_id_input").val();
-		let inputChapter = $(".chapter_input").val();
-		let inputEssentialType = $(".essential_type_input").val();
-		let url = $(this).attr("action");
-		console.log(inputText);
-		console.log(inputUserId);
-		console.log(inputChapter);
-		console.log(inputEssentialType);
-		console.log(url);
+	// $("#essential_input").on("submit", function(e){
+	// 	e.preventDefault();
+	// 	e.stopPropagation();
+	// 	console.log("非同期通信start");
+	// 	let inputText = $("#memo_input").val();
+	// 	let inputUserId = $(".user_id_input").val();
+	// 	let inputChapter = $(".chapter_input").val();
+	// 	let inputEssentialType = $(".essential_type_input").val();
+	// 	let url = $(this).attr("action");
+	// 	console.log(inputText);
+	// 	console.log(inputUserId);
+	// 	console.log(inputChapter);
+	// 	console.log(inputEssentialType);
+	// 	console.log(url);
+	// 	$.ajax({
+	// 		url: url,
+	// 		type: "POST",
+	// 		data: {
+	// 				learn: {memo: inputText,
+	// 						user_id: inputUserId,
+	// 						chapter: inputChapter,
+	// 						essential_type: inputEssentialType
+	// 					}
+	// 		},
+	// 		dataType: "json"
+	// 	})
+	// 	.done(function(data){
+	// 		console.log(data);
+	// 		let html = createHTML2(data);
+	// 		console.log(html);
+	// 		$(".essential-display").append(html);
+	// 		$(".memo_input").val("");
+	// 		console.log("非同期通信での作成に成功");
+	// 	})
+	// 	.fail(function(){
+	// 		alert("エラーが発生したため作成できませんでした。");
+	// 	})
+	// 	.always(function(){
+	// 		$(".memo_form-btn").prop("disabled", false);
+	// 		$(".memo_form-btn").removeAttr("data-disable-width");
+	// 	});
+	// });
+
+	// update処理を非同期通信で実行
+	$(".non_essential-display").on("click", ".js-edit-memo-button", function(){
+		// data属性を使ってHTMLで"data-"で記述したものをとってくる
+		const memoId = $(this).data("memo-id");
+		const memoLabelArea = $("#js-memo-label-"+memoId);
+		const memoTextArea = $("#js-textarea-memo-"+memoId);
+		const memoButton = $("#js-memo-button-"+memoId);
+		const memoEditDelete = $("#js-memo-edit-delete-"+memoId);
+
+		memoLabelArea.hide();
+		memoTextArea.show();
+		memoButton.show();
+		memoEditDelete.hide();
+		console.log("editエリアの作成まで完了");
+	});
+	// memo編集エリアを「キャンセル」を押して非同期通信で非表示
+	$(".non_essential-display").on("click", ".memo-cancel-button", function(){
+		const memoId = $(this).data("cancel-id");
+		const memoLabelArea = $("#js-memo-label-"+memoId);
+		const memoTextArea = $("#js-textarea-memo-"+memoId);
+		const memoButton = $("#js-memo-button-"+memoId);
+		const memoError = $("#js-memo-post-"+memoId);
+		const memoEditDelete = $("#js-memo-edit-delete-"+memoId);
+
+		memoLabelArea.show();
+		memoTextArea.hide();
+		memoButton.hide();
+		memoError.hide();
+		memoEditDelete.show();
+		console.log("編集エリアの非表示に成功");
+	});
+	// memoを非同期通信で更新
+	$(".non_essential-display").on("click", ".memo-update-button", function(){
+		const memoId = $(this).data("update-id");
+		const memoField = $("#js-textarea-memo-"+memoId);
+		const body = memoField.val();
+		console.log(body);
+
 		$.ajax({
-			url: url,
+			url: "/learns/"+memoId,
 			type: "POST",
 			data: {
-					learn: {memo: inputText,
-							user_id: inputUserId,
-							chapter: inputChapter,
-							essential_type: inputEssentialType
-						}
+				_method: "PATCH",
+				learn: {memo: body}
 			},
 			dataType: "json"
 		})
 		.done(function(data){
 			console.log(data);
-			let html = createHTML2(data);
-			console.log(html);
-			$(".essential-display").append(html);
-			$(".memo_input").val("");
-			console.log("非同期通信での作成に成功");
+			const memoLabelArea = $("#js-memo-label-"+memoId);
+			const memoTextArea = $("#js-textarea-memo-"+memoId);
+			const memoButton = $("#js-memo-button-"+memoId);
+			const memoError = $("#js-memo-post-error-"+memoId);
+			const memoEditDelete = $("#js-memo-edit-delete-"+memoId);
+
+			memoLabelArea.show();
+			memoLabelArea.text(data.memo);
+			memoTextArea.hide();
+			memoButton.hide();
+			memoError.hide();
+			memoEditDelete.show();
+			console.log("更新完了");
 		})
 		.fail(function(){
-			alert("エラーが発生したため作成できませんでした。");
-		})
-		.always(function(){
-			$(".memo_form-btn").prop("disabled", false);
-			$(".memo_form-btn").removeAttr("data-disable-width");
+			const memoError = $("#js-memo-post-error-"+memoId);
+			memoError.text("コメントを入力して下さい");
 		});
 	});
+
 	// memoのdelete処理
 	$(".memo-display").on("click", ".memo_delete", function(e){
 		e.preventDefault();

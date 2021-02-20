@@ -36,8 +36,17 @@ class LearnsController < ApplicationController
 
 	def update
 		@memo = Learn.find(params[:id])
-		if @memo.update(learn_params)
-			redirect_to request.referer
+		if @memo.update!(learn_params)
+			respond_to do |format|
+				format.html { redirect_to request.referer }
+				format.json { render json: {memo: @memo.memo,
+											id: @memo.id,
+											chapter: @memo.chapter,
+											essential_type: @memo.essential_type,
+											user_id: @memo.user_id
+											}
+							}
+			end
 		else
 			redirect_to learns_path
 		end

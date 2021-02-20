@@ -210,47 +210,30 @@
 </div>
 <div class="row">
 	<div class="col-sm-offset-1 col-sm-10">
-			<div class="col-sm-12 non_essential-contents">
-				<div class="col-sm-4 learn-contents non_essential-circle">
-					考え方<br>
-					[みんな・全て]<br><br>
-					・やらなくては<br>
-					・どれも大事だ<br>
-					・全部こなす方法は？
-				</div>
-				<div class="col-sm-4 learn-contents non_essential-circle">
-					行動<br>
-					[やることをでたらめに増やす]<br><br>
-					・差し迫ったものからやる<br>
-					・反射的に「やります」と言う<br>
-					・期限が迫ると根性で頑張る
-				</div>
-				<div class="col-sm-4 learn-contents non_essential-circle">
-					結果<br>
-					[無力感]<br><br>
-					・何もかも中途半端<br>
-					・振り回されている<br>
-					・何かがおかしい<br>
-					・疲れ切っている
-				</div>
+		<div class="col-sm-12 non_essential-contents">
+			<div class="col-sm-4 learn-contents non_essential-circle">
+				考え方<br>
+				[みんな・全て]<br><br>
+				・やらなくては<br>
+				・どれも大事だ<br>
+				・全部こなす方法は？
 			</div>
-	</div> -->
-
-
-	<!-- <div class="col-sm-6">
-			<div class="col-sm-12 non_essential-memo">
-				<%= form_with model: @memo, url: learns_path do |f| %>
-				    <div class="form-gorup">
-				    	<%= f.label :memo, "非エッセンシャル思考メモ" %><br>
-				    	<%= f.text_area :memo, class:"col-sm-12 text-black", rows:"4", placeholder: "自身の経験など振り返って感じたことなどメモに残しましょう" %>
-				    </div>
-				    <%= f.hidden_field :user_id, :value => current_user.id %>
-				    <%= f.hidden_field :chapter, :value => 1 %>
-				    <%= f.hidden_field :essential_type, :value => 0 %>
-				    <br>
-				    <%= f.submit "メモを追加", class:"pull-right text-black" %>
-				<% end %>
+			<div class="col-sm-4 learn-contents non_essential-circle">
+				行動<br>
+				[やることをでたらめに増やす]<br><br>
+				・差し迫ったものからやる<br>
+				・反射的に「やります」と言う<br>
+				・期限が迫ると根性で頑張る
 			</div>
+			<div class="col-sm-4 learn-contents non_essential-circle">
+				結果<br>
+				[無力感]<br><br>
+				・何もかも中途半端<br>
+				・振り回されている<br>
+				・何かがおかしい<br>
+				・疲れ切っている
+			</div>
+		</div>
 	</div>
 </div> -->
 
@@ -273,7 +256,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-5">
+
+	<!-- <div class="col-sm-5">
 		<div class="row">
 			<div class="col-sm-offset-1 col-sm-10 essential-memo">
 				<%= form_with(model: @memo, url: learns_path, id: "essential_input") do |f| %>
@@ -289,26 +273,40 @@
 				<% end %>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
+
 
 <div class="row">
 	<div class="col-sm-offset-1 col-sm-5 non_essential-display memo-display">
 		<p>非エッセンシャル思考メモ一覧</p>
-			<% @non_essential_memos.each do |non_essential| %>
-				<div id="memo<%= non_essential.id %>">
-				    <div class="row">
-					    <div class="col-sm-offset-1 col-sm-10 non_essential-memo">
-					    	<%= non_essential.memo %>
-					    </div>
-					</div>
-					<span><%= link_to "削除", learn_path(non_essential), method: :delete, class:"btn btn-danger btn-sm pull-right memo_delete" %></span>
-					<span><%= link_to "編集", edit_learn_path(non_essential), class:"btn btn-success btn-sm pull-right" %></span>
-					<br>
+		<% @non_essential_memos.each do |non_essential| %>
+			<div id="memo<%= non_essential.id %>">
+			    <div class="row">
+				    <div id="js-memo-label-<%= non_essential.id %>" class="col-sm-offset-1 col-sm-10 non_essential-memo"><%= non_essential.memo %></div>
 				</div>
-			<% end %>
+				<div>
+					<p id="js-memo-post-error-<%= non_essential.id %>" class="text-danger"></p>
+					<textarea style="display: none" id="js-textarea-memo-<%= non_essential.id %>" class="form-control memo-post-error"><%= non_essential.memo %></textarea>
+					<div id="js-memo-button-<%= non_essential.id %>" style="display: none;">
+						<button data-cancel-id=<%= non_essential.id %> type="button" class="btn btn-light memo-cancel-button">キャンセル</button>
+						<button data-update-id=<%= non_essential.id %> type="submit" class="btn btn-success memo-update-button">更新</button>
+					</div>
+					<div id="js-memo-edit-delete-<%= non_essential.id %>" class="pull-right">
+						<span data-memo-id=<%= non_essential.id %> class="js-edit-memo-button">
+							<i class="fas fa-edit text-primary"></i>
+						</span>
+						<span> / </span>
+						<%= link_to learn_path(non_essential), method: :delete, class:"memo_delete" do %>
+							<i class="fas fa-trash-alt text-danger"></i>
+						<% end %>
+					</div>
+				</div>
+				<br>
+			</div>
+		<% end %>
 	</div>
-	<div class="col-sm-5 essential-display memo-display">
+	<!-- <div class="col-sm-5 essential-display memo-display">
 		<p>エッセンシャル思考メモ一覧</p>
 			<% @essential_memos.each do |essential| %>
 				<div id="memo<%= essential.id %>">
@@ -322,7 +320,7 @@
 					<br>
 				</div>
 			<% end %>
-	</div>
+	</div> -->
 </div>
 
 <div class="row">
