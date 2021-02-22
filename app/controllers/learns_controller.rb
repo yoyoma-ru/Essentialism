@@ -1,6 +1,6 @@
 class LearnsController < ApplicationController
 
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:create, :update, :destroy]
 	protect_from_forgery
 
 	def index
@@ -65,6 +65,7 @@ class LearnsController < ApplicationController
 	end
 
 	def chapter1
+		@user = current_user
 		@memo = Learn.new
 		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 1 ).where(essential_type: 0)
 		@essential_memos = Learn.where(user_id: current_user).where(chapter: 1).where(essential_type: 1)
