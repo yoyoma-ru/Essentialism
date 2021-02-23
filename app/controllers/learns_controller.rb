@@ -1,6 +1,7 @@
 class LearnsController < ApplicationController
 
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:create, :update, :destroy]
+	protect_from_forgery
 
 	def index
 	end
@@ -8,8 +9,18 @@ class LearnsController < ApplicationController
 	def create
 		@memo = Learn.new(learn_params)
 		if @memo.save
-			redirect_to request.referer
+			respond_to do |format|
+				format.html { redirect_to request.referer }
+				format.json { render json: {memo: @memo.memo,
+											id: @memo.id,
+											chapter: @memo.chapter,
+											essential_type: @memo.essential_type,
+											user_id: @memo.user_id
+											}
+							}
+			end
 		else
+			flash.now[:alert] = "失敗しました"
 			redirect_to learns_path
 		end
 	end
@@ -25,8 +36,17 @@ class LearnsController < ApplicationController
 
 	def update
 		@memo = Learn.find(params[:id])
-		if @memo.update(learn_params)
-			redirect_to request.referer
+		if @memo.update!(learn_params)
+			respond_to do |format|
+				format.html { redirect_to request.referer }
+				format.json { render json: {memo: @memo.memo,
+											id: @memo.id,
+											chapter: @memo.chapter,
+											essential_type: @memo.essential_type,
+											user_id: @memo.user_id
+											}
+							}
+			end
 		else
 			redirect_to learns_path
 		end
@@ -35,13 +55,17 @@ class LearnsController < ApplicationController
 	def destroy
 		@memo = Learn.find(params[:id])
 		if @memo.destroy
-			redirect_to request.referer
+			respond_to do |format|
+				format.html { redirect_to request.referer }
+				format.json { render json: {id: params[:id]} }
+			end
 		else
 			redirect_to learns_path
 		end
 	end
 
 	def chapter1
+		@user = current_user
 		@memo = Learn.new
 		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 1 ).where(essential_type: 0)
 		@essential_memos = Learn.where(user_id: current_user).where(chapter: 1).where(essential_type: 1)
