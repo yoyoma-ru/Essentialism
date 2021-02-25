@@ -1,129 +1,85 @@
-<div class="row">
-	<div class="col-xs-offset-2 col-xs-8">
-		<h1 class="work-title"><%= @user.user.name %>のWork</h1>
-			<% if @essential_goal.favorited_by?(current_user) %>
-				<%= link_to work_favorite_path(@essential_goal), method: :delete do %>
-					<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-					<%= @essential_goal.favorites.count %>いいね
-				<% end %>
-			<% else %>
-				<%= link_to work_favorites_path(@essential_goal), method: :post do %>
-					<i class="fa fa-heart" aria-hiddent="true"></i>
-					<%= @essential_goal.favorites.count %>いいね
-				<% end %>
+<div class="row space_top">
+	<div class="col-xs-offset-1 col-xs-11">
+		<h1 class="work-title"><%= @user.name %>のWork</h1>
+		<% if @essential_goal.favorited_by?(current_user) %>
+			<%= link_to work_favorite_path(@essential_goal), method: :delete do %>
+				<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+				<%= @essential_goal.favorites.count %>いいね
 			<% end %>
+		<% else %>
+			<%= link_to work_favorites_path(@essential_goal), method: :post do %>
+				<i class="fa fa-heart" aria-hiddent="true"></i>
+				<%= @essential_goal.favorites.count %>いいね
+			<% end %>
+		<% end %>
 	</div>
-</div>
 
-<div class="row">
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
-			<div class="col-xs-1 step-titles">Step1</div>
-			<div class="col-xs-3 step-headlines"><h4>選択</h4></div>
-			<div class="col-xs-7">
-				<% @work.where(genre: 0).each do |work| %>
-					<div class="row step-contents non_essential">
-				    	<%= work.writing %>
-				    	<br>
-				    </div>
-				<% end %>
-				<% @work.where(genre: 1).each do |work| %>
-				    <div class="row steps-contents">
-				    	<%= work.writing %>
-				    	<br>
-				    </div>
-				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>ノイズ</h4></div>
-			<div class="col-xs-7">
-				<% @work.where(genre: 2).each do |work| %>
-					<div class="row step-contents non_essential">
-				    	<%= work.writing %>
-				    	<br>
-				    </div>
-				<% end %>
-				<% @work.where(genre: 3).each do |work| %>
-				    <div class="row steps-contents">
-				    	<%= work.writing %>
-				    	<br>
-				    </div>
-				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>トレードオフ</h4></div>
-			<div class="col-xs-7">
-				<% @work.where(genre: 4).each do |work| %>
-					<div class="row step-contents non_essential">
-				    	<%= work.writing %>
-				    	<br>
-				    </div>
-				<% end %>
-				<% @work.where(genre: 5).each do |work| %>
-				    <div class="row steps-contents">
-				    	<%= work.writing %>
-				    	<br>
-				    </div>
-				<% end %>
-			</div>
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">Step1</div>
+		<div class="col-xs-3">人生の軸</div>
+		<div class="col-xs-7">
+			<% @works.where(genre: 1).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
+			<% end %>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
-			<div class="col-xs-1 step-titles">Step2</div>
-			<div class="col-xs-3 step-headlines"><h4>自身の大切な軸を一つ選ぶ</h4></div>
-			<div class="col-xs-7 steps-contents"><%= @work.find_by(genre: 7).writing %></div>
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-3">最も大切な人生の軸
 		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>その他</h4></div>
-			<div class="col-xs-7">
-				<% @work.where(genre: 6).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+		<div class="col-xs-7">
+			・<%= @works.find_by(genre: 2).writing %>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
-			<div class="col-xs-1 step-titles">Step3</div>
-			<div class="col-xs-3 step-headlines"><h4>本質目標</h4></div>
-		    <div class="col-xs-7 steps-contents"><%= @work.find_by(genre: 8).writing %></div>
-		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines">
-				<h4>達成するために必要なこと</h4>
-			</div>
-			<div class="col-xs-7">
-				<% @work.where(genre: 9).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">Step2</div>
+		<div class="col-xs-3 step-headlines">本質目標</div>
+	    <div class="col-xs-7 steps-contents">
+	    	<% if @works.exists?(genre: 4) == true %>
+				・<%= @works.find_by(genre: 4).writing %>
+			<% end %>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
-			<div class="col-xs-1 step-titles">Step4</div>
-			<div class="col-xs-3 step-headlines"><h4>本質目標を叶える小さな一歩</h4></div>
-			<div class="col-xs-7">
-				<% @work.where(genre: 10).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">Step3</div>
+		<div class="col-xs-3 step-headlines">本質目標達成のために必要な行動</div>
+	    <div class="col-xs-7 steps-contents">
+			<% @works.where(genre: 5).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
+			<% end %>
 		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines">
-				<h4>本質目標を叶えるための習慣</h4>
-			</div>
-			<div class="col-xs-7">
-				<% @work.where(genre: 11).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">Step4</div>
+		<div class="col-xs-3 step-headlines">本質目標を叶える小さな一歩</div>
+	    <div class="col-xs-7 steps-contents">
+			<% @works.where(genre: 6).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">Step4</div>
+		<div class="col-xs-3">習慣</div>
+		<div class="col-xs-7">
+			<% @works.where(genre: 7).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-3 step-headlines">取り組むの習慣</div>
+	    <div class="col-xs-7 steps-contents">
+	    	<% if @works.exists?(genre: 8) == true %>
+				・<%= @works.find_by(genre: 8).writing %>
+			<% end %>
 		</div>
 	</div>
 </div>

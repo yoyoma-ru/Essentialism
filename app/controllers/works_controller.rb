@@ -88,14 +88,14 @@ class WorksController < ApplicationController
 	end
 
 	def user_works
-		@essential_goals = Work.where(genre: 8).order(created_at: :desc).limit(10)
+		@user_essential_goals = Work.where(genre: 4).order(created_at: :desc).limit(10)
 		@all_ranks = Work.find(Favorite.group(:work_id).order('count(work_id) desc').limit(10).pluck(:work_id))
 	end
 
 	def user_work
-		@user = Work.find(params[:id])
-		@work = Work.where(user_id: @user.user.id)
-		@essential_goal = @work.find_by(genre: 4)
+		@user = User.find(params[:id])
+		@works = Work.where(user_id: params[:id])
+		@essential_goal = @works.find_by(genre: 4)
 	end
 
 	private

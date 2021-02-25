@@ -99,7 +99,7 @@
 			<p>本質目標</p>
 		</div>
 	    <div class="col-xs-7 steps-contents">
-	    	<% if @works.exists?(genre: 8) == true %>
+	    	<% if @works.exists?(genre: 4) == true %>
 				・<%= @works.find_by(genre: 4).writing %>
 			<% end %>
 		</div>
