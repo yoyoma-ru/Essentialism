@@ -326,21 +326,19 @@
 		<div id="memoArea">
 			<div id="essential-memoArea" class="essential-memo">
 				<%= form_with(model: @memo, url: learns_path, id: "essential_input") do |f| %>
-				    <%= f.text_area :memo, class:"col-sm-12", id: "essential-memo_input", rows:"3", placeholder: "エッセンシャル思考について、自身の経験など振り返って思いついたことなど残せます" %>
+				    <%= f.text_area :memo, class:"form-control", id: "essential-memo_input", rows:"3", placeholder: "エッセンシャル思考について、自身の経験など振り返って思いついたことなど残せます" %>
 				    <%= f.hidden_field :user_id, {:value => current_user.id, :class => "user_id_input", :id => "essential_user_id"} %>
 				    <%= f.hidden_field :chapter, {:value => 1, :class => "chapter_input", :id => "essential_chapter"} %>
 				    <%= f.hidden_field :essential_type, {:value => 1, :class => "essential_type_input", :id => "essential_type"} %>
-				    <br>
 				    <%= f.submit "エッセンシャル思考メモを記録", class:"pull-right memo_form-btn" %>
 				<% end %>
 			</div>
 			<div id="non_essential-memoArea" class="non_essential-memo" style="display: none;">
 				<%= form_with(model: @memo, url: learns_path, id: "non_essential_input") do |f| %>
-				    <%= f.text_area :memo, class:"col-sm-12", id: "non_essential-memo_input", rows:"3", placeholder: "非エッセンシャル思考について、自身の経験など振り返って思いついたことなどを残せます" %>
+				    <%= f.text_area :memo, class:"form-control", id: "non_essential-memo_input", rows:"3", placeholder: "非エッセンシャル思考について、自身の経験など振り返って思いついたことなどを残せます" %>
 				    <%= f.hidden_field :user_id, {:value => current_user.id, :class => "user_id_input", :id => "non_essential_user_id"} %>
 				    <%= f.hidden_field :chapter, {:value => 1, :class => "chapter_input", :id => "non_essential_chapter"} %>
 				    <%= f.hidden_field :essential_type, {:value => 0, :class => "non_essential_type_input", :id => "non_essential_type"} %>
-				    <br>
 				    <%= f.submit "非エッセンシャル思考メモを記録", class:"pull-right memo_form-btn" %>
 				<% end %>
 			</div>

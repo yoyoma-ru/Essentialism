@@ -1,0 +1,75 @@
+<div class="row space_top">
+	<div class="col-xs-offset-1 col-xs-11">
+		<h1 class="work-title">
+			<span>step3</span><span>本質目標を達成するために</span>
+        </h1>
+		<div class="work-explanation">
+			<p>前回のワークで決めた最も良い「本質目標」を達成するために<br>
+			    自身がするべきだと考える必要な行動を<br>思いつくだけ書き出すワークです。
+			</p>
+		</div>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+		<div class="col-xs-3">
+			<p>最良の本質目標</p>
+	    </div>
+	    <% if Work.where(user_id: current_user.id).exists?(genre: 4) == true %>
+	    	<div class="col-xs-9"><%= simple_format(@my_essential_goal.writing) %></div>
+	    <% else %>
+	    	<div class="col-xs-9">
+	    		<p>『未選択』の状態です。
+	    		<p>1つ前のワークに戻って、「最良の本質目標」を1つ決めましょう。</p>
+	    	</div>
+	    <% end %>
+	</div>
+
+
+	<div id="work-lists" class="col-xs-offset-1 col-xs-11 work-display">
+		<p class="writing-headline">本質目標達成するために『必要な行動』一覧</p>
+		<% @necessary_actions.each do |necessary_action| %>
+		    <div id="writing<%= necessary_action.id %>" class="col-xs-6 left-line">
+		    	<div id="js-writing-label-<%= necessary_action.id %>"><%= simple_format(necessary_action.writing) %></div>
+		    	<p id="js-writing-post-error-<%= necessary_action.id %>" class="text-danger"></p>
+		    	<textarea style="display: none;" id="js-textarea-writing-<%= necessary_action.id %>" class="form-control writing-post-error"><%= necessary_action.writing %></textarea>
+		    	<div id="js-writing-button-<%= necessary_action.id %>" class="js-right" style="display: none;">
+					<button data-cancel-id=<%= necessary_action.id %> type="button" class="btn btn-xs writing-cancel-button">キャンセル</button>
+					<button data-update-id=<%= necessary_action.id %> type="submit" class="btn btn-xs btn-success writing-update-button">更新</button>
+				</div>
+				<div id="js-writing-edit-delete-<%= necessary_action.id %>" class="pull-right">
+					<span data-writing-id=<%= necessary_action.id %> class="js-edit-writing-button">
+						<i class="fas fa-edit text-success"></i>
+					</span>
+					<span> / </span>
+					<%= link_to work_path(necessary_action), method: :delete, class:"writing_delete", data: {confirm: "削除しますか？"} do %>
+						<i class="fas fa-trash-alt text-danger"></i>
+					<% end %>
+				</div>
+				<br>
+				<div class="writing-border_bottom"></div>
+		    </div>
+		<% end %>
+	</div>
+
+
+	<!-- テキスト作成エリア -->
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+    	<div class="">
+			<%= form_with(model: @necessary_action, url: works_path, id: "work_input") do |f| %>
+				<%= f.label :writing, "必要な行動をを書き出す" %>
+		    	<%= f.text_area :writing, id:"writing_input", class:"form-control", rows: "3", placeholder: "目標達成のために必要だと思う行動を書き出しみましょう。" %>
+			    <%= f.hidden_field :user_id, {:value => current_user.id, :id => "user_id_input", :class => "user_id_input"} %>
+			    <%= f.hidden_field :genre, {:value => 5, :id => "genre_input", :class => "genre_input"} %>
+			    <%= f.submit "作成する", class:"pull-right writing_form-btn" %>
+			<% end %>
+		</div>
+	</div>
+	<!-- テキスト作成エリア -->
+
+
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+			<%= link_to "Prev Step", works_2_path, class:"col-xs-2 btn btn-default" %>
+			<%= link_to "My Works", works_path, class:"col-xs-offset-3 col-xs-2 btn btn-default" %>
+			<%= link_to "Next Step", works_4_path, class:"col-xs-offset-3 col-xs-2 btn btn-default" %>
+	</div>
+</div>

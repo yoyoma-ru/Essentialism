@@ -39,7 +39,7 @@ li{
 	letter-spacing: -0.01em;
 }
 
-.col-xs-10{
+.learn-flex{
 	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: 80px;
@@ -47,6 +47,7 @@ li{
 		text-decoration: none;
 	}
 }
+
 $learn-box_width: 240px;
 $learn-box_height: 160px;
 .learn-box{
@@ -260,9 +261,7 @@ $learn-box_height: 160px;
 	font-size: 20px;
 	margin-bottom: 20px;
 	font-weight: bold;
-	/* border-bottom: 6px double #000; */
 	border-bottom: 3px solid #D3D3D3;
-
 	position: relative;
 }
 .memo-headline:after{

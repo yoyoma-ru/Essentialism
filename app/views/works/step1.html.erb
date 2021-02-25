@@ -1,0 +1,113 @@
+<div class="row space_top">
+	<div class="col-xs-offset-1 col-xs-11">
+		<h1 class="work-title">
+			<span>step1</span><span>人生の軸を考える</span>
+        </h1>
+        <p class="work-explanation">
+		    あなたにとって生きていく上で大切だと感じる<br>
+		    「人生の軸」を考えて書き出していきましょう。
+	    </p>
+	</div>
+
+	<div id="work-lists" class="col-xs-offset-1 col-xs-11 work-display">
+		<p class="writing-headline">人生の軸一覧</p>
+		<% @axis_of_lifes.each do |axis_of_life| %>
+		    <div id="writing<%= axis_of_life.id %>" class="col-xs-6 left-line">
+		    	<div id="js-writing-label-<%= axis_of_life.id %>"><%= simple_format(axis_of_life.writing) %></div>
+		    	<p id="js-writing-post-error-<%= axis_of_life.id %>" class="text-danger"></p>
+		    	<textarea style="display: none;" id="js-textarea-writing-<%= axis_of_life.id %>" class="form-control writing-post-error"><%= axis_of_life.writing %></textarea>
+		    	<div id="js-writing-button-<%= axis_of_life.id %>" class="js-right" style="display: none;">
+					<button data-cancel-id=<%= axis_of_life.id %> type="button" class="btn btn-xs writing-cancel-button">キャンセル</button>
+					<button data-update-id=<%= axis_of_life.id %> type="submit" class="btn btn-xs btn-success writing-update-button">更新</button>
+				</div>
+				<div id="js-writing-edit-delete-<%= axis_of_life.id %>" class="pull-right">
+					<span data-writing-id=<%= axis_of_life.id %> class="js-edit-writing-button">
+						<i class="fas fa-edit text-success"></i>
+					</span>
+					<span> / </span>
+					<%= link_to work_path(axis_of_life), method: :delete, class:"writing_delete", data: {confirm: "削除しますか？"} do %>
+						<i class="fas fa-trash-alt text-danger"></i>
+					<% end %>
+				</div>
+				<br>
+				<div class="writing-border_bottom"></div>
+		    </div>
+		<% end %>
+	</div>
+
+	<!-- テキスト作成エリア -->
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+    	<div class="">
+			<%= form_with(model: @axis_of_life, url: works_path, id: "work_input") do |f| %>
+				<%= f.label :writing, "人生の軸" %>
+		    	<%= f.text_area :writing, id:"writing_input", class:"form-control", rows: "3", placeholder: "自身の大切にしたい「人生の軸」を書き出しましょう。" %>
+			    <%= f.hidden_field :user_id, {:value => current_user.id, :id => "user_id_input", :class => "user_id_input"} %>
+			    <%= f.hidden_field :genre, {:value => 1, :id => "genre_input", :class => "genre_input"} %>
+			    <%= f.submit "作成する", class:"pull-right writing_form-btn" %>
+			<% end %>
+		</div>
+	</div>
+	<!-- テキスト作成エリア -->
+
+	<div class="col-xs-offset-1 col-xs-11 work-display margin_style1">
+    	<% if Work.where(user_id: current_user.id).exists?(genre: 2) == true %>
+	    	<div class="col-xs-6">
+	    		<div id="writing<%= @most_axis_of_life.id %>">
+		    		<label for="js-textarea-writing-<%= @most_axis_of_life.id %>">最も大切にしたい人生の軸</label>
+		    		<div id="js-writing-label-<%= @most_axis_of_life.id %>"><%= simple_format(@most_axis_of_life.writing) %></div>
+		    		<p id="js-writing-post-error-<%= @most_axis_of_life.id %>" class="text-danger"></p>
+		    		<textarea style="display: none;" id="js-textarea-writing-<%= @most_axis_of_life.id %>" class="form-control writing-post-error"><%= @most_axis_of_life.writing %></textarea>
+			    	<div id="js-writing-button-<%= @most_axis_of_life.id %>" class="js-right" style="display: none;">
+						<button data-cancel-id=<%= @most_axis_of_life.id %> type="button" class="btn btn-xs writing-cancel-button">キャンセル</button>
+						<button data-update-id=<%= @most_axis_of_life.id %> type="submit" class="btn btn-xs btn-success writing-update-button">更新</button>
+					</div>
+					<div id="js-writing-edit-delete-<%= @most_axis_of_life.id %>" class="pull-right">
+						<span data-writing-id=<%= @most_axis_of_life.id %> class="js-edit-writing-button">
+							<i class="fas fa-edit text-success">編集</i>
+						</span>
+						<span> / </span>
+						<%= link_to work_path(@most_axis_of_life), method: :delete, data: {confirm: "削除しますか？"} do %>
+							<i class="fas fa-trash-alt text-danger">削除</i>
+						<% end %>
+					</div>
+				</div>
+			</div>
+	    	<div class="col-xs-6">
+	    		<%= form_with model: @most_axis_of_life do |f| %>
+	    			<%= f.label :writing, "作成した選択肢" %>
+		    		<%= f.collection_select(
+	    								:writing,
+	    								@axis_of_lifes,
+	    								:writing,
+	    								:writing,
+	    								{prompt: "---人生の軸を選び直す---"},
+	    								{class: "form-control"})
+	    			%>
+		    		<%= f.submit "変更する", class:"pull-right" %>
+		    	<% end %>
+	    	</div>
+	    <% else %>
+	    	<div class="col-xs-offset-1 col-xs-9 margin_style1">
+	    		<p>書き出した中で、あなとにとって最も大切にしたい「人生の軸」を1つ選んでみましょう。</p>
+	    		<%= form_with model: @axis_of_life do |f| %>
+	    			<%= f.label :writing, "最も大切にしたい人生の軸" %>
+	    		    <%= f.collection_select(:writing,
+	    		    						@axis_of_lifes,
+	    		    						:writing,
+	    		    						:writing,
+	    		    						{prompt:"---書き出した中から1つ選択して下さい---"},
+	    		    						{class: "form-control"})
+	    		    %>
+	    		    <%= f.hidden_field :user_id, :value => current_user.id %>
+	    		    <%= f.hidden_field :genre, :value => 2 %>
+	    		    <%= f.submit "決定する", class:"pull-right" %>
+	    		<% end %>
+	    	</div>
+    	<% end %>
+    </div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<%= link_to "My Works", works_path, class:"col-xs-offset-5 col-xs-2 btn btn-default" %>
+		<%= link_to "Next Step", works_2_path, class:"col-xs-offset-3 col-xs-2 btn btn-default" %>
+	</div>
+</div>

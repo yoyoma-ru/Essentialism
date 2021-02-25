@@ -1,0 +1,97 @@
+<div class="row space_top">
+	<div class="col-xs-offset-1 col-xs-11">
+		<h1 class="work-title">
+			<span>step4</span><span>小さな一歩を考える</span>
+        </h1>
+		<div class="work-explanation">
+			<p>Step3にて『最良な本質目標』を達成するために『必要な行動』を書き出しました。<br>
+			    それらをもとに自身が日々の生活の中で必要な行動を始めるための<br>
+			    『小さな一歩（行動）』がどのようなものかを考えるワークです。
+			</p>
+		</div>
+	</div>
+
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-3">
+			<p>最良の本質目標</p>
+	    </div>
+	    <% if Work.where(user_id: current_user.id).exists?(genre: 3) == true %>
+	    	<div class="col-xs-9"><%= simple_format(@my_essential_goal.writing) %></div>
+	    <% else %>
+	    	<div class="col-xs-9">
+	    		<p>『未選択』の状態です。
+	    		<p>1つ前のワークに戻って、「最良の本質目標」を1つ決めましましょう。</p>
+	    	</div>
+	    <% end %>
+	</div>
+
+
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+		<div class="col-xs-3">
+			<p>必要な行動</p>
+	    </div>
+	    <% if @necessary_actions.exists?(genre: 5) == true %>
+	    	<div class="col-xs-9 work-display">
+	    		<% @necessary_actions.each do |necessary_action| %>
+		        	<div class="col-xs-6 left-line"><%= simple_format(necessary_action.writing) %>
+		        		<div class="writing-border_bottom"></div>
+		        	</div>
+		        <% end %>
+		    </div>
+	    <% else %>
+	    	<div class="col-xs-9">
+	    		<p>まだ「必要な行動」を書き出していない状態です。</p>
+	    		<p>1つ前のワークに戻って、「必要な行動」を考えて書き出してみましょう。</p>
+	    	</div>
+	    <% end %>
+	</div>
+
+
+	<div id="work-lists" class="col-xs-offset-1 col-xs-11 work-display">
+		<p class="writing-headline">『小さな一歩』一覧</p>
+		<% @baby_steps.each do |baby_step| %>
+		    <div id="writing<%= baby_step.id %>" class="col-xs-6 left-line">
+		    	<div id="js-writing-label-<%= baby_step.id %>"><%= simple_format(baby_step.writing) %></div>
+		    	<p id="js-writing-post-error-<%= baby_step.id %>" class="text-danger"></p>
+		    	<textarea style="display: none;" id="js-textarea-writing-<%= baby_step.id %>" class="form-control writing-post-error"><%= baby_step.writing %></textarea>
+		    	<div id="js-writing-button-<%= baby_step.id %>" class="js-right" style="display: none;">
+					<button data-cancel-id=<%= baby_step.id %> type="button" class="btn btn-xs writing-cancel-button">キャンセル</button>
+					<button data-update-id=<%= baby_step.id %> type="submit" class="btn btn-xs btn-success writing-update-button">更新</button>
+				</div>
+				<div id="js-writing-edit-delete-<%= baby_step.id %>" class="pull-right">
+					<span data-writing-id=<%= baby_step.id %> class="js-edit-writing-button">
+						<i class="fas fa-edit text-success"></i>
+					</span>
+					<span> / </span>
+					<%= link_to work_path(baby_step), method: :delete, class:"writing_delete", data: {confirm: "削除しますか？"} do %>
+						<i class="fas fa-trash-alt text-danger"></i>
+					<% end %>
+				</div>
+				<br>
+				<div class="writing-border_bottom"></div>
+		    </div>
+		<% end %>
+	</div>
+
+
+	<!-- テキスト作成エリア -->
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+    	<div class="">
+			<%= form_with(model: @baby_step, url: works_path, id: "work_input") do |f| %>
+				<%= f.label :writing, "小さな一歩をつくる" %>
+		    	<%= f.text_area :writing, id:"writing_input", class:"form-control", rows: "3", placeholder: "必要な行動を実現するための「最小の行動」を考えてみましょう。" %>
+			    <%= f.hidden_field :user_id, {:value => current_user.id, :id => "user_id_input", :class => "user_id_input"} %>
+			    <%= f.hidden_field :genre, {:value => 6, :id => "genre_input", :class => "genre_input"} %>
+			    <%= f.submit "作成する", class:"pull-right writing_form-btn" %>
+			<% end %>
+		</div>
+	</div>
+	<!-- テキスト作成エリア -->
+
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+			<%= link_to "Previous Step", works_3_path, class:"col-xs-2 btn btn-default" %>
+			<%= link_to "My Works", works_path, class:"col-xs-offset-3 col-xs-2 btn btn-default" %>
+			<%= link_to "Next Step", works_5_path, class:"col-xs-offset-3 col-xs-2 btn btn-default" %>
+	</div>
+</div>

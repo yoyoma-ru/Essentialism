@@ -1,0 +1,164 @@
+<div class="row space_top">
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+		<h1 class="work-title">
+			<span>step5</span><span>習慣を決める</span>
+        </h1>
+		<div class="work-explanation">
+			<p>前回のワークで考えた「小さな一歩」を<br>
+			    日々の生活に取り入れるための習慣について考えるワークです。<br>
+			</p>
+		</div>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+		<div class="margin_style1">
+			あらゆる習慣には、『トリガー』『行動』『報酬』の3つの要素があります。<br>
+		    『トリガー』とは、ある行動を自動的に呼び起こすためのきっかけです。<br>
+		    『行動』とは、肉体の動作や感情、思考も含めたものです。<br>
+		    『報酬』は、この習慣を次も繰り返したいと思うようなご褒美です。<br>
+		    この3つの要素が順番にループする繰り返しにによって、<br>
+		    トリガーと報酬はより強く脳に刷り込まれ、行動はより自動的になっていきます。
+	     </div>
+	     <div class="">図を作る</div>
+	 </div>
+
+
+	 <div class="col-xs-offset-1 col-xs-11 margin_style1">
+		<div class="col-xs-2">
+			<p>小さな一歩</p>
+	    </div>
+	    <% if @baby_steps.exists?(genre: 6) == true %>
+	    	<div class="col-xs-10 work-display">
+	    		<% @baby_steps.each do |baby_step| %>
+		        	<div class="col-xs-6 left-line"><%= simple_format(baby_step.writing) %>
+		        		<div class="writing-border_bottom"></div>
+		        	</div>
+		        <% end %>
+		    </div>
+	    <% else %>
+	    	<div class="col-xs-10">
+	    		<p>まだ「小さな一歩」が作成されていません。</p>
+	    		<p>1つ前のワークに戻って、「小さな一歩」を考えてみましょう。</p>
+	    	</div>
+	    <% end %>
+	</div>
+
+
+	<div id="work-lists" class="col-xs-offset-1 col-xs-11 work-display">
+		<p class="writing-headline">『習慣』一覧</p>
+		<% @habits.each do |habit| %>
+		    <div id="writing<%= habit.id %>" class="col-xs-6 left-line">
+		    	<div id="js-writing-label-<%= habit.id %>"><%= simple_format(habit.writing) %></div>
+		    	<p id="js-writing-post-error-<%= habit.id %>" class="text-danger"></p>
+		    	<textarea style="display: none;" id="js-textarea-writing-<%= habit.id %>" class="form-control writing-post-error"><%= habit.writing %></textarea>
+		    	<div id="js-writing-button-<%= habit.id %>" class="js-right" style="display: none;">
+					<button data-cancel-id=<%= habit.id %> type="button" class="btn btn-xs writing-cancel-button">キャンセル</button>
+					<button data-update-id=<%= habit.id %> type="submit" class="btn btn-xs btn-success writing-update-button">更新</button>
+				</div>
+				<div id="js-writing-edit-delete-<%= habit.id %>" class="pull-right">
+					<span data-writing-id=<%= habit.id %> class="js-edit-writing-button">
+						<i class="fas fa-edit text-success"></i>
+					</span>
+					<span> / </span>
+					<%= link_to work_path(habit), method: :delete, class:"writing_delete", data: {confirm: "削除しますか？"} do %>
+						<i class="fas fa-trash-alt text-danger"></i>
+					<% end %>
+				</div>
+				<br>
+				<div class="writing-border_bottom"></div>
+		    </div>
+		<% end %>
+	</div>
+
+
+	<!-- テキスト作成エリア -->
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+    	<div class="">
+			<%= form_with(model: @habit, url: works_path, id: "work_input") do |f| %>
+				<%= f.label :writing, "習慣をつくる" %>
+		    	<%= f.text_area :writing, id:"writing_input", class:"form-control", rows: "3", placeholder: "「小さな一歩」を実行するための『習慣』を\nトリガー・行動・報酬をもとに考えてみましょう。" %>
+			    <%= f.hidden_field :user_id, {:value => current_user.id, :id => "user_id_input", :class => "user_id_input"} %>
+			    <%= f.hidden_field :genre, {:value => 7, :id => "genre_input", :class => "genre_input"} %>
+			    <%= f.submit "作成する", class:"pull-right writing_form-btn" %>
+			<% end %>
+		</div>
+	</div>
+	<!-- テキスト作成エリア -->
+
+
+	<% if Work.where(user_id: current_user.id).exists?(genre: 13) == true %>
+		<div class="col-xs-offset-1 col-xs-11 work-display margin_style1">
+			<div class="col-xs-6">
+				<div id="writing<%= @habit_todo.id %>">
+					<label for="js-textarea-writing-<%= @habit_todo.id %>">最初に始める習慣</label>
+					<div id="js-writing-label-<%= @habit_todo.id %>"><%= simple_format(@habit_todo.writing) %></div>
+					<p id="js-writing-post-error-<%= @habit_todo.id %>" clsaa="text-danger"></p>
+					<textarea style="display: none;" id="js-textarea-writing-<%= @habit_todo.id %>" class="form-control writing-post-error"><%= @habit_todo.writing %></textarea>
+					<div id="js-writing-button-<%= @habit_todo.id %>" class="js-right" style="display: none;">
+						<button data-cancel-id=<%= @habit_todo.id %> type="button" class="btn btn-xs writing-cancel-button">キャンセル</button>
+						<button data-update-id=<%= @habit_todo.id %> type="button" class="btn btn-xs btn-success writing-update-button">更新</button>
+					</div>
+					<div id="js-writing-edit-delete-<%= @habit_todo.id %>" class="pull-right">
+						<span data-writing-id=<%= @habit_todo.id %> class="js-edit-writing-button">
+							<i class="fas fa-edit text-success">編集</i>
+						</span>
+						<span> / </span>
+						<%= link_to work_path(@habit_todo), method: :delete, data: {confirm: "削除しますか？"} do %>
+							<i class="fas fa-trash-alt text-danger">削除</i>
+						<% end %>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-xs-6">
+				<%= form_with(model: @habit_todo) do |f| %>
+					<%= f.label :writing, "作成した習慣" %>
+					<%= f.collection_select(
+							:writing,
+							@habits,
+							:writing,
+							:writing,
+							{prompt: "---始める習慣を選び直す---"},
+							{class: "form-control"})
+					%>
+					<%= f.submit "変更する", class:"pull-right" %>
+				<% end %>
+			</div>
+		</div>
+	<% else %>
+		<div class="col-xs-offset-1 col-xs-11 margin_style1">
+			<div class="col-xs-offset-1 col-xs-9">
+				<p>習慣をつけるためのコツは1つずつ始めることです。<br>
+				考えた習慣の中で最も取り入れることで効果的なものを選択してみて下さい。
+				</p>
+				<%= form_with(model: @habit) do |f| %>
+					<%= f.label :writing, "取り組む習慣" %>
+					<%= f.collection_select(
+						:writing,
+						@habits,
+						:writing,
+						:writing,
+						{prompt: "---習慣を選んで下さい---"},
+						{class: "form-control"})
+					%>
+					<%= f.hidden_field :user_id, :value => current_user.id %>
+					<%= f.hidden_field :genre, :value => 8 %>
+					<%= f.submit "決定する", class:"pull-right" %>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+		<p>
+			ここまでお疲れ様でした。これにてワークは全て終了となります。<br>
+			最後までお付き合い頂きありがとうございました。<br>
+			このワークを通して少しでも「エッセンシャル思考」について、興味や関心を持って頂けたなら幸いです。
+		</p>
+	</div>
+
+
+	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+		<%= link_to "Previous Step", works_4_path, class:"col-xs-2 btn btn-default" %>
+		<%= link_to "My Works", works_path, class:"col-xs-offset-3 col-xs-2 btn btn-default" %>
+	</div>

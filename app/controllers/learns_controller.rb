@@ -20,7 +20,6 @@ class LearnsController < ApplicationController
 							}
 			end
 		else
-			flash.now[:alert] = "失敗しました"
 			redirect_to learns_path
 		end
 	end
@@ -40,10 +39,7 @@ class LearnsController < ApplicationController
 			respond_to do |format|
 				format.html { redirect_to request.referer }
 				format.json { render json: {memo: @memo.memo,
-											id: @memo.id,
-											chapter: @memo.chapter,
-											essential_type: @memo.essential_type,
-											user_id: @memo.user_id
+											id: @memo.id
 											}
 							}
 			end
