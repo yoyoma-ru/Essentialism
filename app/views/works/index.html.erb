@@ -1,17 +1,16 @@
-<div class="row">
+<div class="row space_top">
 	<div class="col-xs-offset-3 col-xs-6">
 		<h1 class="work-title">My Work</h1>
 		<p class="work-explanation">
-			自身の本質目標と行動を4つのステップを通して考えるワークです。<br>
-			【Step】をクリックくると始められます。<br>
+			自身の本質目標と行動を3つのステップを通して考えるワークです。<br>
+			【Step】をクリックして始められます。<br>
 			時間がかかるStepもありますので、ご自身ペースで進めてください。
 		</p>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-xs-1">
 				<%= link_to "Step1", works_1_path, class:"step-titles" %>
 			</div>
@@ -65,80 +64,102 @@
 				<% end %>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
-			<div class="col-xs-1">
-				<%= link_to "Step2", works_4_path, class:"step-titles" %>
-			</div>
-			<div class="col-xs-3 step-headlines"><h4>自身の大切な軸を一つ選ぶ</h4></div>
-			<% if @works.exists?(genre: 7) == true %>
-				<div class="col-xs-7 steps-contents"><%= @works.find_by(genre: 7).writing %></div>
-			<% else %>
-				<div class="col-xs-7"></div>
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">
+			<%= link_to "Step1", works_1_path, class:"step-titles" %>
+		</div>
+		<div class="col-xs-3">
+			<p>人生の軸</p>
+		</div>
+		<div class="col-xs-7">
+			<% @works.where(genre: 1).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
 			<% end %>
 		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines"><h4>その他</h4></div>
-			<div class="col-xs-7">
-				<% @works.where(genre: 6).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-3">
+			<p>最も大切な人生の軸</p>
+		</div>
+		<div class="col-xs-7">
+			・<%= @works.find_by(genre: 2).writing %>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
-			<div class="col-xs-1">
-				<%= link_to "Step3", works_5_path, class:"step-titles" %>
-			</div>
-			<div class="col-xs-3 step-headlines"><h4>本質目標</h4></div>
-		    <div class="col-xs-7 steps-contents">
-		    	<% if @works.exists?(genre: 8) == true %>
-					<div class="col-xs-7 steps-contents">
-						<%= @works.find_by(genre: 8).writing %>
-						<br>
-					</div>
-				<% else %>
-					<div class="col-xs-7"></div>
-				<% end %>
-		    </div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">
+			<%= link_to "Step2", works_2_path, class:"step-titles" %>
 		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines">
-				<h4>達成するために必要なこと</h4>
-			</div>
-			<div class="col-xs-7">
-				<% @works.where(genre: 9).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+		<div class="col-xs-3 step-headlines">
+			<p>本質目標</p>
+		</div>
+	    <div class="col-xs-7 steps-contents">
+	    	<% if @works.exists?(genre: 8) == true %>
+				・<%= @works.find_by(genre: 4).writing %>
+			<% end %>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-10 step-boxes">
-		<div class="row">
-			<div class="col-xs-1">
-				<%= link_to "Step4", works_7_path, class:"step-titles" %>
-			</div>
-			<div class="col-xs-3 step-headlines"><h4>本質目標を叶える小さな一歩</h4></div>
-			<div class="col-xs-7">
-				<% @works.where(genre: 10).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">
+			<%= link_to "Step3", works_3_path, class:"step-titles" %>
 		</div>
-		<div class="row">
-			<div class="col-xs-offset-1 col-xs-3 step-headlines">
-				<h4>本質目標を叶えるための習慣</h4>
-			</div>
-			<div class="col-xs-7">
-				<% @works.where(genre: 11).each do |work| %>
-					<div class="steps-contents"><%= work.writing %></div>
-				<% end %>
-			</div>
+		<div class="col-xs-3 step-headlines">
+			<p>本質目標達成のために必要な行動</p>
+		</div>
+	    <div class="col-xs-7 steps-contents">
+			<% @works.where(genre: 5).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
+			<% end %>
+		</div>
+	</div>
+
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">
+			<%= link_to "Step4", works_4_path, class:"step-titles" %>
+		</div>
+		<div class="col-xs-3 step-headlines">
+			<p>本質目標を叶える小さな一歩</p>
+		</div>
+	    <div class="col-xs-7 steps-contents">
+			<% @works.where(genre: 6).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
+			<% end %>
+		</div>
+	</div>
+
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2">
+			<%= link_to "Step4", works_4_path, class:"step-titles" %>
+		</div>
+		<div class="col-xs-3">
+			<p>習慣</p>
+		</div>
+		<div class="col-xs-7">
+			<% @works.where(genre: 7).each do |work| %>
+				<div class="steps-contents">・<%= work.writing %></div>
+			<% end %>
+		</div>
+	</div>
+
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-3 step-headlines">
+			<p>取り組むの習慣</p>
+		</div>
+	    <div class="col-xs-7 steps-contents">
+	    	<% if @works.exists?(genre: 8) == true %>
+				・<%= @works.find_by(genre: 8).writing %>
+			<% end %>
 		</div>
 	</div>
 </div>

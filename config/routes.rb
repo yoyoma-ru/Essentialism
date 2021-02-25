@@ -34,17 +34,14 @@ Rails.application.routes.draw do
   get '/learns/chapter19' => 'learns#chapter19', as: :chapter19
   get '/learns/chapter20' => 'learns#chapter20', as: :chapter20
 
-  resources :works, only: [:index, :create, :edit , :update, :destroy] do
+  resources :works, only: [:index, :create, :update, :destroy] do
     resources  :favorites, only: [:create, :index, :destroy]
   end
-  get '/works/step1_selection' => 'works#step1_selection', as: "works_1"
-  get '/works/step1_noise' => 'works#step1_noise', as: "works_2"
-  get '/works/step1_tradeoff' => 'works#step1_tradeoff', as: "works_3"
-  get '/works/step2' => 'works#step2', as: "works_4"
-  get '/works/step3_essential_goal' => 'works#step3_essential_goal', as: "works_5"
-  get '/works/step3_necessary_actions' => 'works#step3_necessary_actions', as: "works_6"
-  get '/works/step4_baby_steps' => 'works#step4_baby_steps', as: "works_7"
-  get '/works/step4_habits' => 'works#step4_habits', as: "works_8"
+  get '/works/step1' => 'works#step1', as: "works_1"
+  get '/works/step2' => 'works#step2', as: "works_2"
+  get '/works/step3' => 'works#step3', as: "works_3"
+  get '/works/step4' => 'works#step4', as: "works_4"
+  get '/works/step' => 'works#step5', as: "works_5"
   get '/works/user_works' => 'works#user_works', as: "user_works"
   get '/works/user_works/:id' => 'works#user_work', as: "user_work"
 end

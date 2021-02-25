@@ -63,7 +63,7 @@ $(function(){
 	});
 })
 
-// メモの作成
+// メモの作成、編集、削除に関して
 $(function(){
 	function createHTML1(learn){
 		let html = `<div id="memo${learn.id}">
