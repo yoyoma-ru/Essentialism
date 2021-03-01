@@ -1,0 +1,22 @@
+<div id="memo<%= essential.id %>" class="">
+	<div id="js-memo-label-<%= essential.id %>" class="essential-memo"><%= simple_format(essential.memo) %></div>
+	<div>
+		<p id="js-memo-post-error-<%= essential.id %>" class="text-danger"></p>
+		<textarea style="display: none" id="js-textarea-memo-<%= essential.id %>" class="form-control memo-post-error"><%= essential.memo %></textarea>
+		<div id="js-memo-button-<%= essential.id %>" class="js-right" style="display: none;">
+			<button data-cancel-id=<%= essential.id %> type="button" class="btn btn-xs memo-cancel-button">キャンセル</button>
+			<button data-update-id=<%= essential.id %> type="submit" class="btn btn-xs btn-success memo-update-button">更新</button>
+		</div>
+		<div id="js-memo-edit-delete-<%= essential.id %>" class="pull-right">
+			<span data-memo-id=<%= essential.id %> class="js-edit-memo-button">
+				<i class="fas fa-edit text-success"></i>
+			</span>
+			<span> / </span>
+			<%= link_to learn_path(essential), method: :delete, class:"memo_delete", data: {confirm: "削除しますか？"} do %>
+				<i class="fas fa-trash-alt text-danger"></i>
+			<% end %>
+		</div>
+	</div>
+	<br>
+	<div class="memo-border_bottom"></div>
+</div>

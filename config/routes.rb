@@ -35,8 +35,10 @@ Rails.application.routes.draw do
   get '/learns/chapter20' => 'learns#chapter20', as: :chapter20
 
   resources :works, only: [:index, :create, :update, :destroy] do
-    resources  :favorites, only: [:create, :index, :destroy]
+    resources  :favorites, only: [:create, :destroy]
   end
+  get '/users/:user_id/favorites' => 'favorites#index', as: :user_favorites
+
   get '/works/step1' => 'works#step1', as: "works_1"
   get '/works/step2' => 'works#step2', as: "works_2"
   get '/works/step3' => 'works#step3', as: "works_3"

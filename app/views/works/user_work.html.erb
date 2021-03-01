@@ -1,6 +1,6 @@
 <div class="row space_top">
 	<div class="col-xs-offset-1 col-xs-11">
-		<h1 class="work-title"><%= @user.name %>のWork</h1>
+		<h1 class="work-title"><%= @user.name %><span> / </span>Works</h1>
 		<% if @essential_goal.favorited_by?(current_user) %>
 			<%= link_to work_favorite_path(@essential_goal), method: :delete do %>
 				<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>

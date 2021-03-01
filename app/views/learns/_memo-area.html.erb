@@ -1,0 +1,35 @@
+<% if user_signed_in? %>
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-11 memo-margin_bottom">
+			<div class="col-xs-6">
+				<div class="col-xs-11 essential-display memo-display">
+					<p class="memo-headline">エッセンシャル思考<span>メモ一覧</span></p>
+					<%= render partial: 'essential', collection: @essential_memos %>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="col-xs-11 non_essential-display memo-display">
+					<p class="memo-headline">非エッセンシャル思考メモ一覧</p>
+					<%= render partial: 'non_essential', collection: @non_essential_memos %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% else %>
+	<div class="row">
+		<div class="col-xs-offset-1 col-xs-11 memo-margin_bottom">
+			<div class="col-xs-6">
+				<div class="col-xs-11 essential-display memo-display">
+					<p class="memo-headline">エッセンシャル思考<span>メモ一覧</span></p>
+					<h4>ユーザー登録することでメモを残すことができます。</h4>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="col-xs-11 non_essential-display memo-display">
+					<p class="memo-headline">非エッセンシャル思考メモ一覧</p>
+					<h4>ユーザー登録することでメモを残すことができます。</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

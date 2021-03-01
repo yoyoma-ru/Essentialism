@@ -1,0 +1,22 @@
+<div id="memo<%= non_essential.id %>">
+    <div id="js-memo-label-<%= non_essential.id %>" class="non_essential-memo"><%= simple_format(non_essential.memo) %></div>
+	<div>
+		<p id="js-memo-post-error-<%= non_essential.id %>" class="text-danger"></p>
+		<textarea style="display: none" id="js-textarea-memo-<%= non_essential.id %>" class="form-control memo-post-error"><%= non_essential.memo %></textarea>
+		<div id="js-memo-button-<%= non_essential.id %>" class="js-right" style="display: none;">
+			<button data-cancel-id=<%= non_essential.id %> type="button" class="btn btn-xs btn-light memo-cancel-button">キャンセル</button>
+			<button data-update-id=<%= non_essential.id %> type="submit" class="btn btn-xs btn-success memo-update-button">更新</button>
+		</div>
+		<div id="js-memo-edit-delete-<%= non_essential.id %>" class="pull-right">
+			<span data-memo-id=<%= non_essential.id %> class="js-edit-memo-button">
+				<i class="fas fa-edit text-success"></i>
+			</span>
+			<span> / </span>
+			<%= link_to learn_path(non_essential), method: :delete, class:"memo_delete" do %>
+				<i class="fas fa-trash-alt text-danger"></i>
+			<% end %>
+		</div>
+	</div>
+	<br>
+	<div class="memo-border_bottom"></div>
+</div>

@@ -1,0 +1,17 @@
+<div class="row space_top">
+	<div class="col-xs-offset-3 col-xs-6">
+		<h1 class="work-title">Favorites</h1>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<% @favorites.each do |favorite| %>
+			<div class="">本質目標</div>
+			<div class=""><%= favorite.work.writing %></div>
+			<div class="">
+				<%= attachment_image_tag favorite.user, :profile_image, size:"20x20", fallback:"no_image.jpg" %>
+                <span> / </span>
+               <%= favorite.user.name %>
+           </div>
+		<% end %>
+	</div>
+</div>
