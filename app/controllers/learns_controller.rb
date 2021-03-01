@@ -63,65 +63,141 @@ class LearnsController < ApplicationController
 	def chapter1
 		@user = current_user
 		@memo = Learn.new
-		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 1 ).where(essential_type: 0)
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 1).where(essential_type: 0)
 		@essential_memos = Learn.where(user_id: current_user).where(chapter: 1).where(essential_type: 1)
 	end
 
 	def chapter2
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 2).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 2).where(essential_type: 1)
 	end
 
 	def chapter3
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 3).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 3).where(essential_type: 1)
 	end
 
 	def chapter4
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 4).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 4).where(essential_type: 1)
 	end
 
 	def chapter5
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 5).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 5).where(essential_type: 1)
 	end
 
 	def chapter6
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 6).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 6).where(essential_type: 1)
 	end
 
 	def chapter7
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 7).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 7).where(essential_type: 1)
 	end
 
 	def chapter8
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 8).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 8).where(essential_type: 1)
 	end
 
 	def chapter9
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 9).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 9).where(essential_type: 1)
 	end
 
 	def chapter10
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 10).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 10).where(essential_type: 1)
 	end
 
 	def chapter11
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 11).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 11).where(essential_type: 1)
 	end
 
 	def chapter12
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 12).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 12).where(essential_type: 1)
 	end
 
 	def chapter13
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 13).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 13).where(essential_type: 1)
 	end
 
 	def chapter14
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 14).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 14).where(essential_type: 1)
 	end
 
 	def chapter15
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 15).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 15).where(essential_type: 1)
 	end
 
 	def chapter16
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 16).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 16).where(essential_type: 1)
 	end
 
 	def chapter17
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 17).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 17).where(essential_type: 1)
 	end
 
 	def chapter18
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 18).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 18).where(essential_type: 1)
 	end
 
 	def chapter19
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 19).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 19).where(essential_type: 1)
 	end
 
 	def chapter20
+		@user = current_user
+		@memo = Learn.new
+		@non_essential_memos = Learn.where(user_id: current_user).where(chapter: 20).where(essential_type: 0)
+		@essential_memos = Learn.where(user_id: current_user).where(chapter: 20).where(essential_type: 1)
 	end
 
 	private

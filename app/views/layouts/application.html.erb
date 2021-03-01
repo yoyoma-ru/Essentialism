@@ -8,8 +8,8 @@
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/fff3ba2388.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -17,24 +17,37 @@
     <div class="container-fluid space_bottom">
       <div class="col-xs-12 header">
         <div class="col-xs-4 title">Essentialism</div>
-        <div class="col-xs-7 header-menu">
-          <ul>
-            <li><%= link_to "Learns", learns_path %></li>
-            <li>/</li>
-            <li><%= link_to "My Works", works_path %></li>
-            <li>/</li>
-            <li><%= link_to "User Works", user_works_path %></li>
-            <li>/</li>
-            <li><%= link_to "Favorites", user_favorites_path(current_user.id) %></li>
-          </ul>
-        </div>
-        <% if user_signed_in? %>
+          <% if user_signed_in? %>
+            <div class="col-xs-7 header-menu">
+              <ul>
+                <li><%= link_to "Learns", learns_path %></li>
+                <li>/</li>
+                <li><%= link_to "My Works", works_path %></li>
+                <li>/</li>
+                <li><%= link_to "User Works", user_works_path %></li>
+                <li>/</li>
+                <li><%= link_to "Favorites", user_favorites_path(current_user.id) %></li>
+              </ul>
+            </div>
             <div class="header_user-icon">
               <%= link_to user_path(current_user) do %>
                 <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg" %>
               <% end %>
             </div>
-        <% else %>
+          <% else %>
+          <div class="col-xs-7 header-menu">
+              <ul>
+                <li><%= link_to "Top", root_path %></li>
+                <li>/</li>
+                <li><%= link_to "About", about_path %></li>
+                <li>/</li>
+                <li><%= link_to "Log in", new_user_session_path %></li>
+                <li>/</li>
+                <li><%= link_to "Sign in", new_user_registration_path %></li>
+                <li>/</li>
+                <li><%= link_to "Learns", learns_path %></li>
+              </ul>
+            </div>
             <div class="header_user-icon">ようこそ<br>” ゲスト様 ”</div>
         <% end %>
         <!-- ハンバーガーメニュー -->
