@@ -1,3 +1,19 @@
+// indexページ、矢印の表示
+$(function(){
+	var arrows = setInterval(showArrow, 3800);
+	let arrow = $(".arrow");
+	let hArrow = $(".hide-arrow");
+	function showArrow(){
+		arrow.hide();
+		hArrow.hide();
+		arrow.show(1500, "linear", hideArrow);
+	}
+	function hideArrow(){
+		hArrow.show(2000, "linear");
+	}
+});
+
+
 // workメモの作成、編集、削除に関して
 $(document).on("turbolinks:load", function(){
 	function createHTML(work){

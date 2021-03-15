@@ -1,15 +1,22 @@
 <div class="row space_top">
 	<div class="col-xs-offset-1 col-xs-11">
-		<h1 class="work-title"><%= @user.name %><span> / </span>Works</h1>
+		<h1 class="work-title">User Work一覧</h1>
+		<div class="user-icon_positon">
+			<%= attachment_image_tag @user, :profile_image, class: "user-icon", fallback: "no_image.jpg" %>
+		</div>
+		<div class="user-name_position">
+			<div class="name-size"> / </div>
+			<div class="name-size"><%= @user.name %></div>
+		</div>
 		<% if @essential_goal.favorited_by?(current_user) %>
-			<%= link_to work_favorite_path(@essential_goal), method: :delete do %>
-				<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-				<%= @essential_goal.favorites.count %>いいね
+			<%= link_to work_favorite_path(@essential_goal), method: :delete, class: "favorite-btn_text" do %>
+				<i class="fas fa-star unlink-btn" aria-hidden="true"></i>
+				<%= @essential_goal.favorites.count %>
 			<% end %>
 		<% else %>
-			<%= link_to work_favorites_path(@essential_goal), method: :post do %>
-				<i class="fa fa-heart" aria-hiddent="true"></i>
-				<%= @essential_goal.favorites.count %>いいね
+			<%= link_to work_favorites_path(@essential_goal), method: :post, class: "favorite-btn_text" do %>
+				<i class="far fa-star link-btn" aria-hiddent="true"></i>
+				<%= @essential_goal.favorites.count %>
 			<% end %>
 		<% end %>
 	</div>

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @essential_goal = Work.find_by(user_id: @user.id, genre: 4)
   end
 
   def edit

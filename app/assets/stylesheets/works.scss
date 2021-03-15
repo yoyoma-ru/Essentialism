@@ -6,14 +6,103 @@
 .margin_style1{
 	margin-bottom: 60px;
 }
+.margin_style2{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.margin_style3{
+	margin-bottom: 30px;
+}
+
 .work-title{
 	text-align: center;
 	text-decoration: underline;
-	margin-bottom: 40px;
+	margin-bottom: 50px;
 }
 .work-explanation{
-    margin-bottom: 30px;
+    margin-bottom: 70px;
     text-align: center;
+    line-height: 200%;
+}
+.step-boxs{
+	margin-bottom: 50px;
+}
+.step-numbers{
+	font-size: 22px;
+	font-weight: 700;
+	color: #EE0000;
+	text-decoration-color: transparent;
+	transition: color 0.3s,
+				text-decoration 0.5s;
+}
+.step-numbers:hover{
+	color: #888888;
+	text-decoration: underline;
+}
+.step-title{
+	font-size: 13px;
+	font-weight: 600;
+}
+.step-contents{
+	margin-bottom: 15px;
+}
+.arrow{
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: 15px;
+	.line{
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 2px;
+		background-color: #888888;
+		.triangle{
+			position: absolute;
+			top: -6px;
+			left: 55px;
+			width: 0;
+			height: 0;
+			border-left: 6px solid #888888;
+			border-bottom: 4px solid #888888;
+			border-top: 4px solid transparent;
+			border-right: 6px solid transparent;
+		}
+	}
+}
+.hide-arrow{
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: 15px;
+	.line{
+		position: relative;
+		display: inline-block;
+		width: 60px;
+		height: 2px;
+		background-color: #fff;
+		.triangle{
+			position: absolute;
+			top: -6px;
+			left: 55px;
+			width: 0;
+			height: 0;
+			border-left: 6px solid #fff;
+			border-bottom: 4px solid #fff;
+			border-top: 4px solid transparent;
+			border-right: 6px solid transparent;
+		}
+	}
+}
+
+
+// work 各ステップ
+.work-number{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	font-size: 28px;
+	color: #EE0000;
 }
 .work-display{
 	display: flex;
@@ -21,6 +110,8 @@
 	align-items: flex-start;
 	.writing-headline{
 		width: 100%;
+		font-weight: bold;
+		padding-bottom: 10px;
 	}
 	.left-line{
 		border-left: 1px dashed #000;
@@ -32,10 +123,97 @@
 		margin-top: 5px;
 	}
 }
+.step-index{
+	font-weight: bold;
+	padding-right: 10px;
+}
+.writed-text{
+	display: inline-block;
+}
+.underline-text{
+	border-bottom: 1px solid #000;
+}
 .collection_select-area{
 	width: 100%;
 }
 .fas{
 	cursor: pointer;
 }
+.user-icon{
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+	object-fit: cover;
+	object-position: 0% 0%;
+}
+.user-icon_positon{
+	position: absolute;
+	top: 25px;
+	right: 160px;
+}
+.user-name_position{
+	position: absolute;
+	top: 35px;
+	right: 92px;
+	.name-size{
+		font-size: 20px;
+		padding-left: 5px;
+		display: inline-block;
+	}
+}
+.favorite-btn_text{
+	position: absolute;
+	top: 0px;
+	right: 97px;
+	text-decoration: none;
+	color: #000;
+	font-size: 20px;
+}
+.favorite-btn_text:hover{
+	text-decoration: underline;
+	color: #000;
+}
+.link-btn{
+	color: #CCCCCC;
+	padding-right: 2px;
+}
+.unlink-btn{
+	color: #FFD700;
+	padding-right: 2px;
+}
 
+
+
+// user_works
+.user_works-title{
+	text-align: center;
+	font-size: 30px;
+}
+.title-bottom_line{
+	height: 1px;
+	width: 100%;
+	border: 1px solid #000;
+	margin-bottom: 30px;
+}
+.user_works-box{
+	margin-bottom: 10px;
+	padding-right: 30px;
+	font-size: 18px;
+}
+
+.slash-interval{
+	padding: 0 5px;
+}
+.border_bottom-line{
+	height: 1px;
+	border-bottom: 1px solid #E6E6E6;
+	margin-bottom: 20px;
+}
+.list-page{
+	text-align: center;
+	padding-top: 20px;
+}
+.back-color-gray{
+	background-color: #BBBBBB;
+	color: white;
+}

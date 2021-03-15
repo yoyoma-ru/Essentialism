@@ -1,0 +1,30 @@
+<div class="row space_top">
+	<div class="col-xs-offset-1 col-xs-11">
+	    <h1 class="work-title">新着一覧</h1>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11">
+		<% @new_arrivals.each do |new_arrival| %>
+			<div class="col-xs-6 user_works-box">
+                <div class="col-xs-12 margin_style2">
+                	<%= link_to user_path(new_arrival.user) do %>
+                    	<%= attachment_image_tag new_arrival.user, :profile_image, class: "user-icon", fallback:"no_image.jpg" %>
+                    <% end %>
+                    <span class="slash-interval"> / </span>
+                    <span><%= new_arrival.user.name %></span>
+                </div>
+		        <div class="col-xs-4">本質目標</div>
+		        <div class="col-xs-8">
+                    <%= simple_format(new_arrival.writing) %>
+                </div>
+                <%= link_to user_work_path(new_arrival.user.id)do %>
+                    <button class="btn btn-xs btn-default pull-right">もっとみる</button>
+                <% end %>
+                <div class="border_bottom-line"></div>
+	        </div>
+		<% end %>
+    </div>
+    <div class="list-page">
+		<%= paginate @new_arrivals %>
+	</div>
+</div>

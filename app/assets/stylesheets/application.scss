@@ -102,6 +102,8 @@ $header-height: 80px;
 	    	border-radius: 50%;
 	    	width: 30px;
 	    	height: 30px;
+	    	object-fit: cover;
+	    	object-position: 0% 0%;
 	    }
 	}
 
@@ -238,12 +240,15 @@ $header-height: 80px;
 			margin-bottom: 60px;
 		}
 		li{
-			margin-bottom: 50px;
+			display: inline-block;
+			width: 40%;
+			margin-bottom: 80px;
 			a{
 				color: #fff;
 				text-decoration: none;
 				font-size: 25px;
 				font-weight: bold;
+				border-bottom: 1px solid #fff;
 			}
 		}
 	}

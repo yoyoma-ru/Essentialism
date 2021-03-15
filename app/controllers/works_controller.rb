@@ -87,9 +87,20 @@ class WorksController < ApplicationController
 		@habit_todo = Work.find_by(user_id: current_user.id, genre: 8)
 	end
 
+	PER = 20
+
 	def user_works
 		@user_essential_goals = Work.where(genre: 4).order(created_at: :desc).limit(10)
 		@all_ranks = Work.find(Favorite.group(:work_id).order('count(work_id) desc').limit(10).pluck(:work_id))
+	end
+
+	def new_arrivals
+		@new_arrivals = Work.page(params[:page]).per(PER).where(genre: 4).order(created_at: :desc)
+	end
+
+	def ranks
+		ranks = Work.find(Favorite.group(:work_id).order('count(work_id) desc').pluck(:work_id))
+		@ranks = Kaminari.paginate_array(ranks).page(params[:page]).per(PER)
 	end
 
 	def user_work

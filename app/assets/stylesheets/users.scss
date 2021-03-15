@@ -2,17 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.my_page-text{
+.user_page-text{
 	text-align: right;
 	font-size: 15px;
 	font-weight: bold;
 }
 
-.img-circle{
-	border-radius: 50%;
-}
-
-.my_page-content{
+.user_page-content{
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+.user_page-icon{
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	object-position: 0% 0%;
 }

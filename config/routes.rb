@@ -45,5 +45,7 @@ Rails.application.routes.draw do
   get '/works/step4' => 'works#step4', as: "works_4"
   get '/works/step' => 'works#step5', as: "works_5"
   get '/works/user_works' => 'works#user_works', as: "user_works"
+  get '/works/new_arrivals' => 'works#new_arrivals', as: "user_newArrivals"
+  get '/works/ranks' => 'works#ranks', as: "ranks"
   get '/works/user_works/:id' => 'works#user_work', as: "user_work"
 end
