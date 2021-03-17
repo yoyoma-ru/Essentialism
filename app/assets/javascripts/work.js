@@ -1,5 +1,5 @@
 // indexページ、矢印の表示
-$(function(){
+$(document).on("turbolinks:load", function(){
 	var arrows = setInterval(showArrow, 3800);
 	let arrow = $(".arrow");
 	let hArrow = $(".hide-arrow");

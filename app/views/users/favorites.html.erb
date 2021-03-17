@@ -4,7 +4,7 @@
 	</div>
 
 	<div class="col-xs-offset-1 col-xs-11">
-		<% @favorites.each do |favorite| %>
+		<% @favorites_works.each do |favorite| %>
 			<div class="row user_works-box">
 		        <div class="col-xs-12 margin_style2">
 		            <%= link_to user_path(favorite.user) do %>
@@ -15,7 +15,7 @@
 		        </div>
 		        <div class="col-xs-4">本質目標</div>
 		        <div class="col-xs-8">
-		            <%= simple_format(favorite.work.writing) %>
+		            <%= simple_format(favorite.writing) %>
 		        </div>
 		        <%= link_to user_work_path(favorite.user.id)do %>
 		            <button class="btn btn-xs btn-default pull-right">もっとみる</button>

@@ -1,5 +1,5 @@
 <div class="row space_top">
-	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+	<div class="col-xs-offset-1 col-xs-11">
 		<h1 class="work-title">本質目標を考える
 			<span class="work-number">Step2</span>
         </h1>
@@ -23,14 +23,14 @@
 	</div>
 
 	<div class="col-xs-offset-1 col-xs-11 margin_style1">
-		<span class="step-index">人生で最も大切な軸 ＝　</span>
+		<span class="step-index">人生で最も大切な軸　＝　</span>
 	    <% if Work.where(user_id: current_user.id).exists?(genre: 2) == true  %>
 	    	<div class="writed-text">
 	    		<%= simple_format(@most_axis_of_life.writing) %>
 	    	</div>
 	    <% else %>
 	    	<div class="writed-text">
-	    		<p>『未選択』の状態です。
+	    		<p>『未選択』の状態です。</p>
 	    		<p>1つ前のワークに戻って、「最も大切な人生の軸」を1つ選択しましょう。</p>
 	    	</div>
 	    <% end %>

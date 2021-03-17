@@ -1,7 +1,7 @@
 <div class="row space_top">
 	<div class="col-xs-offset-1 col-xs-11">
-		<h1 class="work-title">
-			<span>step3</span><span>本質目標を達成するために</span>
+		<h1 class="work-title">本質目標を達成するために
+			<span class="work-number">Step3</span>
         </h1>
 		<div class="work-explanation">
 			<p>前回のワークで決めた最も良い「本質目標」を達成するために<br>
@@ -11,14 +11,14 @@
 	</div>
 
 	<div class="col-xs-offset-1 col-xs-11 margin_style1">
-		<div class="col-xs-3">
-			<p>最良の本質目標</p>
-	    </div>
+		<span class="step-index">人生で最も大切な軸　＝　</span>
 	    <% if Work.where(user_id: current_user.id).exists?(genre: 4) == true %>
-	    	<div class="col-xs-9"><%= simple_format(@my_essential_goal.writing) %></div>
+	    	<div class="writed-text">
+	    		<%= simple_format(@my_essential_goal.writing) %>
+    		</div>
 	    <% else %>
-	    	<div class="col-xs-9">
-	    		<p>『未選択』の状態です。
+	    	<div class="writed-text">
+	    		<p>『未選択』の状態です。</p>
 	    		<p>1つ前のワークに戻って、「最良の本質目標」を1つ決めましょう。</p>
 	    	</div>
 	    <% end %>

@@ -1,7 +1,7 @@
 <div class="row space_top">
-	<div class="col-xs-offset-1 col-xs-11 margin_style1">
-		<h1 class="work-title">
-			<span>step5</span><span>習慣を決める</span>
+	<div class="col-xs-offset-1 col-xs-11">
+		<h1 class="work-title">習慣を決める
+			<span class="work-number">Step5</span>
         </h1>
 		<div class="work-explanation">
 			<p>前回のワークで考えた「小さな一歩」を<br>
@@ -24,9 +24,7 @@
 
 
 	 <div class="col-xs-offset-1 col-xs-11 margin_style1">
-		<div class="col-xs-2">
-			<p>小さな一歩</p>
-	    </div>
+		<span class="col-sm-2 step-index">小さな一歩</span>
 	    <% if @baby_steps.exists?(genre: 6) == true %>
 	    	<div class="col-xs-10 work-display">
 	    		<% @baby_steps.each do |baby_step| %>
@@ -86,7 +84,7 @@
 	<!-- テキスト作成エリア -->
 
 
-	<% if Work.where(user_id: current_user.id).exists?(genre: 13) == true %>
+	<% if Work.where(user_id: current_user.id).exists?(genre: 8) == true %>
 		<div class="col-xs-offset-1 col-xs-11 work-display margin_style1">
 			<div class="col-xs-6">
 				<div id="writing<%= @habit_todo.id %>">
