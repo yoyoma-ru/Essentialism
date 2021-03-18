@@ -8,20 +8,23 @@
 			<div class="row user_works-box">
 		        <div class="col-xs-12 margin_style2">
 		            <%= link_to user_path(favorite.user) do %>
-		                <%= attachment_image_tag favorite.user, :profile_image, class: "user-icon", fallback:"no_image.jpg" %>
+		                <%= attachment_image_tag favorite.work.user, :profile_image, class: "user-icon", fallback:"no_image.jpg" %>
 		            <% end %>
 		            <span class="slash-interval"> / </span>
-		            <span><%= favorite.user.name %></span>
+		            <span><%= favorite.work.user.name %></span>
 		        </div>
 		        <div class="col-xs-4">本質目標</div>
 		        <div class="col-xs-8">
 		            <%= simple_format(favorite.work.writing) %>
 		        </div>
-		        <%= link_to user_work_path(favorite.user.id)do %>
+		        <%= link_to user_work_path(favorite.work.user.id)do %>
 		            <button class="btn btn-xs btn-default pull-right">もっとみる</button>
 		        <% end %>
 		    </div>
 		    <div class="border_bottom-line"></div>
 		<% end %>
+		<div class="list-page">
+			<%= paginate @favorites %>
+		</div>
 	</div>
 </div>
