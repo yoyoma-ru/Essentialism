@@ -24,7 +24,7 @@
 
 
 	 <div class="col-xs-offset-1 col-xs-11 margin_style1">
-		<span class="col-sm-2 step-index">小さな一歩</span>
+		<div class="col-sm-2 step-index">小さな一歩</div>
 	    <% if @baby_steps.exists?(genre: 6) == true %>
 	    	<div class="col-xs-10 work-display">
 	    		<% @baby_steps.each do |baby_step| %>
@@ -156,7 +156,8 @@
 	</div>
 
 
-	<div class="col-xs-offset-1 col-xs-11 margin_style1">
+	<div class="col-xs-offset-1 col-xs-11 margin_style3">
 		<%= link_to "Previous Step", works_4_path, class:"col-xs-2 btn btn-default" %>
 		<%= link_to "My Works", works_path, class:"col-xs-offset-3 col-xs-2 btn btn-default" %>
 	</div>
+</div>

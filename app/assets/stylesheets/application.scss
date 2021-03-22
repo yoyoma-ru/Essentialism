@@ -44,8 +44,9 @@ $header-height: 80px;
 	margin-bottom: 10px;
 	background-color: #000;
 }
-
-
+.btn {
+	white-space: normal;
+}
 
 /* ↑共通CSS↑ */
 
@@ -335,6 +336,5 @@ $header-height: 80px;
 		height: 13px;
 		margin-top: 15px;
 		font-size: 10px;
-		-webkit-transform: scale(0.6);
 	}
 }

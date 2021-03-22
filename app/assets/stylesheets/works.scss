@@ -14,21 +14,16 @@
 	margin-bottom: 30px;
 }
 
-.work-title{
+.work-headline{
 	text-align: center;
-	text-decoration: underline;
-	margin-bottom: 50px;
-}
-.work-explanation{
-    margin-bottom: 70px;
-    text-align: center;
-    line-height: 200%;
+	font-weight: bold;
+	font-size: 39px;
 }
 .step-boxs{
 	margin-bottom: 50px;
 }
 .step-numbers{
-	font-size: 22px;
+	font-size: 24px;
 	font-weight: 700;
 	color: #EE0000;
 	text-decoration-color: transparent;
@@ -40,7 +35,7 @@
 	text-decoration: underline;
 }
 .step-title{
-	font-size: 13px;
+	font-size: 20px;
 	font-weight: 600;
 }
 .step-contents{
@@ -97,12 +92,36 @@
 
 
 // work 各ステップ
+
+.work-title{
+	text-align: center;
+	font-size: 32px;
+	font-weight: 700;
+	margin-top: 30px;
+	margin-bottom: 50px;
+	border-bottom: 2px solid #000;
+	padding-bottom: 5px;
+}
+.work-explanation{
+	text-align: center;
+	margin-bottom: 50px;
+	line-height: 200%;
+}
 .work-number{
 	position: absolute;
 	top: 20px;
 	left: 20px;
 	font-size: 28px;
 	color: #EE0000;
+}
+@media screen and (max-width: 500px){
+	.work-number{
+		position: absolute;
+		top: -20px;
+		left: 20px;
+		font-size: 28px;
+		color: #EE0000;
+	}
 }
 .work-display{
 	display: flex;
@@ -126,9 +145,12 @@
 .step-index{
 	font-weight: bold;
 	padding-right: 10px;
+	padding-bottom: 20px;
 }
 .writed-text{
 	display: inline-block;
+	text-decoration: underline;
+	padding-left: 30px;
 }
 .underline-text{
 	border-bottom: 1px solid #000;
@@ -148,13 +170,13 @@
 }
 .user-icon_positon{
 	position: absolute;
-	top: 25px;
-	right: 160px;
+	top: 30px;
+	right: 117px;
 }
 .user-name_position{
 	position: absolute;
-	top: 35px;
-	right: 92px;
+	top: 40px;
+	right: 50px;
 	.name-size{
 		font-size: 20px;
 		padding-left: 5px;
@@ -163,8 +185,8 @@
 }
 .favorite-btn_text{
 	position: absolute;
-	top: 0px;
-	right: 97px;
+	top: 10px;
+	right: 55px;
 	text-decoration: none;
 	color: #000;
 	font-size: 20px;
@@ -181,13 +203,46 @@
 	color: #FFD700;
 	padding-right: 2px;
 }
+.rank_number{
+	font-size: 18px;
+	font-weight: 700;
+}
+@media screen and (max-width: 580px){
+	.user-icon_positon{
+		position: absolute;
+		top: -20px;
+		right: 100px;
+	}
+	.user-name_position{
+		position: absolute;
+		top: -10px;
+		right: 45px;
+		.name-size{
+			font-size: 17px;
+			padding-left: 5px;
+			display: inline-block;
+		}
+	}
+	.favorite-btn_text{
+		position: absolute;
+		top: 30px;
+		right: 20px;
+		text-decoration: none;
+		color: #000;
+		font-size: 20px;
+	}
+}
+
 
 
 
 // user_works
+
 .user_works-title{
 	text-align: center;
 	font-size: 30px;
+	font-family: "serif";
+	font-weight: 700;
 }
 .title-bottom_line{
 	height: 1px;
@@ -200,7 +255,6 @@
 	padding-right: 30px;
 	font-size: 18px;
 }
-
 .slash-interval{
 	padding: 0 5px;
 }

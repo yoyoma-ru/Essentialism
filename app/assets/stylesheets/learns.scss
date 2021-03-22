@@ -5,11 +5,6 @@
 
 /* 共通 */
 $learn-circle_height: 500px;
-$font-size_style-1: 42px; /* headline */
-$font-size_style-2: 21px; /* part */
-$font-size_style-3: 16px; /* aのリンク */
-/* 共通 */
-
 li{
 	list-style: none;
 }
@@ -39,19 +34,23 @@ li{
 	letter-spacing: -0.01em;
 }
 
-.partText{
-	font-size: 25px;
-	font-weight: bold;
-	margin-bottom: 10px;
+.part-box{
+	.part-number{
+		font-size: 25px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	.part-text{
+		@extend .part-number;
+		font-size: 18px;
+	}
 }
-.partText2{
-	@extend .partText;
-	font-size: 18px;
-}
+
 
 .learn-flex{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	margin-bottom: 80px;
 	a:hover{
 		text-decoration: none;
