@@ -1,7 +1,10 @@
 class FavoritesController < ApplicationController
 
+	PER = 10
+
 	def index
-		@favorites = Favorite.where(user_id: current_user.id)
+		user = current_user
+		@favorites = Favorite.page(params[:page]).per(PER).where(user_id: user.id)
 	end
 
 	def create

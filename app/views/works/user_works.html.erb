@@ -1,51 +1,62 @@
 <div class="row space_top">
 	<div class="col-xs-offset-1 col-xs-11">
-	    <h1 class="work-title">User Work</h1>
-	    <p class="work-explanation">
-		他のユーザのWorkを参考にいろんな考え方・価値観を知ってみましょう。<br>
-		"いいね"をつけることで、ご自身の「Favorite」からいつでも確認できます。
+	    <h1 class="work-headline">User Works</h1>
+        <div class="bottom-line"></div>
+	    <p class="headline-explanation">
+		他のユーザのWorkを参考にいろいろな考え方・価値観を知ってみましょう。<br>
+		"お気に入り"をつけることで、ご自身の「Favorite」からいつでも確認できます。
 	    </p>
     </div>
 
     <div class="col-xs-offset-1 col-xs-11">
-    	<div class="col-xs-6">
-    	    <h3>新着</h3>
+    	<div class="col-sm-6">
+    	    <div class="user_works-title">新着</div>
+            <div class="title-bottom_line"></div>
             <% @user_essential_goals.each do |goal| %>
-    	        <div class="">
-    		        <div class="col-xs-4">本質目標</div>
-    		        <div class="col-xs-8"><%= simple_format(goal.writing) %></div>
-    		        <div class="col-xs-12">
-                        <%= attachment_image_tag goal.user, :profile_image, size:"20x20", fallback:"no_image.jpg" %>
-                        <span> / </span><%= goal.user.name %>
+    	        <div class="row user_works-box">
+                    <div class="col-xs-12 margin_style2">
+                        <%= link_to user_path(goal.user) do %>
+                            <%= attachment_image_tag goal.user, :profile_image, class: "user-icon", fallback:"no_image.jpg" %>
+                        <% end %>
+                        <span class="slash-interval"> / </span>
+                        <span><%= goal.user.name %></span>
                     </div>
-                   <%= link_to user_work_path(goal.user.id)do %>
+    		        <div class="col-xs-4">本質目標</div>
+    		        <div class="col-xs-8">
+                        <%= simple_format(goal.writing) %>
+                    </div>
+                    <%= link_to user_work_path(goal.user.id)do %>
                         <button class="btn btn-xs btn-default pull-right">もっとみる</button>
                     <% end %>
                 </div>
+                <div class="border_bottom-line"></div>
             <% end %>
+            <div class="list-page margin_style1">
+                <%= link_to "新着一覧", user_newArrivals_path, class: " btn back-color-gray btn-md btn-secondary" %>
+            </div>
         </div>
-        <div class="col-xs-6">
-    	    <h3>いいね数ランキング</h3>
+        <div class="col-sm-6">
+    	    <div class="user_works-title">ランキング</div>
+            <div class="title-bottom_line"></div>
             <% @all_ranks.each.with_index(1) do |work, i| %>
-                <div class="rank_number"><%= i %>位
-                    <span> / </span>
-                    <span class="favorite_count"><%= work.favorites.count %>いいね</span>
-                </div>
-        	    <div class="">
+                <div class="row user_works-box">
+                    <div class="col-xs-4 rank_number"><%= i %>位</div>
+                    <div class="col-xs-8 margin_style2">
+                        <%= attachment_image_tag work.user, :profile_image, class: "user-icon", fallback:"no_image.jpg" %>
+                        <span class="slash-interval"> / </span>
+                        <span><%= work.user.name %></span>
+                    </div>
         		    <div class="col-xs-4">本質目標</div>
         		    <div class="col-xs-8"><%= simple_format(work.writing) %></div>
-        		    <div class="col-xs-12">
-                        <%= attachment_image_tag work.user, :profile_image, size:"20x20", fallback:"no_image.jpg" %>
-                        <span> / </span>
-                        <%= work.user.name %>
-                    </div>
-        	    </div>
-                <%= link_to user_work_path(work.id) do %>
-                    <button class="btn btn-xs btn-default pull-right">もっとみる</button>
-                <% end %>
-                <br>
-                <br>
+                    <%= link_to user_work_path(work.user.id) do %>
+                        <button class="btn btn-xs btn-default pull-right">もっとみる</button>
+                    <% end %>
+                </div>
+                <div class="border_bottom-line"></div>
             <% end %>
+            <div class="list-page">
+                <%= link_to "ランキング一覧", ranks_path, class: " btn back-color-gray btn-md" %>
+            </div>
         </div>
     </div>
 </div>

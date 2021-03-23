@@ -50,12 +50,16 @@ $header-height: 80px;
 	left: 0;
 	height: 100vh;
 	width: 100%;
+	padding: 0 50px;
 	opacity: 0;
 	color: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 5;
+	.text-item{
+		font-size: 17px;
+	}
 }
 .is-active2{
 	transition-delay: 1s;
@@ -94,20 +98,74 @@ $header-height: 80px;
 
 // ↓about.html.erb
 
+#wrapper{
+	position: fixed;
+	top: $header_height + 30px;
+	left: 10px;
+	.index{
+		text-align: center;
+		li{
+			list-style: none;
+			color: #999999;
+		}
+		a{
+			display: block;
+			width: 100%;
+			padding: 15px 0;
+			border-radius: 4px;
+			text-decoration: none;
+			color: inherit;
+		}
+		a.active{
+			color: #333;
+			background-color: #f3f3f3;
+		}
+	}
+}
+
+
 .about-box{
-	margin-bottom: 120px;
+	margin-bottom: 100px;
 	h2{
 	    text-align: center;
+	}
+	.font-bold{
+		font-weight: 700;
 	}
 	.is-padding{
 		padding-top: 50px;
 	}
-	h3{
-		margin-top: 0;
+	.clothes-image{
+		background-size: cover;
+		background-repeat: no-repeat;
+		line-height: 200%;
+	}
+	.clothes-1{
+		background-image: image-url("homes/clothes1.jpg");
+		background-size: 130%;
+		background-position: 100% 40%;
+		color: #fff;
+	}
+	.clothes-2{
+		background-image: image-url("homes/clothes2.jpg");
+		background-position: center;
+	}
+	.clothes-3{
+		background-image: image-url("homes/clothes3.jpg");
+		background-size: 110%;
+		background-position: 0% 54%;
+		color: #fff;
+	}
+	.method-title{
+		background: linear-gradient(transparent 0%, #fff 0%);
+		margin-bottom: 10px;
+		font-size: 25px;
 	}
 	.point{
-		font-size: 15px;
-		background: linear-gradient(transparent 70%, #F08080 70%);
+		font-size: 20px;
+		margin-top: 25px;
+		margin-bottom: 5px;
+		background: linear-gradient(transparent 60%, #fff 60%);
 	}
 	h4{
 	    text-align: center;
@@ -132,28 +190,13 @@ $header-height: 80px;
     }
 }
 
-
-#wrapper{
-	position: fixed;
-	top: $header_height + 30px;
-	left: 10px;
-}
-.index{
-	text-align: center;
-	li{
-		list-style: none;
-		color: #999999;
-	}
-	a{
-		display: block;
-		width: 100%;
-		padding: 15px 0;
-		border-radius: 4px;
-		text-decoration: none;
-		color: inherit;
-	}
-	a.active{
-		color: #333;
-		background-color: #f3f3f3;
+.flex-boxes{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	.flex-box{
+		width: 220px;
+		padding: 0 20px;
+		margin-bottom: 30px;
 	}
 }

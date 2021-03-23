@@ -2,17 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.my_page-text{
+
+
+.user_page-text{
 	text-align: right;
 	font-size: 15px;
 	font-weight: bold;
+	word-wrap: break-word;
 }
 
-.img-circle{
-	border-radius: 50%;
-}
-
-.my_page-content{
+.user_page-content{
 	margin-top: 30px;
 	margin-bottom: 30px;
+}
+
+.user_page-icon{
+	border-radius: 50%;
+	width: 180px;
+	height: 180px;
+	object-fit: cover;
+	object-position: 0% 0%;
+}
+@media screen and (max-width: 420px){
+	.user_page-icon{
+		border-radius: 50%;
+		width: 120px;
+		height: 120px;
+		object-fit: cover;
+		object-position: 0% 0%;
+	}
 }

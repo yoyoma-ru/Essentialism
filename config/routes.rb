@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   resources :works, only: [:index, :create, :update, :destroy] do
     resources  :favorites, only: [:create, :destroy]
   end
-  get '/users/:user_id/favorites' => 'favorites#index', as: :user_favorites
+  get '/users/:id/favorites' => 'favorites#index', as: :user_favorites
 
   get '/works/step1' => 'works#step1', as: "works_1"
   get '/works/step2' => 'works#step2', as: "works_2"
@@ -45,5 +45,7 @@ Rails.application.routes.draw do
   get '/works/step4' => 'works#step4', as: "works_4"
   get '/works/step' => 'works#step5', as: "works_5"
   get '/works/user_works' => 'works#user_works', as: "user_works"
+  get '/works/new_arrivals' => 'works#new_arrivals', as: "user_newArrivals"
+  get '/works/ranks' => 'works#ranks', as: "ranks"
   get '/works/user_works/:id' => 'works#user_work', as: "user_work"
 end

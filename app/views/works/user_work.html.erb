@@ -1,85 +1,121 @@
 <div class="row space_top">
 	<div class="col-xs-offset-1 col-xs-11">
-		<h1 class="work-title"><%= @user.name %><span> / </span>Works</h1>
+		<% if @user.id == current_user.id %>
+			<h1 class="work-title">My Work一覧</h1>
+		<% else %>
+			<h1 class="work-title">User Work一覧</h1>
+		<% end %>
+		<div class="user-icon_positon">
+			<%= attachment_image_tag @user, :profile_image, class: "user-icon", fallback: "no_image.jpg" %>
+		</div>
+		<div class="user-name_position">
+			<div class="name-size"> / </div>
+			<div class="name-size"><%= @user.name %></div>
+		</div>
 		<% if @essential_goal.favorited_by?(current_user) %>
-			<%= link_to work_favorite_path(@essential_goal), method: :delete do %>
-				<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-				<%= @essential_goal.favorites.count %>いいね
+			<%= link_to work_favorite_path(@essential_goal), method: :delete, class: "favorite-btn_text" do %>
+				<i class="fas fa-star unlink-btn" aria-hidden="true"></i>
+				<%= @essential_goal.favorites.count %>
 			<% end %>
 		<% else %>
-			<%= link_to work_favorites_path(@essential_goal), method: :post do %>
-				<i class="fa fa-heart" aria-hiddent="true"></i>
-				<%= @essential_goal.favorites.count %>いいね
+			<%= link_to work_favorites_path(@essential_goal), method: :post, class: "favorite-btn_text" do %>
+				<i class="far fa-star link-btn" aria-hiddent="true"></i>
+				<%= @essential_goal.favorites.count %>
 			<% end %>
 		<% end %>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-11">
-		<div class="col-xs-2">Step1</div>
-		<div class="col-xs-3">人生の軸</div>
-		<div class="col-xs-7">
-			<% @works.where(genre: 1).each do |work| %>
-				<div class="steps-contents">・<%= work.writing %></div>
-			<% end %>
+	<div class="col-xs-offset-1 col-xs-11 margin_style3">
+		<div class="col-xs-2 step-numbers">Step1</div>
+		<div class="col-xs-10">
+			<div class="col-sm-4 step-title margin_style3">人生の軸を考える</div>
+			<div class="col-sm-8">
+				<% @works.where(genre: 1).each do |work| %>
+					<div class="step-contents"><%= simple_format(work.writing) %></div>
+				<% end %>
+			</div>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-11">
+	<div class="col-xs-offset-1 col-xs-11 step-boxs">
 		<div class="col-xs-2"></div>
-		<div class="col-xs-3">最も大切な人生の軸
-		</div>
-		<div class="col-xs-7">
-			・<%= @works.find_by(genre: 2).writing %>
-		</div>
-	</div>
-
-	<div class="col-xs-offset-1 col-xs-11">
-		<div class="col-xs-2">Step2</div>
-		<div class="col-xs-3 step-headlines">本質目標</div>
-	    <div class="col-xs-7 steps-contents">
-	    	<% if @works.exists?(genre: 4) == true %>
-				・<%= @works.find_by(genre: 4).writing %>
-			<% end %>
+		<div class="col-xs-10">
+			<div class="col-sm-4 step-title margin_style3">
+				<p>最も大切にしたい人生の軸を選ぶ</p>
+			</div>
+			<div class="col-sm-8">
+				<%= simple_format(@works.find_by(genre: 2).writing) %>
+			</div>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-11">
-		<div class="col-xs-2">Step3</div>
-		<div class="col-xs-3 step-headlines">本質目標達成のために必要な行動</div>
-	    <div class="col-xs-7 steps-contents">
-			<% @works.where(genre: 5).each do |work| %>
-				<div class="steps-contents">・<%= work.writing %></div>
-			<% end %>
+	<div class="col-xs-offset-1 col-xs-11 step-boxs">
+		<div class="col-xs-2 step-numbers	">Step2</div>
+		<div class="col-xs-10">
+			<div class="col-sm-4 step-title margin_style3">
+				<p>本質目標を考える</p>
+			</div>
+		    <div class="col-sm-8 step-contents">
+		    	<% if @works.exists?(genre: 4) == true %>
+					<%= simple_format(@works.find_by(genre: 4).writing) %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-11">
-		<div class="col-xs-2">Step4</div>
-		<div class="col-xs-3 step-headlines">本質目標を叶える小さな一歩</div>
-	    <div class="col-xs-7 steps-contents">
-			<% @works.where(genre: 6).each do |work| %>
-				<div class="steps-contents">・<%= work.writing %></div>
-			<% end %>
+	<div class="col-xs-offset-1 col-xs-11 step-boxs">
+		<div class="col-xs-2 step-numbers">Step3</div>
+		<div class="col-xs-10">
+			<div class="col-sm-4 step-title margin_style3">
+				<p>本質目標を達成するために必要な行動を考える</p>
+			</div>
+		    <div class="col-sm-8">
+				<% @works.where(genre: 5).each do |work| %>
+					<div class="step-contents"><%= simple_format(work.writing) %></div>
+				<% end %>
+			</div>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-11">
-		<div class="col-xs-2">Step4</div>
-		<div class="col-xs-3">習慣</div>
-		<div class="col-xs-7">
-			<% @works.where(genre: 7).each do |work| %>
-				<div class="steps-contents">・<%= work.writing %></div>
-			<% end %>
+	<div class="col-xs-offset-1 col-xs-11 step-boxs">
+		<div class="col-xs-2 step-numbers">Step4</div>
+		<div class="col-xs-10">
+			<div class="col-sm-4 step-title margin_style3">
+				<p>本質目標を叶える小さな一歩を考える</p>
+			</div>
+		    <div class="col-sm-8 stpe-contents">
+				<% @works.where(genre: 6).each do |work| %>
+					<div class="step-contents"><%= simple_format(work.writing) %></div>
+				<% end %>
+			</div>
 		</div>
 	</div>
 
-	<div class="col-xs-offset-1 col-xs-11">
+	<div class="col-xs-offset-1 col-xs-11 margin_style3">
+		<div class="col-xs-2 step-numbers">Step5</div>
+		<div class="col-xs-10">
+			<div class="col-sm-4 step-title margin_style3">
+				<p>習慣を考える</p>
+			</div>
+			<div class="col-sm-8">
+				<% @works.where(genre: 7).each do |work| %>
+					<div class="step-contents"><%= simple_format(work.writing) %></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-offset-1 col-xs-11 step-boxs">
 		<div class="col-xs-2"></div>
-		<div class="col-xs-3 step-headlines">取り組むの習慣</div>
-	    <div class="col-xs-7 steps-contents">
-	    	<% if @works.exists?(genre: 8) == true %>
-				・<%= @works.find_by(genre: 8).writing %>
-			<% end %>
+		<div class="col-xs-10">
+			<div class="col-sm-4 step-title margin_style3s">
+				<p>始める習慣を決める</p>
+			</div>
+		    <div class="col-sm-8 step-contents">
+		    	<% if @works.exists?(genre: 8) == true %>
+					<%= simple_format(@works.find_by(genre: 8).writing) %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>
