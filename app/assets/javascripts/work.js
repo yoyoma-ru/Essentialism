@@ -39,6 +39,10 @@ $(document).on("turbolinks:load", function(){
 				    </div>`
 		return html;
 	}
+	function createOption(work){
+		let option = `<option value = "${work.writing}">${work.writing}</option>`
+		return option;
+	}
 	// workの非同期通信の作成
 	$("#work_input").on("submit", function(e){
 		e.preventDefault();
@@ -63,11 +67,11 @@ $(document).on("turbolinks:load", function(){
 			dataType: "json"
 		})
 		.done(function(data){
-			console.log(data);
 			let html = createHTML(data);
-			console.log(html);
 			$("#work-lists").append(html);
 			$("#writing_input").val("");
+			let option = createOption(data);
+			$("#work_writing").append(option);
 			console.log("非同期通信での作成に成功");
 		})
 		.fail(function(){
@@ -135,7 +139,6 @@ $(document).on("turbolinks:load", function(){
 		const writingId = $(this).data("update-id");
 		const writingField = $("#js-textarea-writing-"+writingId);
 		const body = writingField.val();
-		console.log(body);
 
 		$.ajax({
 			url: "/works/"+writingId,
@@ -147,7 +150,6 @@ $(document).on("turbolinks:load", function(){
 			dataType: "json"
 		})
 		.done(function(data){
-			console.log(data);
 			const writingLabelArea = $("#js-writing-label-"+writingId);
 			const writingTextArea = $("#js-textarea-writing-"+writingId);
 			const writingButton = $("#js-writing-button-"+writingId);
@@ -160,7 +162,6 @@ $(document).on("turbolinks:load", function(){
 			writingButton.hide();
 			writingError.hide();
 			writingEditDelete.show();
-			console.log("更新完了");
 		})
 		.fail(function(){
 			const writingError = $("#js-writing-post-error-"+writingId);

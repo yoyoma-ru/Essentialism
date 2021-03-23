@@ -2,10 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .user_page-text{
 	text-align: right;
 	font-size: 15px;
 	font-weight: bold;
+	word-wrap: break-word;
 }
 
 .user_page-content{
@@ -15,8 +18,17 @@
 
 .user_page-icon{
 	border-radius: 50%;
-	width: 200px;
-	height: 200px;
+	width: 180px;
+	height: 180px;
 	object-fit: cover;
 	object-position: 0% 0%;
+}
+@media screen and (max-width: 420px){
+	.user_page-icon{
+		border-radius: 50%;
+		width: 120px;
+		height: 120px;
+		object-fit: cover;
+		object-position: 0% 0%;
+	}
 }

@@ -129,16 +129,43 @@ $header-height: 80px;
 	h2{
 	    text-align: center;
 	}
+	.font-bold{
+		font-weight: 700;
+	}
 	.is-padding{
 		padding-top: 50px;
 	}
-	h3{
-		margin-top: 0;
+	.clothes-image{
+		background-size: cover;
+		background-repeat: no-repeat;
+		line-height: 200%;
+	}
+	.clothes-1{
+		background-image: image-url("homes/clothes1.jpg");
+		background-size: 130%;
+		background-position: 100% 40%;
+		color: #fff;
+	}
+	.clothes-2{
+		background-image: image-url("homes/clothes2.jpg");
+		background-position: center;
+	}
+	.clothes-3{
+		background-image: image-url("homes/clothes3.jpg");
+		background-size: 110%;
+		background-position: 0% 54%;
+		color: #fff;
+	}
+	.method-title{
+		background: linear-gradient(transparent 0%, #fff 0%);
+		margin-bottom: 10px;
+		font-size: 25px;
 	}
 	.point{
-		font-size: 18px;
-		margin-bottom: 25px;
-		background: linear-gradient(transparent 70%, #F08080 70%);
+		font-size: 20px;
+		margin-top: 25px;
+		margin-bottom: 5px;
+		background: linear-gradient(transparent 60%, #fff 60%);
 	}
 	h4{
 	    text-align: center;

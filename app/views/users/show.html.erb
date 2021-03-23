@@ -9,21 +9,21 @@
 			<div class="bottom_line_style-1">
 		</div>
 		<div class="row user_page-content">
-		    <div class="col-xs-offset-2 col-xs-3 user_page-text">user icon</div>
+		    <div class="col-xs-6 user_page-text">user icon</div>
 		    <div>
 		    	<%= attachment_image_tag @user, :profile_image, class: "user_page-icon", fallback: "no_image.jpg" %>
 		    </div>
 		</div>
 		<div class="row user_page-content">
-			<div class="col-xs-offset-2 col-xs-3 user_page-text">name</div>
+			<div class="col-xs-6 user_page-text">name</div>
 		    <div class="col-xs-6"><%= @user.name %></div>
 		</div>
 		<div class="row user_page-content">
-			<div class="col-xs-offset-2 col-xs-3 user_page-text">essentila goal</div>
+			<div class="col-xs-6 user_page-text">essentila goal</div>
 		    <div class="col-xs-6"><%= simple_format(@essential_goal.writing) %></div>
 		</div>
 		<div class="row user_page-content">
-			<div class="col-xs-offset-2 col-xs-3 user_page-text">introduction</div>
+			<div class="col-xs-6 user_page-text">introduction</div>
 		    <div class="col-xs-6"><%= simple_format(@user.introduction) %></div>
 		</div>
 		<% if @user.id == current_user.id %>

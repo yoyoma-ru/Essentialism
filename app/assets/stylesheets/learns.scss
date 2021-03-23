@@ -401,8 +401,15 @@ $learn-box_height: 160px;
 	margin-bottom: 10px;
 }
 
-
 .nav-bar{
 	margin-top: 50px;
 	margin-bottom: 20px;
+}
+
+.honsitu-goal_image{
+	height: 200px;
+	margin-top: 30px;
+	background-image: image-url("honsitu.png");
+	background-size: contain;
+	background-repeat: no-repeat;
 }
